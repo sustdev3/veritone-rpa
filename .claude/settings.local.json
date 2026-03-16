@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npx playwright install chromium)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx tsx _create-data-files.ts)",
+      "Bash(npx tsx -e \":*)",
+      "Bash(node -e \":*)",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(find '/c/Users/Anthony Valdez/Desktop/veritone-rpa/temp' -name *.json -type f)"
+    ]
+  }
+}

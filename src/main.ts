@@ -45,7 +45,7 @@ if (runMode === 'production') {
         await cleanupSession(activeSession).catch(() => {});
       }
       process.exit(0);
-    }, 5 * 60 * 1000);
+    }, 12 * 60 * 60 * 1000);
     await runBot().catch((err: Error) => {
       console.error('[Main] Fatal error:', err.message);
     });

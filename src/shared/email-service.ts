@@ -52,7 +52,6 @@ export async function sendRunSummaryEmail(
       from: "Veritone RPA <sustdev3@gmail.com>",
       to: [
         "sustdev3@gmail.com",
-        "pascualanthonyvaldez0613@gmail.com",
         "bruce@8020green.com",
       ],
       subject: `Veritone RPA — Run Complete [${timestamp}]`,
@@ -85,7 +84,6 @@ export async function sendErrorReportEmail(
       from: "Veritone RPA <sustdev3@gmail.com>",
       to: [
         "sustdev3@gmail.com",
-        "pascualanthonyvalddez0613@gmail.com", // TESTING ONLY - remove when done
         "bruce@8020green.com",
       ],
       subject: `Veritone RPA — ERROR [${timestamp}]`,

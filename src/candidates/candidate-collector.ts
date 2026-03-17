@@ -77,10 +77,14 @@ export async function collectPassingCandidates(
     if (!nextExists) break;
 
     await (totalFiltered >= 800 ? heavyLoadDelay() : randomDelay());
+    await page.waitForFunction(
+      () => (document.querySelector('#gritter-notice-wrapper')?.childElementCount ?? 0) === 0,
+      { timeout: 10000 },
+    ).catch(() => {});
     await nextPageLi.click();
     await page
       .locator(`div.pager ul li.page-num.selected[title="${pageNumber + 1}"]`).first()
-      .waitFor({ state: 'visible', timeout: 15_000 });
+      .waitFor({ state: 'visible', timeout: 25_000 });
     await waitForStableCards(page);
     pageNumber++;
   }

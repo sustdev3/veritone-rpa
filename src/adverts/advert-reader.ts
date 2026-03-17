@@ -173,6 +173,8 @@ export async function readAndProcessAdverts(
   // // TESTING ONLY - remove when done
 
   const allAdverts = await readAdvertList(page);
+  await page.locator('a#prim_manage').click();
+  await page.waitForLoadState('domcontentloaded');
   // TESTING ONLY - remove when done
   const adverts = filterAndSort(allAdverts).slice(0, 5);
   // TESTING ONLY - remove when done

@@ -18,7 +18,6 @@ import {
   sendErrorReportEmail,
   AdvertRunResult,
 } from "../shared/email-service";
-// // import { navigateToArchivedAdvertsPage10 } from "./page-navigation"; // TESTING ONLY - remove when done
 import {
   AdvertSummary,
   AdvertDetail,
@@ -85,10 +84,6 @@ async function readAdvertList(page: Page): Promise<AdvertSummary[]> {
     }
 
     allAdverts.push(...pageAdverts);
-
-    // // TESTING ONLY - remove when done
-    // break;
-    // // TESTING ONLY - remove when done
 
     const hasOldAdvert = pageAdverts.some((a) => a.datePosted < cutoff);
     if (hasOldAdvert) break;
@@ -168,15 +163,11 @@ export async function readAndProcessAdverts(
     "[AdvertReader] ─── Starting advert reader ───────────────────────────",
   );
 
-  // // TESTING ONLY - remove when done
-  // await navigateToArchivedAdvertsPage10(page);
-  // // TESTING ONLY - remove when done
-
   const allAdverts = await readAdvertList(page);
   await page.locator('a#prim_manage').click();
   await page.waitForLoadState('domcontentloaded');
   // TESTING ONLY - remove when done
-  const adverts = filterAndSort(allAdverts).slice(0, 5);
+  const adverts = filterAndSort(allAdverts).slice(0, 10);
   // TESTING ONLY - remove when done
 
   if (adverts.length === 0) {

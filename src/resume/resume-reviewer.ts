@@ -173,7 +173,7 @@ export async function reviewResumes(
     await nextPageLi.click();
     await page.waitForSelector(
       `div.pager ul li.page-num.selected[title="${pageNumber + 1}"]`,
-      { timeout: 10000 },
+      { timeout: 20000 },
     );
     await page.waitForTimeout(1000);
     pageNumber++;

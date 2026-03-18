@@ -71,10 +71,15 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
   );
   const cutoff = DateTime.now().minus({ days: lookbackDays }).startOf("day");
 
-  const withinWindow = adverts.filter((a) => a.datePosted >= cutoff);
+  // TESTING ONLY - remove when done
+  const minAgeCutoff = DateTime.now().minus({ days: 20 });
+  const withinWindow = adverts.filter(
+    (a) => a.datePosted >= cutoff && a.datePosted <= minAgeCutoff,
+  );
+  // TESTING ONLY - remove when done
 
   console.log(
-    `[AdvertReader] ${withinWindow.length} of ${adverts.length} adverts within the ${lookbackDays}-day lookback window.`,
+    `[AdvertReader] ${withinWindow.length} of ${adverts.length} adverts within the lookback window (20–${lookbackDays} days old).`,
   );
 
   for (const a of withinWindow) {
@@ -82,14 +87,6 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
       `[AdvertReader] Found: ID=${a.advertId} — "${a.jobTitle}" | ${a.totalResponses} applications | posted ${a.datePosted.toFormat('dd MMM yyyy HH:mm')}`,
     );
   }
-
-  // // TESTING ONLY - remove when done
-  // const testIds = ['519021', '519020', '519019', '519018', '519016'];
-  // console.log(
-  //   `[AdvertReader] TESTING MODE — running adverts: ${testIds.join(', ')}`,
-  // );
-  // return withinWindow.filter((a) => testIds.includes(a.advertId));
-  // // TESTING ONLY - remove when done
 
   const filtered = withinWindow.filter((a) => a.totalResponses >= 100);
   const skipped = withinWindow.length - filtered.length;

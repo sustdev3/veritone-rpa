@@ -2,7 +2,7 @@ import 'dotenv/config';
 import * as cron from 'node-cron';
 import { DateTime } from 'luxon';
 import { launchAndWaitForLogin } from './browser-session';
-import { navigateToManageAdverts /*, navigateToArchivedAdverts */ } from './adverts/page-navigation';
+import { navigateToManageAdverts } from './adverts/page-navigation';
 import { readAndProcessAdverts } from './adverts/advert-reader';
 import { cleanupSession } from './shared/utils';
 import { loadAllVariables } from './shared/llm-service';
@@ -19,7 +19,6 @@ async function runBot() {
   const { llmSelections, commonKeywords } = await loadAllVariables();
 
   await navigateToManageAdverts(activeSession.page);
-  // await navigateToArchivedAdverts(activeSession.page); // TESTING ONLY - remove this call when done
   await readAndProcessAdverts(activeSession.page, llmSelections, commonKeywords);
 
   await cleanupSession(activeSession);

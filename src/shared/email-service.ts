@@ -12,10 +12,20 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+export interface AdvertListEntry {
+  advertId: string;
+  jobTitle: string;
+  datePostedIso: string;
+  refNumber: string;
+  location: string;
+  totalResponses: number;
+}
+
 export interface AdvertRunResult {
   advertTitle: string;
   status: "success" | "skipped" | "error";
   refNumber?: string;
+  datePostedIso?: string;
   errorMessage?: string;
   elapsedStr?: string;
   location?: string;
@@ -36,6 +46,7 @@ export interface AdvertRunResult {
 
 export async function sendRunSummaryEmail(
   results: AdvertRunResult[],
+  allAdverts: AdvertListEntry[],
 ): Promise<void> {
   const timestamp = DateTime.now()
     .setZone("Australia/Sydney")
@@ -45,7 +56,7 @@ export async function sendRunSummaryEmail(
   const skippedCount = results.filter((r) => r.status === "skipped").length;
   const errorCount = results.filter((r) => r.status === "error").length;
 
-  const html = buildRunSummaryHtml(results, timestamp);
+  const html = buildRunSummaryHtml(results, allAdverts, timestamp);
 
   try {
     await transporter.sendMail({

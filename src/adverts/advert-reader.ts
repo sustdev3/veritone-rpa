@@ -1,7 +1,5 @@
 import { Page } from "playwright";
 import { DateTime } from "luxon";
-import path from "path";
-import fs from "fs/promises";
 import { randomDelay, heavyLoadDelay } from "../shared/utils";
 import {
   appendToExcel,
@@ -17,6 +15,7 @@ import {
   sendRunSummaryEmail,
   sendErrorReportEmail,
   AdvertRunResult,
+  AdvertListEntry,
 } from "../shared/email-service";
 import {
   AdvertSummary,
@@ -62,7 +61,7 @@ async function readAdvertList(page: Page): Promise<AdvertSummary[]> {
         const href = titleLink?.getAttribute("href") ?? "";
         const advertIdMatch = href.match(/advert_id=(\d+)/);
 
-        const refRaw = tds2[1]?.textContent?.trim() ?? "";
+        const refRaw = tds2[0]?.textContent?.trim() ?? "";
         const refNumber = refRaw.replace(/Ref\s*No\.?:?\s*/i, "").trim();
 
         return {
@@ -72,7 +71,7 @@ async function readAdvertList(page: Page): Promise<AdvertSummary[]> {
           totalResponses: parseInt(responsesText.match(/\d+/)?.[0] ?? "0", 10),
           consultant: tds1[3]?.textContent?.trim() ?? "",
           refNumber,
-          location: tds2[2]?.textContent?.trim() ?? "",
+          location: tds2[1]?.textContent?.trim() ?? "",
         };
       });
     });
@@ -177,38 +176,40 @@ export async function readAndProcessAdverts(
     return;
   }
 
-  const allAdvertsMap = new Map(allAdverts.map((a) => [a.advertId, a]));
-  const lookbackDays = parseInt(
-    process.env.LOOKBACK_DAYS ?? String(DEFAULT_LOOKBACK_DAYS),
-    10,
-  );
-  const cutoff = DateTime.now().minus({ days: lookbackDays }).startOf("day");
-  const tempDir = path.resolve(process.cwd(), "temp");
-  const tempFiles = await fs.readdir(tempDir).catch(() => [] as string[]);
-
-  for (const file of tempFiles) {
-    const resumeMatch = file.match(/^resume-review-(\d+)\.json$/);
-    const passingMatch = file.match(/^passing-(\d+)\.json$/);
-    const match = resumeMatch ?? passingMatch;
-    if (!match) continue;
-
-    const advertId = match[1];
-    const advertEntry = allAdvertsMap.get(advertId);
-
-    if (advertEntry) {
-      if (advertEntry.datePosted < cutoff) {
-        await fs.unlink(path.join(tempDir, file));
-        console.log(
-          `[AdvertReader] Deleted stale state file: ${file} — outside lookback window`,
-        );
-      }
-    } else {
-      await fs.unlink(path.join(tempDir, file));
-      console.log(
-        `[AdvertReader] Deleted stale state file: ${file} — no longer visible in advert list`,
-      );
-    }
-  }
+  // TESTING ONLY - remove when done
+  // const allAdvertsMap = new Map(allAdverts.map((a) => [a.advertId, a]));
+  // const lookbackDays = parseInt(
+  //   process.env.LOOKBACK_DAYS ?? String(DEFAULT_LOOKBACK_DAYS),
+  //   10,
+  // );
+  // const cutoff = DateTime.now().minus({ days: lookbackDays }).startOf("day");
+  // const tempDir = path.resolve(process.cwd(), "temp");
+  // const tempFiles = await fs.readdir(tempDir).catch(() => [] as string[]);
+  //
+  // for (const file of tempFiles) {
+  //   const resumeMatch = file.match(/^resume-review-(\d+)\.json$/);
+  //   const passingMatch = file.match(/^passing-(\d+)\.json$/);
+  //   const match = resumeMatch ?? passingMatch;
+  //   if (!match) continue;
+  //
+  //   const advertId = match[1];
+  //   const advertEntry = allAdvertsMap.get(advertId);
+  //
+  //   if (advertEntry) {
+  //     if (advertEntry.datePosted < cutoff) {
+  //       await fs.unlink(path.join(tempDir, file));
+  //       console.log(
+  //         `[AdvertReader] Deleted stale state file: ${file} — outside lookback window`,
+  //       );
+  //     }
+  //   } else {
+  //     await fs.unlink(path.join(tempDir, file));
+  //     console.log(
+  //       `[AdvertReader] Deleted stale state file: ${file} — no longer visible in advert list`,
+  //     );
+  //   }
+  // }
+  // TESTING ONLY - remove when done
 
   console.log(
     `[AdvertReader] Will process ${adverts.length} advert(s) (oldest first).`,
@@ -296,6 +297,7 @@ export async function readAndProcessAdverts(
           advertTitle: detail.jobTitle,
           status: 'skipped',
           refNumber: advert.refNumber,
+          datePostedIso: advert.datePosted.toISO() ?? undefined,
           location: detail.location,
           selectedKeywords: filterResult.selectedKeywords,
           totalApplications: detail.totalApplicants,
@@ -380,6 +382,7 @@ export async function readAndProcessAdverts(
           advertTitle: detail.jobTitle,
           status: 'success',
           refNumber: advert.refNumber,
+          datePostedIso: advert.datePosted.toISO() ?? undefined,
           elapsedStr,
           location: detail.location,
           selectedKeywords: filterResult.selectedKeywords,
@@ -406,6 +409,7 @@ export async function readAndProcessAdverts(
         runResults.push({
           advertTitle: advert.jobTitle,
           status: 'error',
+          datePostedIso: advert.datePosted.toISO() ?? undefined,
           errorMessage: errMsg,
         });
         try {
@@ -423,6 +427,7 @@ export async function readAndProcessAdverts(
       runResults.push({
         advertTitle: advert.jobTitle,
         status: 'error',
+        datePostedIso: advert.datePosted.toISO() ?? undefined,
         errorMessage: errMsg,
       });
 
@@ -462,5 +467,14 @@ export async function readAndProcessAdverts(
     "\n[AdvertReader] ─── All adverts processed ────────────────────────────",
   );
 
-  await sendRunSummaryEmail(runResults);
+  const advertList: AdvertListEntry[] = allAdverts.map((a) => ({
+    advertId: a.advertId,
+    jobTitle: a.jobTitle,
+    datePostedIso: a.datePosted.toISO() ?? '',
+    refNumber: a.refNumber,
+    location: a.location,
+    totalResponses: a.totalResponses,
+  }));
+
+  await sendRunSummaryEmail(runResults, advertList);
 }

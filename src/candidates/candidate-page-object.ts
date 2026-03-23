@@ -1,4 +1,4 @@
-import { callLLM } from '../shared/llm-service';
+import { callLLM, KeywordMappingEntry } from '../shared/llm-service';
 import { buildKeywordPrompt } from '../prompts/identify-keywords';
 
 export interface PassingCandidate {
@@ -103,29 +103,27 @@ export function buildCollectSummary(
 export async function selectKeywordsViaLLM(
   jobTitle: string,
   jobDescription: string,
-  commonKeywords: string[],
+  keywordMapping: KeywordMappingEntry[],
   llmSelections: Record<string, string>,
 ): Promise<string[]> {
-  const prompt = buildKeywordPrompt(jobTitle, jobDescription, commonKeywords);
+  const prompt = buildKeywordPrompt(jobTitle, jobDescription, keywordMapping);
 
   const raw = await callLLM('identify keywords', prompt, llmSelections);
 
   const cleaned = raw.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
 
-  let keywords: string[] = [];
+  let keywordString = '';
   try {
-    const parsed = JSON.parse(cleaned);
-    if (Array.isArray(parsed)) {
-      keywords = parsed
-        .filter((k): k is string => typeof k === 'string' && k.trim().length > 0)
-        .slice(0, 4);
+    const parsed = JSON.parse(cleaned) as unknown;
+    if (parsed && typeof (parsed as Record<string, unknown>).keywords === 'string') {
+      keywordString = ((parsed as Record<string, unknown>).keywords as string).trim();
     } else {
-      console.warn('[CandidateFilter] LLM returned JSON but not an array — using empty keyword list.');
+      console.warn('[CandidateFilter] LLM returned unexpected JSON format — using empty keyword string.');
     }
   } catch {
-    console.warn(`[CandidateFilter] Could not parse LLM keyword response as JSON: "${cleaned}" — using empty keyword list.`);
+    console.warn(`[CandidateFilter] Could not parse LLM keyword response as JSON: "${cleaned}" — using empty keyword string.`);
   }
 
-  console.log(`[CandidateFilter] Selected keywords: [${keywords.map((k) => `"${k}"`).join(', ')}]`);
-  return keywords;
+  console.log(`[CandidateFilter] Selected keywords: "${keywordString}"`);
+  return keywordString ? [keywordString] : [];
 }

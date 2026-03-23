@@ -156,7 +156,7 @@ function isWithinRunWindow(): boolean {
 export async function readAndProcessAdverts(
   page: Page,
   llmSelections: Record<string, string>,
-  commonKeywords: string[],
+  keywordMapping: import('../shared/llm-service').KeywordMappingEntry[],
 ): Promise<void> {
   console.log(
     "[AdvertReader] ─── Starting advert reader ───────────────────────────",
@@ -254,7 +254,7 @@ export async function readAndProcessAdverts(
         detail.jobTitle,
         detail.jobDescription,
         llmSelections,
-        commonKeywords,
+        keywordMapping,
       );
 
       if (!isWithinRunWindow()) {

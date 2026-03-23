@@ -1,23 +1,30 @@
+import { KeywordMappingEntry } from '../shared/llm-service';
+
 export function buildKeywordPrompt(
   jobTitle: string,
   jobDescription: string,
-  commonKeywords: string[],
+  keywordMapping: KeywordMappingEntry[],
 ): string {
-  return `You are helping to filter job applications for the following role.
+  const mappingLines = keywordMapping
+    .map((m) => `- ${m.title}: ${m.keywords}`)
+    .join('\n');
+
+  return `You are selecting search keywords to filter job applications for the role below.
 
 Job title: ${jobTitle}
 
 Job description:
 ${jobDescription}
 
-Common keywords list (preferred):
-${commonKeywords.map((k) => `- ${k}`).join('\n')}
+Role-type keyword mapping:
+${mappingLines}
 
 Your task:
-1. First check if any keyword from the common list above is relevant to this job role.
-2. If yes — select 1 relevant keyword from the list plus up to 3 spelling variations of that same word (e.g. "forklift", "fork-lift", "fork lift"). Only use variations that are in the common list.
-3. If no keyword from the common list is appropriate for this role — suggest 1 keyword of your own that best describes the core skill or experience required, plus up to 3 spelling variations of that word. Maximum 4 keywords total either way.
+1. Read the job title and description to determine what type of role this is (e.g. pick/packer, forklift driver, civil labourer, meat labourer, assembler, bulk picker, labourer/production, etc.).
+2. Match that role type to the closest entry in the mapping table above and use those keywords exactly.
+3. If the role type does not closely match any entry, use your judgement to select the most relevant keywords from the mapping table.
+4. Always return a single combined search string (e.g. "pack* OR pick*").
 
-Return ONLY a JSON array of strings. No explanation, no markdown, no code fences.
-Example: ["forklift", "fork-lift", "fork lift"]`;
+Return ONLY a JSON object in this exact format. No explanation, no markdown, no code fences:
+{"keywords": "pack* OR pick*"}`;
 }

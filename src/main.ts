@@ -39,11 +39,11 @@ async function runBot() {
 
   activeSession = await launchAndWaitForLogin();
 
-  console.log('[Main] Loading LLM selections and common keywords...');
-  const { llmSelections, commonKeywords } = await loadAllVariables();
+  console.log('[Main] Loading LLM selections and keyword mapping...');
+  const { llmSelections, keywordMapping } = await loadAllVariables();
 
   await navigateToManageAdverts(activeSession.page);
-  await readAndProcessAdverts(activeSession.page, llmSelections, commonKeywords);
+  await readAndProcessAdverts(activeSession.page, llmSelections, keywordMapping);
 
   await cleanupSession(activeSession);
   activeSession = null;

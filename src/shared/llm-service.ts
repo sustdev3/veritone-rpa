@@ -46,23 +46,30 @@ export async function loadLLMSelections(): Promise<Record<string, string>> {
   return selections;
 }
 
-export async function loadCommonKeywords(): Promise<string[]> {
+export interface KeywordMappingEntry {
+  title: string;
+  keywords: string;
+}
+
+export async function loadKeywordMapping(): Promise<KeywordMappingEntry[]> {
   const workbook = new ExcelJS.Workbook();
   await workbook.xlsx.readFile(VARIABLES_PATH);
 
-  const sheet = workbook.getWorksheet('Common-keywords');
+  const sheet = workbook.getWorksheet('Keyword-mapping');
   if (!sheet) {
-    throw new Error('[LLMService] Sheet "Common-keywords" not found in Variables-used-by-LLMs.xlsx');
+    throw new Error('[LLMService] Sheet "Keyword-mapping" not found in Variables-used-by-LLMs.xlsx');
   }
 
-  const keywords: string[] = [];
+  const mapping: KeywordMappingEntry[] = [];
 
-  sheet.eachRow((row) => {
-    const keyword = row.getCell(1).text?.trim().toLowerCase();
-    if (keyword) keywords.push(keyword);
+  sheet.eachRow((row, rowNumber) => {
+    if (rowNumber === 1) return;
+    const title = row.getCell(1).text?.trim();
+    const keywords = row.getCell(2).text?.trim();
+    if (title && keywords) mapping.push({ title, keywords });
   });
 
-  return keywords;
+  return mapping;
 }
 
 export async function callLLM(
@@ -113,11 +120,11 @@ export async function callLLM(
 
 export async function loadAllVariables(): Promise<{
   llmSelections: Record<string, string>;
-  commonKeywords: string[];
+  keywordMapping: KeywordMappingEntry[];
 }> {
-  const [llmSelections, commonKeywords] = await Promise.all([
+  const [llmSelections, keywordMapping] = await Promise.all([
     loadLLMSelections(),
-    loadCommonKeywords(),
+    loadKeywordMapping(),
   ]);
 
   const taskList = Object.entries(llmSelections)
@@ -125,7 +132,7 @@ export async function loadAllVariables(): Promise<{
     .join(', ');
 
   console.log(`[LLMService] Loaded ${Object.keys(llmSelections).length} LLM task selection(s): ${taskList}`);
-  console.log(`[LLMService] Loaded ${commonKeywords.length} common keyword(s): ${commonKeywords.join(', ')}`);
+  console.log(`[LLMService] Loaded ${keywordMapping.length} keyword mapping(s).`);
 
-  return { llmSelections, commonKeywords };
+  return { llmSelections, keywordMapping };
 }

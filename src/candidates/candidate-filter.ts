@@ -2,6 +2,7 @@ import { Page } from 'playwright';
 import path from 'path';
 import fs from 'fs/promises';
 import { randomDelay } from '../shared/utils';
+import { KeywordMappingEntry } from '../shared/llm-service';
 import { FilterResult, selectKeywordsViaLLM } from './candidate-page-object';
 
 async function enterLocationSelect2(page: Page, suburb: string): Promise<void> {
@@ -40,7 +41,7 @@ export async function filterCandidates(
   jobTitle: string,
   jobDescription: string,
   llmSelections: Record<string, string>,
-  commonKeywords: string[],
+  keywordMapping: KeywordMappingEntry[],
 ): Promise<FilterResult> {
   console.log(`[CandidateFilter] ─── Filtering candidates for advert ${advertId} ───`);
 
@@ -50,8 +51,10 @@ export async function filterCandidates(
   const resumeStateRaw = await fs.readFile(resumeStateFile, 'utf-8').catch(() => null);
   if (resumeStateRaw !== null) {
     try {
-      const data = JSON.parse(resumeStateRaw) as { selectedKeywords?: string[] };
-      if (Array.isArray(data.selectedKeywords) && data.selectedKeywords.length > 0) {
+      const data = JSON.parse(resumeStateRaw) as { selectedKeywords?: string | string[] };
+      if (typeof data.selectedKeywords === 'string' && data.selectedKeywords.length > 0) {
+        savedKeywords = [data.selectedKeywords];
+      } else if (Array.isArray(data.selectedKeywords) && data.selectedKeywords.length > 0) {
         savedKeywords = data.selectedKeywords;
       }
     } catch {}
@@ -62,8 +65,10 @@ export async function filterCandidates(
     const passingRaw = await fs.readFile(passingFile, 'utf-8').catch(() => null);
     if (passingRaw !== null) {
       try {
-        const data = JSON.parse(passingRaw) as { selectedKeywords?: string[] };
-        if (Array.isArray(data.selectedKeywords) && data.selectedKeywords.length > 0) {
+        const data = JSON.parse(passingRaw) as { selectedKeywords?: string | string[] };
+        if (typeof data.selectedKeywords === 'string' && data.selectedKeywords.length > 0) {
+          savedKeywords = [data.selectedKeywords];
+        } else if (Array.isArray(data.selectedKeywords) && data.selectedKeywords.length > 0) {
           savedKeywords = data.selectedKeywords;
         }
       } catch {}
@@ -86,13 +91,13 @@ export async function filterCandidates(
     selectedKeywords = await selectKeywordsViaLLM(
       jobTitle,
       jobDescription,
-      commonKeywords,
+      keywordMapping,
       llmSelections,
     );
   }
 
   await randomDelay();
-  const keywordsText = selectedKeywords.join(' OR ');
+  const keywordsText = selectedKeywords[0] ?? '';
   await page.locator('textarea.keywords').clear();
   await page.locator('textarea.keywords').fill(keywordsText);
 

@@ -205,7 +205,7 @@ export async function reviewResumes(
     reviewedAt: DateTime.now().toISO(),
     totalReviewed: mergedResults.length,
     ruleset: strictMode ? 'strict' : 'standard',
-    selectedKeywords,
+    selectedKeywords: selectedKeywords[0] ?? '',
     results: mergedResults,
   };
 

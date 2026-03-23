@@ -103,7 +103,7 @@ export async function collectPassingCandidates(
     advertId,
     collectedAt: DateTime.now().toISO(),
     totalFiltered,
-    selectedKeywords,
+    selectedKeywords: selectedKeywords[0] ?? '',
     passingCandidates,
   };
 

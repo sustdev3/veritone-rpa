@@ -84,12 +84,16 @@ export async function sendRunSummaryEmail(
 export async function sendErrorReportEmail(
   errorMessage: string,
   advertTitle?: string,
+  screenshotPath?: string,
 ): Promise<void> {
   const timestamp = DateTime.now().toFormat("dd/MM/yyyy HH:mm");
 
   const body = [
     `Advert: ${advertTitle ?? "unknown"}`,
     `Error: ${errorMessage}`,
+    ...(screenshotPath
+      ? [`Screenshot captured at time of error: ${screenshotPath}`]
+      : []),
     "Action required: check logs for details.",
   ].join("\n");
 

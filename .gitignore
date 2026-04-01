@@ -16,6 +16,9 @@ temp/
 # Logs
 logs/
 
+# Screenshots captured on error (auto-generated, never commit)
+screenshots/
+
 # OS files
 .DS_Store
 Thumbs.db

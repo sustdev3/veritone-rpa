@@ -4,10 +4,10 @@ import path from 'path';
 import * as cron from 'node-cron';
 import { DateTime } from 'luxon';
 import { logger } from './activity-logger';
-import { launchAndWaitForLogin } from './browser-session';
+import { launchAndWaitForLogin, getActivePage } from './browser-session';
 import { navigateToManageAdverts } from './adverts/page-navigation';
 import { readAndProcessAdverts } from './adverts/advert-reader';
-import { cleanupSession } from './shared/utils';
+import { cleanupSession, takeScreenshot } from './shared/utils';
 import { loadAllVariables } from './shared/llm-service';
 
 const LOG_PATH = path.resolve(__dirname, '..', 'logs', 'run.log');
@@ -21,13 +21,21 @@ console.error = (...args: unknown[]) => logger.error(args.join(' '));
 
 console.log('[Main] Previous run log cleared.');
 
-process.on('uncaughtException', (err: Error) => {
+process.on('uncaughtException', async (err: Error) => {
   console.error('[Main] Uncaught exception:', err.message, err.stack);
+  const page = getActivePage();
+  if (page) {
+    await takeScreenshot(page, 'fatal-crash');
+  }
   process.exit(1);
 });
 
-process.on('unhandledRejection', (reason: unknown) => {
+process.on('unhandledRejection', async (reason: unknown) => {
   console.error('[Main] Unhandled rejection:', String(reason));
+  const page = getActivePage();
+  if (page) {
+    await takeScreenshot(page, 'fatal-crash');
+  }
   process.exit(1);
 });
 

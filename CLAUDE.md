@@ -40,7 +40,9 @@ In `RUN_MODE=testing` the time-window check is not enforced.
 veritone-rpa/
 ├── src/
 │   ├── main.ts                   Entry point — orchestrates the full run
-│   ├── browser-session.ts        Launches Chromium; waits for manual login
+│   ├── browser-session.ts        Launches Chromium; auto-logs in via VERITONE_USERNAME /
+│   │                             VERITONE_PASSWORD env vars (falls back to manual login if unset);
+│   │                             exports setActivePage / getActivePage for crash handler access
 │   ├── activity-logger.ts        Winston logger instance (console + rolling file) — not yet wired in
 │   ├── adverts/
 │   │   ├── advert-reader.ts      Playwright steps: reads advert rows, drives per-advert loop
@@ -63,7 +65,7 @@ veritone-rpa/
 │   │                              validRejectionCategories, RejectionCategory,
 │   │                              validateLlmResponse, tallyRejectionCounts
 │   ├── shared/
-│   │   ├── utils.ts              randomDelay, cleanupSession, parseAdvertDate
+│   │   ├── utils.ts              randomDelay, cleanupSession, parseAdvertDate, takeScreenshot
 │   │   ├── excel-service.ts      appendToExcel, markAdvertSkipped, finaliseAdvertRow,
 │   │   │                         writeAdvertError; COL column-index map
 │   │   ├── llm-service.ts        callLLM; loadLLMSelections; loadCommonKeywords; loadAllVariables
@@ -82,6 +84,8 @@ veritone-rpa/
 │
 ├── logs/
 │   └── rpa.log                   Rolling log — 5 MB max, 7 files retained
+│
+├── screenshots/                  Full-page screenshots captured on error — never committed
 │
 ├── temp/                         Scratch space — excluded from tsc compilation
 │   ├── passing-{advertId}.json   Passing candidates collected after keyword filter
@@ -229,6 +233,27 @@ Non-fatal errors are classified by type (`timeout`, `selector`, `navigation`, `o
 `classifyError()` in `advert-page-object.ts` and counted. If the same error type occurs
 **2 or more times**, the bot stops and sends a `"RPA STOPPED — repeated {type} error"` email
 listing all errors encountered.
+
+### Screenshot capture on error
+
+`takeScreenshot(page, label)` in `src/shared/utils.ts` captures a full-page screenshot whenever
+an error occurs. It is always wrapped in try/catch and never throws — if the browser is already
+closed the failure is logged as a warning and `null` is returned.
+
+Screenshots are saved to `screenshots/{label}-{timestamp}.png` (e.g.
+`screenshots/error-advert-519344-2026-03-23T19-34-48.png`) and the path is:
+- Logged to console: `[Utils] Screenshot saved: {path}`
+- Appended to the per-advert error log line in `advert-reader.ts`
+- Included in the body of `sendErrorReportEmail()` when a path is available
+
+Trigger points:
+| Trigger | Label |
+|---|---|
+| Per-advert catch block (fatal or non-fatal) | `error-advert-{advertId}` |
+| Repeated-error stop (before email) | same screenshot taken at catch entry |
+| `uncaughtException` / `unhandledRejection` in `main.ts` | `fatal-crash` |
+
+The `screenshots/` folder is in `.gitignore` and is never committed.
 
 ### LLM retry logic (`llm-service.ts`)
 

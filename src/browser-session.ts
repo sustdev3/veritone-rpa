@@ -9,6 +9,16 @@ export interface BrowserSession {
   page: Page;
 }
 
+let activePage: Page | null = null;
+
+export function setActivePage(page: Page): void {
+  activePage = page;
+}
+
+export function getActivePage(): Page | null {
+  return activePage;
+}
+
 async function waitForManualLogin(page: Page): Promise<void> {
   console.log('[Browser] No credentials found in .env — waiting for manual login.');
   console.log('[Browser] ─────────────────────────────────────────');
@@ -79,6 +89,8 @@ export async function launchAndWaitForLogin(): Promise<BrowserSession> {
   }
 
   console.log('[Browser] Login confirmed. Session is active.');
+
+  setActivePage(page);
 
   return { browser, context, page };
 }

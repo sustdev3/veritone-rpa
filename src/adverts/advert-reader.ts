@@ -2,7 +2,7 @@ import { Page } from "playwright";
 import { DateTime } from "luxon";
 import path from "path";
 import fs from "fs/promises";
-import { randomDelay, heavyLoadDelay } from "../shared/utils";
+import { randomDelay, heavyLoadDelay, takeScreenshot } from "../shared/utils";
 import {
   appendToExcel,
   markAdvertSkipped,
@@ -414,6 +414,11 @@ export async function readAndProcessAdverts(
     } catch (err) {
       const errMsg = err instanceof Error ? err.message : String(err);
 
+      const screenshotPath = await takeScreenshot(
+        page,
+        `error-advert-${advert.advertId}`,
+      );
+
       if (isFatalError(errMsg)) {
         console.log(
           `[AdvertReader] FATAL ERROR — stopping immediately: ${errMsg}`,
@@ -427,7 +432,7 @@ export async function readAndProcessAdverts(
         try {
           await writeAdvertError(`${advert.jobTitle}: ${errMsg}`);
         } catch {}
-        await sendErrorReportEmail(errMsg, advert.jobTitle);
+        await sendErrorReportEmail(errMsg, advert.jobTitle, screenshotPath ?? undefined);
         shouldStop = true;
         break;
       }
@@ -444,7 +449,7 @@ export async function readAndProcessAdverts(
       });
 
       console.log(
-        `[AdvertReader] ERROR processing advert ${advert.advertId}: ${errMsg}`,
+        `[AdvertReader] ERROR processing advert ${advert.advertId}: ${errMsg} | Screenshot: ${screenshotPath ?? "none"}`,
       );
       console.log(`[AdvertReader] ERROR type "${errorType}" count: ${count}`);
 
@@ -462,6 +467,7 @@ export async function readAndProcessAdverts(
         await sendErrorReportEmail(
           `Repeated "${errorType}" error. Errors encountered:\n${errorBody}`,
           advert.jobTitle,
+          screenshotPath ?? undefined,
         );
         shouldStop = true;
       }

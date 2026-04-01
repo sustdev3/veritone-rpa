@@ -1,4 +1,7 @@
+import path from 'path';
+import fs from 'fs/promises';
 import { DateTime } from 'luxon';
+import { Page } from 'playwright';
 import { BrowserSession } from '../browser-session';
 
 export function randomDelay(minMs: number = 2000, maxMs: number = 3000): Promise<void> {
@@ -24,6 +27,27 @@ export async function cleanupSession(session: BrowserSession): Promise<void> {
   console.log('[Cleanup] Closing browser...');
   await session.browser.close();
   console.log('[Cleanup] Browser closed.');
+}
+
+export async function takeScreenshot(
+  page: Page,
+  label: string,
+): Promise<string | null> {
+  try {
+    const timestamp = DateTime.now().toFormat("yyyy-MM-dd'T'HH-mm-ss");
+    const filename = path.resolve(
+      process.cwd(),
+      'screenshots',
+      `${label}-${timestamp}.png`,
+    );
+    await fs.mkdir(path.dirname(filename), { recursive: true });
+    await page.screenshot({ path: filename, fullPage: true });
+    console.log(`[Utils] Screenshot saved: ${filename}`);
+    return filename;
+  } catch (err) {
+    console.warn(`[Utils] Screenshot failed: ${(err as Error).message}`);
+    return null;
+  }
 }
 
 export function parseAdvertDate(raw: string): DateTime {

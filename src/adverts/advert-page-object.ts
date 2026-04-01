@@ -90,20 +90,13 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
     );
   }
 
-  const filtered = withinWindow.filter((a) => a.totalResponses >= 100);
-  const skipped = withinWindow.length - filtered.length;
+  withinWindow.sort((a, b) => b.datePosted.toMillis() - a.datePosted.toMillis());
 
-  console.log(
-    `[AdvertReader] Skipped ${skipped} advert(s) with fewer than 100 applications.`,
-  );
-
-  filtered.sort((a, b) => b.datePosted.toMillis() - a.datePosted.toMillis());
-
-  for (const a of filtered) {
+  for (const a of withinWindow) {
     console.log(
       `[AdvertReader] Will process: ID=${a.advertId} — "${a.jobTitle}"`,
     );
   }
 
-  return filtered;
+  return withinWindow;
 }

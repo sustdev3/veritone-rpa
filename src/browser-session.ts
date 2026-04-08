@@ -61,15 +61,15 @@ export async function launchAndWaitForLogin(): Promise<BrowserSession> {
   console.log('[Browser] Launching Chromium browser...');
 
   const browser = await chromium.launch({
-    headless: false,
+    headless: true,
     args: [
-      '--start-maximized',
+      '--no-sandbox',
       '--disable-blink-features=AutomationControlled',
     ],
   });
 
   const context = await browser.newContext({
-    viewport: null,
+    viewport: { width: 1920, height: 1080 },
     userAgent:
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
       '(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',

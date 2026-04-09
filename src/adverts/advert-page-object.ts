@@ -90,12 +90,8 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
     );
   }
 
-  // Comment out for testing to preserve original order (which is usually newest first). Can re-enable if we want to ensure strict sorting by date.
-  // withinWindow.sort((a, b) => b.datePosted.toMillis() - a.datePosted.toMillis());
-
-  // Testing purpose: sort oldest first to ensure we process in chronological order and avoid issues with ads expiring between discovery and processing.
   withinWindow.sort(
-    (a, b) => a.datePosted.toMillis() - b.datePosted.toMillis(),
+    (a, b) => b.datePosted.toMillis() - a.datePosted.toMillis(),
   );
 
   for (const a of withinWindow) {
@@ -104,8 +100,5 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
     );
   }
 
-  // Comment out for now to avoid issues with ads expiring between discovery and processing. Can re-enable if we want to ensure strict sorting by date.
-  // return withinWindow;
-
-  return withinWindow.slice(0, 1); // For testing, process only the oldest advert to avoid issues with ads expiring between discovery and processing.
+  return withinWindow;
 }

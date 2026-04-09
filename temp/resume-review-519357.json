@@ -1,0 +1,72 @@
+{
+  "advertId": "519357",
+  "reviewedAt": "2026-04-08T22:48:34.782+10:00",
+  "totalReviewed": 9,
+  "ruleset": "standard",
+  "selectedKeywords": "fork* OR pack* OR pick*",
+  "results": [
+    {
+      "id": "488101792",
+      "name": "Jason Coleman",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse employment (June 2021 – March 2026, currently active), extensive similar role experience within last 3 years, and relevant qualifications. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487291811",
+      "name": "Dylan Cook",
+      "ai_decision": "pass",
+      "ai_reason": "Dylan Cook is 19-20 years old (DOB 08/04/2004), well under the age threshold. Currently employed as a driver (March 2023 - current), satisfying the 6-month employment requirement. Has relevant warehouse/labouring experience within the last 3 years (storeman role April 2022 - March 2023 with heavy lifting, forklift licence, loading/unloading). No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487023577",
+      "name": "Sharifullah Taniwal",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria. Currently employed (Briner Ads Pty Ltd, 20/08/2023 to Present) satisfying 6-month requirement. Has recent labouring/warehouse experience across multiple roles (food production, waste management, signage/manufacturing). No age indicators present (no DOB, email contains '27' not a standalone birth year, high school completed in Afghanistan with no clear date, first job date not specified). Male candidate. All employment dates are clear where provided.",
+      "rejection_category": null
+    },
+    {
+      "id": "487012459",
+      "name": "Matt Sahin",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is currently employed as a Forklift Operator at Woolworths Distribution Centre, which satisfies the 6-month employment requirement and demonstrates recent similar labouring/warehouse experience. No clear age indicators present (no explicit DOB, no standalone birth year in email, high school completion date not provided, first job does not appear to be 30+ years ago). Male candidate in a labouring role. All general filters passed.",
+      "rejection_category": null
+    },
+    {
+      "id": "486744955",
+      "name": "mohd khalid Tanti",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current forklift operator role (Aug 2025 - Current), 7+ years warehouse experience with relevant skills for blue-collar warehouse/labour work. No rejection criteria met: age cannot be determined from CV or email, candidate has recent similar employment, and availability appears suitable.",
+      "rejection_category": null
+    },
+    {
+      "id": "486733363",
+      "name": "Jason Dipietro",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate appears to be over 50 years old. First job started in January 1989 (36+ years ago), which exceeds the 30-year threshold for age inference.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "483696572",
+      "name": "Vu Ma",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar labouring role within the last three years. Experience is in transport administration, dispatch coordination, and storekeeping—administrative and clerical functions. The role being applied for is a blue-collar warehouse/labour job, which requires hands-on labouring experience. Most recent relevant warehouse role (Storeperson) ended in 2025, but this is an administrative support position, not a labouring role.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488435384",
+      "name": "John Murfet",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labouring experience (19 years at Kincrome Tools & Equipment, 2007-2026). Currently employed (listed as 2026-03, satisfying 6-month requirement). No explicit age indicator, date of birth, or birth year in email. No rejection criteria clearly met for a standard labouring/warehouse role.",
+      "rejection_category": null
+    },
+    {
+      "id": "490044746",
+      "name": "Joel Brennan",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 26 years old (DOB 17/07/1997), well under the 50-year age limit for labouring roles. Has recent warehouse and labouring experience within the last 6 months (current role as Cook & Stall Manager since April 2024, and prior labouring role June 2022 - April 2024). Demonstrates relevant skills including forklift operation, manual handling, hand and power tools, and production environment experience. No rejection criteria are met.",
+      "rejection_category": null
+    }
+  ]
+}

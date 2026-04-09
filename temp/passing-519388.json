@@ -1,0 +1,278 @@
+{
+  "advertId": "519388",
+  "collectedAt": "2026-04-08T20:29:33.427+10:00",
+  "totalFiltered": 60,
+  "selectedKeywords": "production* OR labour* OR fork*",
+  "passingCandidates": [
+    {
+      "id": "490120692",
+      "name": "Henry Tufele",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490066798",
+      "name": "Scott MacGregor",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "490065580",
+      "name": "Krutikaben Patel",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "490057761",
+      "name": "Anjali Anjali",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "490056306",
+      "name": "Morgan Murphy",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "490050930",
+      "name": "Graham Summerell",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "490043818",
+      "name": "summah nahu",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490041147",
+      "name": "Jeanfranc Mugabe",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490037946",
+      "name": "Phily Noh",
+      "flagged_status": true,
+      "flag_colour": "unranked"
+    },
+    {
+      "id": "490035351",
+      "name": "Nisha Patel",
+      "flagged_status": true,
+      "flag_colour": "unranked"
+    },
+    {
+      "id": "489816955",
+      "name": "Alvin Senobio",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489814235",
+      "name": "Justin Marino",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489813468",
+      "name": "Fedddy Maisu",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489813013",
+      "name": "Gafa Pati",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489812981",
+      "name": "Joella Sao",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489811899",
+      "name": "Kevinkumar Patel",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489808374",
+      "name": "Ethan Winton",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489807481",
+      "name": "Tiresa Tautiepa",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489806664",
+      "name": "Jemimah Foaeva",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489806379",
+      "name": "farid dakin",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489802888",
+      "name": "Timothy O'Connor",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489798824",
+      "name": "HEE SU KIM",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489798265",
+      "name": "Frolibera Basekanzie",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "489798015",
+      "name": "Natalia Kaumoana",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "489797963",
+      "name": "LI-JUNG CHEN",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489797898",
+      "name": "Levi Azar",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "489797404",
+      "name": "Shane Russell",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489796338",
+      "name": "JEAN ROSE WAGAS",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489796241",
+      "name": "Logan williams",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489796092",
+      "name": "Mohamed Rage",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489795946",
+      "name": "Merveilles Kanamaharage",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489795750",
+      "name": "Antonio Coxon Leofo",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "489794550",
+      "name": "Denzel Coburn",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489793363",
+      "name": "Sonam Chhabra",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489792696",
+      "name": "Christa Niyogusenga",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489789762",
+      "name": "Caleb Atherton",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489784053",
+      "name": "anuragkumar chaudhari",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489783380",
+      "name": "Ntumba Christine Tshilumba",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489782424",
+      "name": "Natalie Harp",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489781258",
+      "name": "Dhirubhai Sisara",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489779498",
+      "name": "Phuntsho Wangyel",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489776598",
+      "name": "Stephen O",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "489776061",
+      "name": "Rymone Autufuga",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489774236",
+      "name": "Po Wara",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489767563",
+      "name": "HYUNGCHAN Cho",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "advertId": "519381",
+  "collectedAt": "2026-04-08T21:15:07.808+10:00",
+  "totalFiltered": 7,
+  "selectedKeywords": "fork*",
+  "passingCandidates": [
+    {
+      "id": "489345753",
+      "name": "Aaron Coulam",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "488511288",
+      "name": "Michael Kelly",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488472550",
+      "name": "Aaron Holland",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "488195621",
+      "name": "Rustee Neil Llevado",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "488024014",
+      "name": "Jordon Dearing",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487783153",
+      "name": "amir abdullah",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487778984",
+      "name": "Peter Hall",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

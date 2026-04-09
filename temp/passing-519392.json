@@ -1,0 +1,188 @@
+{
+  "advertId": "519392",
+  "collectedAt": "2026-04-08T20:13:20.802+10:00",
+  "totalFiltered": 37,
+  "selectedKeywords": "pack* OR pick* OR labour*",
+  "passingCandidates": [
+    {
+      "id": "490129048",
+      "name": "Anthony Ta",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490119986",
+      "name": "Isi Misiuata",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490091479",
+      "name": "zeeshan ali anjum",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490088971",
+      "name": "Ryan Le",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490087826",
+      "name": "Daniel Tira",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490083342",
+      "name": "Hayley Matavao",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490081794",
+      "name": "Phil Hile",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490077787",
+      "name": "Ahmad Zaheer Naiebi",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "490076382",
+      "name": "Ivan Ka Ho Tang",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "490071887",
+      "name": "Tony Vuong",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490071202",
+      "name": "M Aamir",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490068839",
+      "name": "chris king",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490067475",
+      "name": "Jai",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490066303",
+      "name": "Gamana Duresso",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490063232",
+      "name": "Julius Leota",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490063140",
+      "name": "Mohammad Hami",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490062922",
+      "name": "Goamar Thiciot",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490062279",
+      "name": "Riya Patel",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490054032",
+      "name": "Matangaro Tapora",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490053714",
+      "name": "Juod Kun",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490053670",
+      "name": "Joshua Christieson",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490053013",
+      "name": "Satya Gayathri Ghanta",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490051559",
+      "name": "Dominic Mastrantoni",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490050372",
+      "name": "Antonio Tamate-Forbes",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490048882",
+      "name": "William Moutis",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490048863",
+      "name": "Alester Alcantara",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490048144",
+      "name": "Waseem Khan khill",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "490047209",
+      "name": "Shanuka Wijesiri",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "490046724",
+      "name": "Youngji Lee",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "490046377",
+      "name": "Zeke Foaese",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "advertId": "519375",
+  "collectedAt": "2026-04-08T21:29:16.553+10:00",
+  "totalFiltered": 30,
+  "selectedKeywords": "labour* OR production",
+  "passingCandidates": [
+    {
+      "id": "490057158",
+      "name": "Vladislav Vernov",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490056282",
+      "name": "Narae Kim",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489810630",
+      "name": "Fedddy Maisu",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489635320",
+      "name": "Mohammed Ali",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489605645",
+      "name": "Phuntsho Wangyel",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489420852",
+      "name": "Doruk Otlar",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489183460",
+      "name": "Alexander Hine",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "488766118",
+      "name": "Matias Vargas Zambrano",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "488526509",
+      "name": "Kevin Meyer",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488425096",
+      "name": "bayleh hemopo",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488278480",
+      "name": "Douglas Wright",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488257348",
+      "name": "Harrison Partridge",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488105659",
+      "name": "Abdoulaye Cisse",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488045915",
+      "name": "JUNHYUN LEE",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487805897",
+      "name": "Liam Wogan",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487803921",
+      "name": "yoonkwon Nam",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487801613",
+      "name": "Robert daniel Watson",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487568100",
+      "name": "Chris Prescott",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487533894",
+      "name": "Robertino Pablo Muchiut Riera",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487347538",
+      "name": "Henry Williams",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487284179",
+      "name": "Morgan Cougan",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "487259050",
+      "name": "Jayden Adams",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487038318",
+      "name": "Typhaine Boussinesq",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487009470",
+      "name": "Evan Durand",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487002009",
+      "name": "Alexandre Doubre",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "486998479",
+      "name": "Monalisa Luke",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486989013",
+      "name": "Sean Hunt",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486985863",
+      "name": "Adrian Tobolov",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486980547",
+      "name": "Justin Corell-Johanns",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486971875",
+      "name": "Amber Yoon",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

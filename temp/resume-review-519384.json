@@ -1,0 +1,779 @@
+{
+  "advertId": "519384",
+  "reviewedAt": "2026-04-08T20:51:33.420+10:00",
+  "totalReviewed": 110,
+  "ruleset": "strict",
+  "selectedKeywords": "production* OR labour*",
+  "results": [
+    {
+      "id": "488262020",
+      "name": "James Fazio",
+      "ai_decision": "fail",
+      "ai_reason": "No job in the last 6 months. Most recent employment listed is 2022 (QCC), with no end date provided and no current role indicated. This fails the 6-month employment requirement for a warehouse/labour position.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488260511",
+      "name": "Army Patel",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Last employment ended 31 May 2024, which is more than 6 months ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488258953",
+      "name": "Farentino Sooalo",
+      "ai_decision": "fail",
+      "ai_reason": "No job in the last 6 months. Most recent role (KFC Redbank) ended in 2025, and JBS role is listed as 2025-2026 but with no clear current employment status. The first company has no dates provided, making employment history unclear. Cannot confirm ongoing or recent employment.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488258797",
+      "name": "Jimmy Reponse",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role (warehouse/labour) within the last three years. CV shows only support worker experience in disability care sector, with no warehouse, labouring, or labour-adjacent experience.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488255229",
+      "name": "Minah Chang",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. The CV shows food & beverage and warehouse packing roles, but no explicit heavy labouring background required for this role type.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488254986",
+      "name": "Patel Dhaval Vishnubhai",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment (Volunteer Event Staff at D-Mart) ended July 2023, which is more than 6 months ago. No current or recent employment is listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488250811",
+      "name": "Travis Vanderberg",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment was Farmhand (2020–2022), ending approximately 2 years ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488250698",
+      "name": "Mikayla Suchting",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. CV shows retail and food service background only, not labouring work.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488250695",
+      "name": "Juhee Hwang",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Work experience shows only a university library position from February 2025 to July 2025, which is not a warehouse labouring role and ended more than 6 months ago. No other employment history is listed.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488248654",
+      "name": "Feliks Walczak",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 19 years old (DOB 05.07.2005), well under the age threshold. Currently employed as a Pick Packer in freezer conditions at Metcash (October 2025 – current), which is directly relevant to the warehouse/labour role and satisfies the 6-month employment requirement. No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488245913",
+      "name": "Jumi Nichonora",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent role (Warehouse Worker at DB Schenker) ended 11/2025, which is in the future and cannot be verified as current employment.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488243681",
+      "name": "Aterei Launiu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Warehouse operator/Administrator at Spencil, 2025-2026) satisfying the 6-month requirement, relevant warehouse and labouring experience within the last 3 years, and no disqualifying factors can be clearly confirmed from CV alone. Age cannot be determined from explicit statements, email pattern, or high school completion date (2021, within 32-year threshold). No specific role-type restrictions (civil labourer, production worker, heavy labouring) are indicated in the review criteria provided.",
+      "rejection_category": null
+    },
+    {
+      "id": "488243069",
+      "name": "Mohamed Rage",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labour experience within the last 6 months (End of Line worker at EGR Extrusion, Jan 2025 - Nov 2025) and multiple similar roles in food processing and materials handling within the last 3 years. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488242777",
+      "name": "Annie Marie Luafalealo",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female applying for a labouring role without clear evidence of recent labouring experience. Most recent warehouse role (2023–2025) ended, and current employment status is unclear due to stated resignation from DHL. Cannot confirm 6-month employment requirement or recent labouring experience.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488240780",
+      "name": "Ceira Bailey",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent employment ended June 2024 in food service/hospitality. No warehouse, labour, or similar blue-collar work experience is evident on the CV.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488239794",
+      "name": "Joel Mitchell",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment (Kitchen Hand 2024, Self-employed 2025) and labouring experience within the last 3 years. Age cannot be reliably determined from CV content or email. No role-specific filters (civil labourer, production worker, heavy labouring) are specified in the job posting provided.",
+      "rejection_category": null
+    },
+    {
+      "id": "488238827",
+      "name": "Asmaa Khaled",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has warehouse assistant role (May 2023 - December 2025) which is current and similar to warehouse/labour work, satisfying the 6-month employment requirement and 3-year similar role requirement. No explicit age indicator present (no DOB, no standalone birth year in email, high school completion date not stated, first job timing unclear). Email 'asmahishamgr9@hotmail.com' contains '9' not a birth year. Female candidate but has clear recent labouring/warehouse experience, which satisfies the labouring role female exception. No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488237790",
+      "name": "Kathleen Shepherd",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. While picker/packer roles involve warehouse work, they do not constitute clear evidence of hands-on labouring experience comparable to the physical demands of a blue-collar warehouse/labour position.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488231413",
+      "name": "Tobias Fenwick",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehousing employment (Pick Packer, 2025-2026) which satisfies the 6-month requirement and is directly similar to the warehouse/labour role. No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488231200",
+      "name": "Gayathri Melappagari",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment listed as 'oct 2025 to Feb 2026' which appears to be a future or fabricated date. Prior to that, employment ended in 2019. Cannot verify current employment.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488230921",
+      "name": "Merlin La Muriac",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria. High school completed in 2020 (under 32 years ago), currently employed in landscaping business (satisfies 6-month requirement), has relevant labouring experience within 3 years, possesses White Card (2023), and no age/availability concerns. Male candidate with recent physical labour background.",
+      "rejection_category": null
+    },
+    {
+      "id": "488229396",
+      "name": "John Rey Caputol",
+      "ai_decision": "fail",
+      "ai_reason": "No employment dates provided for any positions listed. Cannot verify 6-month employment requirement or 3-year similar role requirement with clear date clarity.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488229146",
+      "name": "Ricky Stibbard",
+      "ai_decision": "fail",
+      "ai_reason": "CV contains future employment dates (2026, 2025) which are not yet reached. This creates ambiguity about actual current employment status and whether candidate has worked in the last 6 months. Employment history lacks clear, credible dates to verify 6-month requirement.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488227770",
+      "name": "Adrian Tobolov",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not have a similar role within the last three years. Work history shows retail and hospitality experience (Woolworths team member, Coles Express assistant manager, McDonald's crew member), with no warehouse, labouring, or labour-adjacent roles. For a warehouse/labour job, this represents a significant departure from required experience.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488227208",
+      "name": "Jahmon Mataia Siu",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment ended January 2026, which is in the future and implausible. The previous confirmed role (Metcash) ended June 2024, which is more than 6 months ago.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488226419",
+      "name": "Kevin Meyer",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Pick Packer (Mar 2026 - Current) which satisfies the 6-month requirement and demonstrates recent warehouse/labouring experience. No age, gender, or other rejection criteria are clearly evident from the CV.",
+      "rejection_category": null
+    },
+    {
+      "id": "488225120",
+      "name": "Turani Tupaea",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable filters. Has recent warehouse/labouring experience (Americold pick-packing July-Oct 2025, B&E Poultry Jan-July 2025). No explicit age indicators present in CV or email. Male name and no indicators suggesting female candidate. No rejection criteria clearly triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "488224955",
+      "name": "Gabrielle Rawle",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. While warehouse picking/packing experience is present, the role appears to be a labouring position and the CV does not demonstrate substantial recent experience in physically demanding labouring work that would overcome the female exclusion criterion for such roles.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488224671",
+      "name": "Robert daniel Watson",
+      "ai_decision": "fail",
+      "ai_reason": "No job in the last 6 months. Most recent employment ended November 2023, which is more than 6 months ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488224438",
+      "name": "idiris ibrahim",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment (Sales Development Representative, Jul 2025 – Oct 2025, and Sales Assistant Feb 2025 – Jun 2025). Email 'idiris.ibrahim19@gmail.com' contains '19' which is not a standalone birth year. No explicit age or DOB stated. No indicators of age over 50. No rejection criteria are clearly met for this labouring/warehouse role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488224124",
+      "name": "Abil George",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar warehouse/labour role within the last three years. Most recent role (Mar 2025 - Jan 2026) was a Quality Analyst position involving software testing and quality assurance, not warehouse or labouring work. No prior warehouse, logistics, or general labour experience is evident in the CV.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488223184",
+      "name": "Elijah Visesio",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labouring experience (Unloader at Hard Yakka, 2025 - current), meets 6-month employment requirement, no age concerns identifiable, and appears suitable for blue-collar warehouse role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488511856",
+      "name": "Nisha Patel",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female applying for a labouring role without clear evidence of recent labouring experience. While the CV lists 'Warehouse helper' from Feb 2019 to Oct 2025, the primary job duties describe general warehouse operations (inventory management, labeling systems, forklift operation) rather than demonstrable heavy or physical labouring work typical of blue-collar warehouse labour roles. The roofing-related tasks listed are described as 'assisted' roles from an unclear timeframe, not primary recent experience.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488509132",
+      "name": "Emz Malito",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female with no clear evidence of recent labouring experience. Current role is Youth Worker (not labouring). Previous roles were OSHC Educator and Administration Assistant (not labouring). No warehouse, labour, or similar blue-collar experience mentioned in CV.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488508945",
+      "name": "Matthew Mackintosh",
+      "ai_decision": "fail",
+      "ai_reason": "Email 'mattjmack1978@outlook.com' contains standalone 4-digit number 1978, indicating birth year 1978 — candidate would be approximately 46 years old. However, first job started in 1993 (31 years ago), which exceeds the 30-year threshold and indicates age over 50 for a labouring role.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488506061",
+      "name": "Ollie Smith",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has labouring experience within the last 6 months (Quality Control role from August 2025 is current). Age cannot be determined from CV — no explicit DOB, email contains no plausible birth year indicator, high school graduation listed as 2025 (recent, not 32+ years ago), and first job started in 2024 (not 30+ years ago). All general filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "488505010",
+      "name": "Julie Norcott",
+      "ai_decision": "fail",
+      "ai_reason": "Employment dates are unclear and inconsistent. Comsgroup lists 'Dec 2024 – May 2024' (end date before start date), and multiple roles lack clear month-year ranges or show contradictory dating that creates uncertainty about actual employment continuity in the last 6 months.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488500829",
+      "name": "SEOHEE SHIN",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female with no clear evidence of recent labouring experience. While some warehouse/factory work is listed, the most recent role (Hygiene Operator, March 2026) appears to be a data entry error (future date), and prior roles lack sufficient detail to demonstrate substantial recent labouring experience required for rejection exemption.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488500370",
+      "name": "Aiah Anthony Yambasu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring/warehouse experience (2024-January 2026 as Machine Operator at Primo JBS, and 2024 work at Tuff Turf warehouse). Employment within last 6 months is satisfied. Similar role experience within last 3 years is confirmed. Age cannot be determined from CV or email (Yambasu.aiah91gmail.com — '91' is not a standalone birth year in the required format). No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488498720",
+      "name": "Leonardo Rizal Halim",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. CV lists only job objective and capabilities with no work history dates provided. No employment history with clear dates or current role documented.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488496433",
+      "name": "Daniel Koi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current construction work experience (March 2024 - December 2025) in a labouring role, meeting the 6-month employment requirement and similar role within 3 years criterion. Age cannot be reliably determined from CV (no explicit DOB/age stated, and email 'luna675ana@gmail.com' does not contain a standalone birth year pattern). No other rejection criteria apply for a general warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488494744",
+      "name": "Tumua Tauaa",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Food/meat processor (Jan 2023 – Feb 2026), satisfying the 6-month requirement. Recent labouring/warehouse experience in similar roles. No age, availability, or role-specific disqualifiers identified from CV content.",
+      "rejection_category": null
+    },
+    {
+      "id": "488494287",
+      "name": "Tania Taikato",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment listed is 2015 as Student Support Officer, which is approximately 9 years ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488492577",
+      "name": "NOE DABOUINEAU",
+      "ai_decision": "fail",
+      "ai_reason": "Current role listed as 'Jan 2026 – March 2026' contains future dates that cannot be verified as genuine current employment. This fails the 6-month employment requirement when applied to real-world context.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488492464",
+      "name": "Seth Perkins",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 16-17 years old (DOB 24 Aug 2007), well under the 50-year threshold for labouring roles. Has recent labouring experience (Heartwood Construction - heavy labour, machine operation, power tools). Male. Meets all general and labouring role filters.",
+      "rejection_category": null
+    },
+    {
+      "id": "488492360",
+      "name": "Dhaval Patel",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Last employment ended July 2023 (volunteer role at D-Mart); no current or recent employment listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488492053",
+      "name": "Saeed Burhan",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labour experience within the last 6 months (Pick Packer at Just Country Distribution Centre, November 2025 - February 2026). No rejection criteria are clearly met. Age cannot be determined from CV (no explicit DOB/age stated, email 'saeedosman877' does not contain a standalone plausible birth year). No heavy labouring, civil labourer, or production worker role specified in the job posting provided. Candidate appears available and suitable for warehouse/labour work.",
+      "rejection_category": null
+    },
+    {
+      "id": "488490092",
+      "name": "Shirleyanne Beran",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. The current role (Trainer/machine operator at Primo meats, 2024-current) does not clearly demonstrate hands-on labouring work comparable to warehouse/labour roles.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488489760",
+      "name": "Corey Hulin",
+      "ai_decision": "fail",
+      "ai_reason": "Phone number 0406291974 contains embedded birth year 1974, making candidate approximately 50 years old. Labouring role rejection criterion: must be under 50.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488488125",
+      "name": "Muhammad Naveed",
+      "ai_decision": "fail",
+      "ai_reason": "No job listed in the last 6 months. Most recent role (Pick Packer at Americold, February–March 2026) appears to have ended in March 2026, and no current employment is indicated. Additionally, employment dates show logical inconsistencies (e.g., September 2025–February 2025 is backwards), creating uncertainty about actual tenure.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488487874",
+      "name": "Nicholas Holloway",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 26 years old, has multiple recent jobs in warehousing and labouring roles within the last 6 months (currently employed at Skips & Scraps as of 2025-2026), has relevant hand tools and heavy lifting experience, and meets all general employment criteria. No rejection filters apply.",
+      "rejection_category": null
+    },
+    {
+      "id": "488724938",
+      "name": "Trevon Anthony",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all core requirements for warehouse/labour role: currently employed at Coles ADC (07/2023 - Current), extensive recent warehouse experience within last 3 years, relevant certifications including White Card and First Aid. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488721968",
+      "name": "Maxwell Akoto",
+      "ai_decision": "fail",
+      "ai_reason": "Email contains '76' which could plausibly represent birth year 1976, making the candidate approximately 48 years old. However, more critically, the employment history shows only international experience (Ghana) with no clear dates provided. The most recent role 'Cold Store Warehouse Assistant' and 'Small-Scale Mining Machine Operator' lack month/year specifications, making it impossible to confirm employment within the last 6 months or similar role within the last 3 years. Cannot verify availability or recent relevant experience.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488720211",
+      "name": "Ryan Perry",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labouring experience (Compass Glass 02/2024-11/2024 and prior demolition labouring 2010-2012). Email contains '1994' which is a plausible birth year (age ~30, well under 50). Male name. No explicit rejection criteria met for a standard warehouse labouring role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488720184",
+      "name": "Jaymie -lee Hansen",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is 46 years old (DOB: 15 February 1978). While under 50, the CV lists only casual and seasonal roles with no clear employment dates or month/year ranges provided. The work history shows company names and role types but lacks specific employment date clarity (no start/end dates with months). For a labouring role with multiple short-term casual positions and no transparent date ranges, employment history cannot be reliably verified as meeting the 6-month recent employment requirement.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488545800",
+      "name": "Seth Rigter",
+      "ai_decision": "fail",
+      "ai_reason": "Employment dates are inconsistent and implausible. Candidate lists 'January 2024 – January 2025' for Primo Foods, then 'september 2025 - february 2026' for Visy/Target (future dates from CV submission perspective), overlapping with 'january 2025 - september 2025' at Probe and 'october 2024 - january 2025' at Ballistics. Multiple concurrent roles with overlapping date ranges suggest unreliable employment history documentation.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488521486",
+      "name": "Jaden Nair",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. CV shows only educational qualifications (Master's degree completing November 2025, Bachelor's degree completed May 2023) with no employment history listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489024762",
+      "name": "Hyunseo Kim",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. CV shows customer service and retail experience, not warehouse/labour work. Most recent role (VIP Lounge Concierge, 2025) is hospitality-based, not labour-based.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489022869",
+      "name": "Navaya Heta-Tuhua",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment ended July 2023 (over 1.5 years ago). Currently appears to be a full-time high school student (enrolled July 2023 – November 2025 at Redbank Plains State High School), which conflicts with availability for a warehouse/labour role.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489017828",
+      "name": "Chloe Roskam",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is female with clear recent labouring experience (Team Leader in warehouse/logistics role from Nov 2023 to current, plus casual warehouse work Jan-Oct 2023). Employment within last 6 months confirmed. Age cannot be determined from CV (no explicit DOB/age stated, email contains no standalone birth year, high school left 2023 suggests youth). No heavy labouring, civil labourer, or production worker restrictions apply.",
+      "rejection_category": null
+    },
+    {
+      "id": "489009473",
+      "name": "MINJUN KIM",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse employment (September 2024 – December 2025), holds relevant qualifications (White Card, Forklift Ticket), and meets all general and labouring role criteria. No age, gender, or employment history red flags present.",
+      "rejection_category": null
+    },
+    {
+      "id": "489006758",
+      "name": "Djaiden Dale",
+      "ai_decision": "fail",
+      "ai_reason": "No job in the last 6 months. Most recent employment ended 05/2024, which is over 6 months ago based on standard review timing.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488994882",
+      "name": "Kimberlina Howard",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. Current role (Console Operator at AMPOL) and previous roles (Pick Packer, Pre-Packer, Fast Food) do not constitute substantial labouring experience typical for warehouse/labour roles. No indication this is a heavy labouring role, but female candidates in labouring roles require clear evidence of recent labouring work, which is absent.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488991820",
+      "name": "Travis White",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment within 6 months (Painting Apprentice 2024-08 to 2025-03, currently active). Has warehouse labouring experience within 3 years (ALDI Warehouse Team Member 2024-01 to 2024-07). Age cannot be determined from CV or email. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488982855",
+      "name": "SOOYEON YUK",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. The CV shows warehouse and factory work, but no explicit heavy labouring background. For a blue-collar warehouse/labour role in Australia, females are almost always rejected unless there is clear evidence of recent labouring experience.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488980724",
+      "name": "Cameron Dixon",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Current role is fast food worker (since March 2022), which is not similar to warehouse/labour work. No warehouse, labouring, or labour-adjacent experience is evident in the CV.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488975251",
+      "name": "Taran Webb",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent listed employment (Woodhouse Darra, 2025) lacks clear month/date ranges, making it impossible to confirm current employment status or that 6-month requirement is met.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489271349",
+      "name": "Asif Patel",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Last warehouse/labouring role was Oct 2017 – Mar 2018, which is over 6 years ago. Most recent role (Feb 2024 – June 2024) was cashier/salesperson, not warehouse or labouring work.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489263522",
+      "name": "temarii heather",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria. Currently employed (2023-2026 at Ingham's satisfies 6-month requirement). Has relevant warehouse/labour experience within last 3 years. Age cannot be determined from CV or email (temariiheather31@ — '31' is not a standalone birth year). No heavy labouring or civil labourer role specified in review request. White Card is listed but not required unless role is specifically civil labourer.",
+      "rejection_category": null
+    },
+    {
+      "id": "489239420",
+      "name": "Aries Ekeroma",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (McDonald's, January 2024-Present, satisfies 6-month requirement). Labouring role filters applied: age cannot be determined from CV or email (no DOB, no standalone birth year in 'ariesekroma23@gmail.com', high school completed 2022 which is within 32 years). Name 'Aries Ekeroma' suggests possible Pacific Islander heritage but this is not a definitive indicator. Candidate is male. White Card is mentioned (January 2023 - December 2023), which is current/valid. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489233381",
+      "name": "Tara Fielding",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female with no clear evidence of recent labouring experience. Most recent roles (2022-2023) are in hospitality/food service, not warehouse or labouring work. No similar warehouse/labour role documented within the last three years.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489231836",
+      "name": "Jordan Davies",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 19 years old (email contains 2006, birth year well under 50). Has current employment as Process Worker (October 2025 – Present) satisfying 6-month requirement. Has recent labouring/process work experience within last 3 years. No rejection criteria met for a standard warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "489231560",
+      "name": "Dhaval Patel",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment was volunteer work ending July 2023, which is over a year ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489091510",
+      "name": "Crisanto Achuela",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (March 2024 – Present) satisfying 6-month requirement. Email 'cris28cha' does not contain a standalone 4-digit birth year. No explicit age or DOB stated. No indicators of age over 50. Role is labouring (Catering Assistant/support work), candidate appears male based on name and pronouns. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489068304",
+      "name": "Nehalmahammad Safimahammad Vahora",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/store person experience (2023-2026 current role at Apollo warehouse). Employment dates are clearly stated with month/year ranges. No explicit age indicator present in CV or email. No rejection criteria definitively met for a standard warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "489515614",
+      "name": "Dean Cribb",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate appears to be over 50 years old based on email address containing standalone 4-digit number 65, which plausibly represents birth year 1965 (candidate would be approximately 59 years old). For labouring roles, candidates over 50 must be rejected.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489512293",
+      "name": "ahmed eshag",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment was 2020-2021 at Logan Discount Supermarket Warehouse, ending approximately 3+ years ago.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489508459",
+      "name": "Stephen Jones",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all basic criteria. Completed Grade 12 in December 2018 (age indicator shows under 50). Has recent warehouse/labouring experience: Pantech Delivery Driver (Feb 2025 - July 2025) is within the last 6 months, and multiple warehouse/removalist roles demonstrate similar work within the last 3 years. No White Card, hand tools, or heavy labouring restrictions apply based on the job posting not specifying these role types. No employment date clarity issues detected.",
+      "rejection_category": null
+    },
+    {
+      "id": "489505151",
+      "name": "MINJUN Kim",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse employment (Sept 2024 - Dec 2025), relevant labouring experience, White Card listed, forklift ticket, and no disqualifying age indicators present.",
+      "rejection_category": null
+    },
+    {
+      "id": "489496824",
+      "name": "Dona Malisawa",
+      "ai_decision": "fail",
+      "ai_reason": "Employment dates listed as '2025 – 2026' are implausible (future dates) and lack month/day specificity. This creates uncertainty about actual employment tenure and recency. Additionally, the Facility Services role lacks any employment date whatsoever, making it impossible to confirm 6-month employment requirement or 3-year similar role requirement.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489493079",
+      "name": "Francis Arthur",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. CV shows only recent high school completion (2025) with no employment history listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489492785",
+      "name": "Daniel Haj Gido",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has employment within last 6 months (AREA 51, 06-2025 to Current). While primary experience is not in electrical labouring, candidate has relevant formal training (Cert II in Electrotechnology, White Card) and recent physically demanding work experience. Age cannot be determined from CV or email. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489417466",
+      "name": "Amar Garbo",
+      "ai_decision": "fail",
+      "ai_reason": "Voice Picker role listed as '(2024)' with year only, no month ranges provided. Employment dates lack clarity and cannot be verified as meeting the 6-month requirement.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489398358",
+      "name": "Jihad Nashabe",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 21 years old with recent labouring/trades experience (Joinery Installer October 2025 – January 2026, within last 6 months). Male, physically fit, skilled with tools and machinery. No rejection criteria met for a standard warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "489397555",
+      "name": "Kaylin Fetaui",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. Work history shows aged care, customer service, retail, and swimming instruction roles — no labouring or warehouse experience in the last three years.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489647858",
+      "name": "Shondrae Archer",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has a current/recent job (June 2023 to December 2025) in a labouring-adjacent role (meat processing). No explicit age indicators present (no DOB, no standalone birth year in email, high school date is 2018 so <32 years ago, first job started 2023 so <30 years ago). Female candidate, but has clear recent labouring experience (handling 30-50kg raw hides in a meat plant) which satisfies the labouring role requirement. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489638855",
+      "name": "Muhammad Fikri Syaukani",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has multiple jobs within the last 6 months (current role at Pace Farming Pty Ltd listed as May 2025 - February 2026, satisfies 6-month requirement). Recent labouring experience across multiple roles (chicken catcher, meat processor, waste sorter, produce sorter, farm worker). Age cannot be determined from CV or email. Male candidate. No specific role type filters apply that would trigger rejection.",
+      "rejection_category": null
+    },
+    {
+      "id": "489629486",
+      "name": "Manpreet Kaur",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. The CV shows aged care and restaurant work (2017-2024), which does not constitute recent labouring experience for a warehouse/labour role.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489614165",
+      "name": "Noah Sinisa",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Restaurant Team Member (10/2022 - 03/2026), satisfying the 6-month requirement. No clear age indicators present (no DOB, no plausible birth year in email, high school completed in 2025 suggesting recent graduate). Role is labouring-adjacent but no specific rejection criteria are triggered for a general warehouse/labour position.",
+      "rejection_category": null
+    },
+    {
+      "id": "489604130",
+      "name": "Phuntsho Wangyel",
+      "ai_decision": "fail",
+      "ai_reason": "No clear employment dates provided. Work history lists only job titles, employers, and references without month/year ranges. Cannot confirm candidate has worked in last 6 months or similar role in last 3 years due to absence of specific dates.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489599210",
+      "name": "Filippus Oigus",
+      "ai_decision": "fail",
+      "ai_reason": "Current role dates (2025-05 to 2026-03) are in the future, which is implausible. This suggests the CV contains fabricated or unreliable employment information that cannot be verified.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489587072",
+      "name": "Louise Hetherington",
+      "ai_decision": "fail",
+      "ai_reason": "CV lists only year-only employment dates (2022-2024, 2024-2025, 2021-2022, 2025-2026) without clear month ranges, making employment history unreliable. Cannot confidently confirm 6-month employment requirement or recent similar role within 3 years.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489579666",
+      "name": "Luke Ging",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 22 years old (DOB: 30/06/2001), well under 50. Has recent labouring/warehouse experience (Freedom Furniture as Furniture Assembler, Paint Sprayer at Norlec Sheet Metal Mar 2022–Oct 2024). Employment history shows work in the last 6 months and similar roles within 3 years. Male candidate. Meets all general and labouring role filters.",
+      "rejection_category": null
+    },
+    {
+      "id": "489522702",
+      "name": "Christian Savaiinaea",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has warehouse/labouring experience within the last 6 months (current role listed as SEPT 2025 - JANUARY 2026). No clear age indicators present (no DOB stated, email does not contain standalone birth year 1940-1974, no high school completion date given, first job 2019 is less than 30 years ago). Male candidate with relevant recent warehouse experience satisfies labouring role requirements.",
+      "rejection_category": null
+    },
+    {
+      "id": "489520926",
+      "name": "Terry SEOK",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labouring experience within the last 6 months (currently employed Feb 2026 - Mar 2026 at NH Warehouse, and May 2025 - Feb 2026 at Coupang). Age cannot be determined from CV (no explicit DOB/age stated, and email 'ctybin0327@gmail.com' contains 0327 which is a date, not a birth year). No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489518898",
+      "name": "Mark Noonan",
+      "ai_decision": "fail",
+      "ai_reason": "CV does not clearly specify employment dates or duration for any listed roles. Employment history lacks month/year ranges, making it impossible to confirm whether candidate has worked in the last 6 months or in a similar role within the last 3 years. The 'Multisector Experience | QLD' section lists various roles without any dates, start/end months, or clear timeline.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489869455",
+      "name": "YuRu Cai",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. The CV shows production/assembly line and cleaning work, which does not constitute heavy labouring roles. For a blue-collar warehouse/labour job in Australia that appears to be a labouring role, females are rejected unless there is clear evidence of recent labouring experience.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489832133",
+      "name": "Phong Vo",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Cleaner at Bizz Clean, 07/2017 - 12/2025) satisfying the 6-month requirement. Employment is in a similar labouring/cleaning role within the last 3 years. Age cannot be determined from CV (no explicit DOB/age stated; email vo6307682@ contains numbers but 6307682 is not a standalone 4-digit birth year; high school completed 11/2016, approximately 9 years ago, well under the 32-year threshold). No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489814320",
+      "name": "Tiah Walsh",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is currently employed (2024-Current at Nathan's Aircon), satisfying the 6-month employment requirement. No explicit age indicators present (no DOB stated, email '1tiahwalsh' does not contain a plausible standalone birth year). Candidate appears to be a high school graduate in 2025 with current university enrollment, indicating youth. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489813040",
+      "name": "Joby Gavan",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Yard Worker, August 2024 - December 2025) satisfying the 6-month requirement, and has relevant warehouse/labour experience within the last 3 years. No explicit age information provided, and email does not contain a standalone birth year. No rejection criteria definitively met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489802131",
+      "name": "Phily Noh",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Picker and Packer (01.2025 – 01.2026) which satisfies the 6-month requirement. Recent labouring experience in warehouse/picking role within last 3 years. No age indicators present (no DOB stated, email 'nus9957' is not a birth year pattern, no high school completion date, first job within last 4 years). Cannot determine sex from name alone without additional clear evidence — insufficient to reject under labouring criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "489789117",
+      "name": "luke whitefield",
+      "ai_decision": "fail",
+      "ai_reason": "CV contains multiple future-dated employment entries (May 2025 onwards, June 2026) which appear fabricated or speculative. Employment dates lack credibility and cannot be verified as genuine current or recent work history.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489785862",
+      "name": "Fia Notoa",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. Email 'Fianotoa53' contains '53' which is not a standalone 4-digit birth year, so age cannot be determined from that. However, the role appears to be a labouring/warehouse role, and the sex filter for labouring roles requires clear evidence of recent labouring experience for females. While the candidate has dockhand and container unloading experience, the most recent role (09/2025 – 03/2026) has a future start date which is implausible, creating uncertainty about genuine recent experience.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489785739",
+      "name": "Vuyani Ndlovu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a blue-collar warehouse/labour role. Currently employed at Qantas Freight (August 2025 - Present), satisfying the 6-month requirement. Recent warehouse and labouring experience (FedEx Package Handler, Qantas Freight Handler) within the last 3 years. No age, sex, or availability concerns identified. Email contains no plausible birth year indicator.",
+      "rejection_category": null
+    },
+    {
+      "id": "489780163",
+      "name": "Gavin Leat",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Last role ended April 2024, which is over 6 months ago based on current date context.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489777227",
+      "name": "Khalia Jordan",
+      "ai_decision": "fail",
+      "ai_reason": "CV lists employment dates that are year-only or unclear (e.g., 'January-March 2026' is a future date and implausible; Paradise Biscuits and JBS Meatworks lack any date information). Cannot clearly confirm 6 months of employment in the last 6 months or similar role within 3 years due to employment date clarity issues.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "490137676",
+      "name": "Alyzza Tohiniu",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female with no clear evidence of recent heavy labouring experience. CV shows pick/packing and light warehouse roles, not heavy labouring work.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "490125653",
+      "name": "Han Baek",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse employment (Oct 2023 - Now) as Warehouse Associate (Picker & Packer), satisfying the 6-month requirement and demonstrating recent similar role experience. No explicit age indicator present in CV or email. Cannot determine if role is heavy labouring or has other specific requirements without job description. All general filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "490103701",
+      "name": "Blake Thompson",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. CV shows only education (completed 2021) with no employment history listed. Professional summary indicates seeking first job, confirming no prior work experience.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "490084331",
+      "name": "Chloe Roskam",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed in current warehouse/logistics role (Nov 2023 - current), has relevant experience in pick/packing and warehouse operations within last 3 years, and is available for work. Cannot determine age from CV content alone (no DOB stated, email contains no plausible birth year indicator, high school left 2023 indicates recent graduate). Female candidate has clear recent labouring experience in warehouse/logistics roles.",
+      "rejection_category": null
+    }
+  ]
+}

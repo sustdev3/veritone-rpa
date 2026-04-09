@@ -1,0 +1,134 @@
+{
+  "advertId": "519356",
+  "collectedAt": "2026-04-08T22:49:13.344+10:00",
+  "totalFiltered": 30,
+  "selectedKeywords": "fork* OR pack* OR pick*",
+  "passingCandidates": [
+    {
+      "id": "489790697",
+      "name": "Jason Dorizas",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489489878",
+      "name": "James Faletagoai",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488972550",
+      "name": "Rawiri Reti-dornan",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "486995331",
+      "name": "Modotinrowson Siu",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486284326",
+      "name": "shibu gomez",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "485799642",
+      "name": "Daniel Leilua",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485549816",
+      "name": "Tasha faalelei",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "485249032",
+      "name": "teni tanielu",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485040699",
+      "name": "Raphael Gil",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485032281",
+      "name": "setefanojunior vaa",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484916152",
+      "name": "Obaida Al hassan",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484785524",
+      "name": "Phimmasone Sopha",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "484627276",
+      "name": "Nathan Atalla",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484507383",
+      "name": "Grant Kelly",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484296620",
+      "name": "Mathew Temara",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484231179",
+      "name": "l sure",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483690907",
+      "name": "Kaea Enoka-Clarke",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483689503",
+      "name": "Joshua Prakash",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483688646",
+      "name": "Jamie Ferrie",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483684155",
+      "name": "Adam Baghdadi",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483680903",
+      "name": "Jared Lockett",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "advertId": "519359",
+  "collectedAt": "2026-04-08T22:42:46.188+10:00",
+  "totalFiltered": 98,
+  "selectedKeywords": "labourer OR production OR pack* OR pick*",
+  "passingCandidates": [
+    {
+      "id": "489784322",
+      "name": "Jo Fairbrother",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489652729",
+      "name": "Isaiah Uele",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489612698",
+      "name": "daniel bunn",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489579729",
+      "name": "Luke Ging",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489504614",
+      "name": "Dhaval Patel",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488492996",
+      "name": "Dhaval Patel",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488285237",
+      "name": "katie Hassall",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488111865",
+      "name": "Mason Kraut",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487907357",
+      "name": "Byron Howie Holden",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487780032",
+      "name": "Everest Niyotusanga",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487274702",
+      "name": "veldajirah lemaga",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487126545",
+      "name": "Dante Pihema",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487006600",
+      "name": "Jarrod Hutchins",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486990997",
+      "name": "Bayley Quinn Woldhuis",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486940534",
+      "name": "Salima Stowers",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486846592",
+      "name": "Tomesina Cornwell",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486733615",
+      "name": "Djuma Bisengeta",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486708803",
+      "name": "Kayne Poko",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "486623566",
+      "name": "Djaiden Dale",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486609964",
+      "name": "Taiamoni Pakileata",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486598568",
+      "name": "Seonmi Kim",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486292741",
+      "name": "Tamati Tainui",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486286898",
+      "name": "Paul Kasongo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486193115",
+      "name": "Lisite Hafoka",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486076537",
+      "name": "Alesana Mailei",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486072678",
+      "name": "David Thomson",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485795930",
+      "name": "Wing Ki Gospel Tang",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485792723",
+      "name": "Hayden Stanford",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "485790549",
+      "name": "Kyran Ledger",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485709879",
+      "name": "Andrew Clarke",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485640482",
+      "name": "Peti Kirk Mase",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485570925",
+      "name": "Talissa Liesegang",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485550970",
+      "name": "Dylan Douglas",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485478091",
+      "name": "Siaka Kenneh",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485296652",
+      "name": "Adrian Chapman",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485279409",
+      "name": "Argan Brel",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485263714",
+      "name": "Cohen Doyle",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485258964",
+      "name": "Ricky Stibbard",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485255742",
+      "name": "Pau muan thang Pau muan thang",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485252297",
+      "name": "Shakeir Mursal",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485247047",
+      "name": "Warren Kemp",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485219745",
+      "name": "Xander Ballin",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485141593",
+      "name": "Seth Rigter",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485139817",
+      "name": "John Morris",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485112232",
+      "name": "michael crisp",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485046045",
+      "name": "Albynuuvaelua Mene",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485027802",
+      "name": "Jumi Nichonora",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485005075",
+      "name": "Jihad Nashabe",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484987101",
+      "name": "Mainudin Ali",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484885953",
+      "name": "Ducati Mikaera",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484882232",
+      "name": "Caesar Greig",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484814879",
+      "name": "Phong Vo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484800151",
+      "name": "KUN MIN YANG",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484791247",
+      "name": "Tobias Fenwick",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484788705",
+      "name": "Gasio Sikoloni",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484786921",
+      "name": "William Shane Collins",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484778101",
+      "name": "Jakk Richards",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484772410",
+      "name": "Vangeli Lathouras",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "484725057",
+      "name": "Nexion Morgan",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484626342",
+      "name": "Alyzza Tohiniu",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484586321",
+      "name": "Faafetai Komiti",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484538682",
+      "name": "Jordan Mcnamara",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484529231",
+      "name": "Odysseus Mejos",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484521345",
+      "name": "William Lousick",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484510623",
+      "name": "Rocky Utai",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "484507473",
+      "name": "Pailate Hunt",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484493424",
+      "name": "Kirk Britton",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484487729",
+      "name": "malachi rangi",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "484481246",
+      "name": "Isabella Singleton",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484406836",
+      "name": "Cyrus Greaves",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484295602",
+      "name": "Brodie Brown",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484283766",
+      "name": "Anthony Oakroot",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484281999",
+      "name": "Ezrah Szoke",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484272307",
+      "name": "Jeromey Allen",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484271601",
+      "name": "Anthony laku",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484268706",
+      "name": "Alan Paul Mathew",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484249978",
+      "name": "Anton Campbell",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484249716",
+      "name": "George Tapuaiga",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484245698",
+      "name": "Patel Dhaval Vishnubhai",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484240089",
+      "name": "Rudy Bianchetti",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484236945",
+      "name": "Isaac Fonoti",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "484232059",
+      "name": "Kate Shipton",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484225342",
+      "name": "Louis Ngatuere",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484222524",
+      "name": "david kriebel",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "484123583",
+      "name": "Nour Idress",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484095274",
+      "name": "Louis Kalenga",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484089062",
+      "name": "Dubat Yossuf",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484077013",
+      "name": "Dot Abuol",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484060276",
+      "name": "Jayde Dentler",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "484043530",
+      "name": "mincheol seo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484027735",
+      "name": "Caiki Soares Gilmore",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484025776",
+      "name": "Adrian Tobolov",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484000276",
+      "name": "Chanthone Coxon",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483998019",
+      "name": "luke whitefield",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "483996661",
+      "name": "tristan muhling",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483988664",
+      "name": "Aaron Gleeson",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483987475",
+      "name": "Aaron James",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "483986883",
+      "name": "Cahmryn Brown",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

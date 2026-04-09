@@ -1,0 +1,114 @@
+{
+  "advertId": "519382",
+  "reviewedAt": "2026-04-08T21:14:36.531+10:00",
+  "totalReviewed": 15,
+  "ruleset": "standard",
+  "selectedKeywords": "production OR labour* OR hand tools",
+  "results": [
+    {
+      "id": "488721821",
+      "name": "Galuefa Leasi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (10/2025 - 12/2025 as Skilled Labourer, and 01/2022 - 10/2025 as 4th Year Apprentice in construction). Age cannot be determined from CV or email. Name suggests Pacific Islander heritage. Currently employed in labouring role satisfying 6-month requirement. No specific role type filters (civil labourer, production worker, heavy labouring) have been specified in the job posting provided.",
+      "rejection_category": null
+    },
+    {
+      "id": "488534478",
+      "name": "Mohammed Fasi Ul haq",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent carpentry/construction employment (currently employed), holds Certificate III in Carpentry, mentions valid White Card, and has relevant labouring experience. No clear rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488263799",
+      "name": "Rajesh Narwal",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all critical criteria for a labouring role. Has White Card (construction induction card) explicitly listed. Recent carpentry/framing experience (August 2021, 8 months). Employment within last 6 months cannot be clearly confirmed as problematic since the CV shows 'August 2021 - ' with 8 months experience listed, and no explicit end date is shown. Age cannot be determined from CV (no DOB stated, email 'rajeshnarwal11@gmail.com' contains '11' which is not a plausible birth year, high school completed in 2009 which is 15 years ago, first job started 2008 which is 16 years ago—neither meets 30+ or 32+ year thresholds). No rejection criteria triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "488260184",
+      "name": "David Sevita",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labouring experience within the last 6 months (Storeperson at Woolworths, April 2020 – January 2026). Age cannot be clearly determined from CV or email (davidsevita@outlook.com contains no standalone birth year). No heavy labouring, civil labourer, or production worker specific filters apply. All general filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "488245818",
+      "name": "Christopher Prowd",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is 52 years old (explicitly stated in CV as 'CHRISTOPHER PROWD Carpenter / Handyman 52 Tower St'). For labouring roles in Australia, candidates over 50 must be rejected.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487809609",
+      "name": "Jaide William",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all basic criteria: employed in last 6 months (Pick Packer, March 2024–Present), has similar warehouse/labouring experience within 3 years, and no age indicators suggest they are over 50. Email 'jaidewilliam2009@gmail.com' contains '2009' which is not a plausible birth year (would make candidate ~15 years old). No explicit DoB or age stated. No heavy labouring or production worker role specified in the job posting. White Card is present (noted as 2021), though not required unless this is explicitly a civil labourer role.",
+      "rejection_category": null
+    },
+    {
+      "id": "487803973",
+      "name": "Jon Howard",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all critical criteria: employed in last 6 months (Landells Signs Jan 2024 - Mar 2025), similar warehouse/labouring role within 3 years, has White Card and Forklift License, no age concerns (no birth year in email, first job 2004 is within 20 years), male, and available for full-time warehouse work.",
+      "rejection_category": null
+    },
+    {
+      "id": "487794266",
+      "name": "Deepak Mohindru",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all critical criteria: employed in similar pick/pack/warehouse role from July 2021 to present (satisfies 6-month requirement and 3-year similar role requirement), no age indicators present (email 'mohindru77' does not contain a standalone 4-digit birth year), and no conflicting availability issues. Role appears to be standard labouring, not heavy labouring or civil labouring.",
+      "rejection_category": null
+    },
+    {
+      "id": "488980834",
+      "name": "Sukhmanpreet singh Sidhu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Harvest Supervisor, Mar 2025 - Present) satisfying the 6-month requirement. Has relevant labouring/supervisory experience in horticulture and manufacturing within the last 3 years. Email 'saffysidhu17' does not contain a standalone birth year. No explicit age or DOB stated. No clear indicators of age over 50. Candidate name suggests male, consistent with labouring role suitability. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "489272979",
+      "name": "Joel LeBusque",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all requirements for a blue-collar warehouse/labour role. DOB 04/07/1991 makes candidate 33 years old (well under 50). Current employment as Machine/Line Operator (Aug 2024-Sept 2025) satisfies 6-month requirement. Recent and relevant labouring/warehouse experience in similar roles. Male candidate. Availability suitable for shift work.",
+      "rejection_category": null
+    },
+    {
+      "id": "489655868",
+      "name": "Jayden Ellis",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 21 years old (DOB 22.09.2002), well under the 50-year age limit. Currently employed at Kmart (January 2019 - Present) satisfying the 6-month requirement. Has relevant manual labour and warehouse experience from Kmart and stonemason apprenticeship within the last 3 years. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "489622073",
+      "name": "MEWASEH DUARTO",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed within last 6 months (Pick Packer, July 2024-Current), has similar warehouse/labouring role experience within 3 years, no age disqualifiers present, and holds current White Card certification.",
+      "rejection_category": null
+    },
+    {
+      "id": "489805741",
+      "name": "Syed Naqvi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Carpenter (Mar 2025 – Apr 2026), which satisfies 6-month requirement. Has similar carpentry/construction experience within last 3 years. No explicit age indicator (DOB not stated, email 'Khuramshah146' does not contain standalone birth year 1940-1974). Male candidate. No disqualifying factors identified for general labouring role.",
+      "rejection_category": null
+    },
+    {
+      "id": "490086210",
+      "name": "Leigh Tonkin",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment (Site Manager at C3 Construction June 2024 – December 2024, within last 6 months). Has extensive similar role experience in construction/carpentry over the last 3 years. Possesses White Card (Construction induction card listed in Certificates). No disqualifying factors identified under general or labouring role filters. Age cannot be confidently determined from CV or email (tonky45@hotmail.com does not contain a standalone birth year in the 1940-1974 range); first job started in 2010 (less than 30 years ago); no high school date provided. Gender cannot be definitively determined from 'Leigh' alone.",
+      "rejection_category": null
+    },
+    {
+      "id": "489887602",
+      "name": "Marc Joshua Abragar",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Cool Room Builder, February 2026 - present) satisfying 6-month requirement. Has relevant labouring experience in panel assembly and installation. Has White Card qualification. Male. No age indicators present (no DOB stated, email 713 is not a standalone birth year, graduated 2020 so high school ~2016, first job 2021). Meets all criteria for warehouse/labour role.",
+      "rejection_category": null
+    }
+  ]
+}

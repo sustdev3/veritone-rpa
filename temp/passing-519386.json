@@ -1,0 +1,194 @@
+{
+  "advertId": "519386",
+  "collectedAt": "2026-04-08T20:34:42.290+10:00",
+  "totalFiltered": 31,
+  "selectedKeywords": "production* OR labour* OR pack*",
+  "passingCandidates": [
+    {
+      "id": "490094361",
+      "name": "Stephen O",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490058745",
+      "name": "Mack Neki",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489848008",
+      "name": "George Manna",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489816228",
+      "name": "Hayley Edmonds",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489808562",
+      "name": "Antonio Coxon Leofo",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489776212",
+      "name": "nathan minhinnett",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489675660",
+      "name": "Jordan Whyte",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489611627",
+      "name": "Caiki Soares Gilmore",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489595375",
+      "name": "junior jerry",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489594225",
+      "name": "Adam Harris",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489505945",
+      "name": "Carlos Tangimetua",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489398799",
+      "name": "Eugenie Nyemba",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489390715",
+      "name": "Paul Kasongo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489385769",
+      "name": "Jihad Nashabe",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489312400",
+      "name": "Dubat Yossuf",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489233399",
+      "name": "Asmaa Khaled",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489144578",
+      "name": "Aaron Coulam",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489085639",
+      "name": "malual makwai",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489007779",
+      "name": "Gavin Leat",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488986791",
+      "name": "Aiah Anthony Yambasu",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488986445",
+      "name": "Oetimani Nicholas Peach",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488976742",
+      "name": "Zekaria Ahmed Issak",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488975507",
+      "name": "Jaymie -lee Hansen",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488975232",
+      "name": "Manè Borda",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488967781",
+      "name": "Taw Reh",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488956467",
+      "name": "Oceanlae Tuala",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488792292",
+      "name": "Dhirubhai Sisara",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488731972",
+      "name": "Shirleyanne Beran",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488729429",
+      "name": "ngakau ngarongo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "488728769",
+      "name": "Osone Carruthers",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "488727848",
+      "name": "Joseph Muchoki",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

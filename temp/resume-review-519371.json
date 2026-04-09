@@ -1,0 +1,51 @@
+{
+  "advertId": "519371",
+  "reviewedAt": "2026-04-08T21:44:25.743+10:00",
+  "totalReviewed": 6,
+  "ruleset": "standard",
+  "selectedKeywords": "fork* OR pick* OR labour*",
+  "results": [
+    {
+      "id": "488744405",
+      "name": "Rejie Virrey",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse employment (December 2024 – present) as LO Operator/Warehouse Storeperson, which is a similar role within the last 6 months. No age indicators present (no DOB, no birth year in email, high school completed in 2017 which is ~7 years ago). Male candidate. Meets all general filters for a warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488697656",
+      "name": "Ankit Sharma",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/logistics experience (forklift operations, loading/unloading, vehicle maintenance) within the last 6 months (PbtCouriers July 2022 – July 2025 shows current employment). Age cannot be determined from CV or email. No specific role-type filters (civil labourer, production worker, heavy labouring) are indicated in the job posting information provided.",
+      "rejection_category": null
+    },
+    {
+      "id": "488244964",
+      "name": "Joshuah Bayley",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant labouring experience within the last 6 months (current role at Blackbear Fulfilment from 20/02/2024 - 20/03/2026). Age cannot be determined from CV content alone (no explicit DOB, no standalone birth year in email joshuah.bayley99@outlook.com, and high school graduation year not clearly stated). Male candidate with recent manual labour, forklift, and warehouse operations experience suitable for warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488235091",
+      "name": "Johnny Vu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/picking experience within the last 6 months (current role 2021-2025 at Provincial Home Living). No age-related rejection indicators present. All general employment filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "488982281",
+      "name": "Leul Mengistu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has continuous warehouse/labour experience from 2016–2025 (currently employed), well within the 6-month and 3-year requirements. No age indicators present (no DOB, no plausible birth year in email, no high school completion date, first job 2016 is within 30-year threshold). No rejection criteria met for a standard warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488942812",
+      "name": "Atelei Tusitala",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labour experience (current role December 25 - January 25, and prior roles within last 3 years). No explicit age indicators present. Male name and extensive labouring history. Meets all general and labouring role requirements.",
+      "rejection_category": null
+    }
+  ]
+}

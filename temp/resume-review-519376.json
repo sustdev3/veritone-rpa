@@ -1,0 +1,100 @@
+{
+  "advertId": "519376",
+  "reviewedAt": "2026-04-08T21:28:37.531+10:00",
+  "totalReviewed": 13,
+  "ruleset": "standard",
+  "selectedKeywords": "fork*",
+  "results": [
+    {
+      "id": "487803258",
+      "name": "Memory Teao",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labour experience within the last 6 months (TDLC Turret Operator, August 2024 – March 2025). No explicit age indicators present (no DOB stated, email 'memrose3005' does not contain a standalone birth year 1940-1974, high school completed in 2006 is 18+ years ago). Sex cannot be definitively determined from name alone. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487795974",
+      "name": "Tyrone Matoka",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all essential criteria: employed in last 6 months (current role until 01/2026), has recent similar warehouse/labour experience (disability support worker with transport, forklift, and yard duties), no age indicators suggest over 50, male, and available for immediate start on required shifts.",
+      "rejection_category": null
+    },
+    {
+      "id": "487543908",
+      "name": "Rames (Ray) Bhana",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Storeman/Forklift Operator (2016-current), which satisfies the 6-month requirement. Extensive relevant warehouse and forklift operating experience over 10+ years meets the similar role requirement within 3 years. No explicit age indicators present (no DOB, no standalone birth year in email wzz_kidd@bigpond.com, first job 1999 is ~25 years ago, not 30+). Male candidate (Ray/Rames). No availability conflicts apparent.",
+      "rejection_category": null
+    },
+    {
+      "id": "487500362",
+      "name": "setefanojunior vaa",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Nov 2024-present) as furniture delivery driver/forklift operator, which satisfies 6-month requirement and demonstrates similar labouring/warehouse experience within last 3 years. Male candidate with recent heavy labouring experience. High school completed 2022 (within 32 years). No explicit age indicators suggesting over 50. Candidate appears to be Pacific Islander (Samoan) which is a positive indicator for physical capability in labouring roles.",
+      "rejection_category": null
+    },
+    {
+      "id": "487253821",
+      "name": "Waisake Temo",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. The CV shows recent labouring roles (civil labour and construction labourer), but the heavy labouring role filter requires rejection of female candidates for such positions.",
+      "rejection_category": "heavy_labouring"
+    },
+    {
+      "id": "487234493",
+      "name": "Hakan Soykok",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as forklift driver at DHL Logistics (05/2023 - Current), satisfying the 6-month requirement. Similar warehouse/labouring role experience within last 3 years. No age indicators present (email 'hakan2472@' does not contain a standalone birth year). No gender-based rejection criteria apply. All general filters passed.",
+      "rejection_category": null
+    },
+    {
+      "id": "487047070",
+      "name": "Tyseer Bashir",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar warehouse/labouring role within the last three years. Most recent warehouse role (BM Sydney Materials, Forklift Driver) ended in March 2026, but the current date context suggests this is likely a data error or future date. The only other recent role is a volunteer administrative position (April-August 2025) which is not similar to warehouse labouring work. Prior employment is in customer service roles from 2019-2023, which are not similar roles.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "487042993",
+      "name": "shibu gomez",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Jan 2023 - Current as High Reach Forklift Driver), extensive relevant warehouse/labouring experience in the last 3 years, holds required licenses (Forklift LF, Order Picker LO), senior first aid certificate, and driver's license. No age indicators present (no DOB stated, email 'shibugomez@gmail.com' contains no standalone 4-digit birth year, high school completed in 1995 which is 29 years ago—under the 32-year threshold). All general employment filters are satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "487017510",
+      "name": "Nawang Sherpa",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female. For labouring roles, females are rejected unless there is clear evidence of recent labouring experience. While the CV shows forklift operator experience, this is skilled equipment operation rather than clear labouring work (physical manual labour). The role appears to be a warehouse/labour position requiring general labouring capability.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487015498",
+      "name": "omar abdillah",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Forklift Operator (Jan 2025 - Current), satisfying the 6-month requirement. Similar forklift/warehouse roles held within the last 3 years. No age indicators present (no DOB stated, email does not contain standalone birth year 1940-1974, no high school completion date provided, first job 2018 is less than 30 years ago). Male candidate. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489395457",
+      "name": "James Faletagoai",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate states age as 36 in CV, but email 'Jamesfaletagoai61@gmail.com' contains standalone 4-digit number '61' which plausibly represents birth year 1961, making candidate approximately 63 years old and over the 50-year threshold for labouring roles.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489384906",
+      "name": "Chantel Bazouni",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is currently a full-time high school student (Freeman Catholic College, 2022-Present). This creates an availability conflict with a full-time warehouse/labour role, as the candidate cannot commit to standard working hours while enrolled in secondary education.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489739720",
+      "name": "Jason Dorizas",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment at Toll People (15/02/2015 - Current), satisfying the 6-month employment requirement. Recent work history includes warehouse/material handling roles similar to a blue-collar labour position. No age information can be reliably determined from CV or email. No rejection criteria are triggered.",
+      "rejection_category": null
+    }
+  ]
+}

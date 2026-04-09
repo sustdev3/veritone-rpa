@@ -1,0 +1,146 @@
+{
+  "advertId": "519376",
+  "collectedAt": "2026-04-08T21:28:13.547+10:00",
+  "totalFiltered": 23,
+  "selectedKeywords": "fork*",
+  "passingCandidates": [
+    {
+      "id": "489739720",
+      "name": "Jason Dorizas",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489395457",
+      "name": "James Faletagoai",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489384906",
+      "name": "Chantel Bazouni",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487803258",
+      "name": "Memory Teao",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "487795974",
+      "name": "Tyrone Matoka",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "487621929",
+      "name": "Angok Majok",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487543908",
+      "name": "Rames (Ray) Bhana",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "487529559",
+      "name": "Nick Asiata",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487507659",
+      "name": "Nathan Littlechild",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487500362",
+      "name": "setefanojunior vaa",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487290209",
+      "name": "Nicholas Nakhle",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "487262996",
+      "name": "Petelo Taufa",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487261186",
+      "name": "Karl Pahulu",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487257241",
+      "name": "Rawiri Reti-dornan",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487253821",
+      "name": "Waisake Temo",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487245021",
+      "name": "Allen Mariner",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487242125",
+      "name": "J Tangitau",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487234493",
+      "name": "Hakan Soykok",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487083792",
+      "name": "Modotinrowson Siu",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487047070",
+      "name": "Tyseer Bashir",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487042993",
+      "name": "shibu gomez",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487017510",
+      "name": "Nawang Sherpa",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487015498",
+      "name": "omar abdillah",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    }
+  ]
+}

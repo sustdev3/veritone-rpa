@@ -95,10 +95,7 @@ export async function collectPassingCandidates(
   }
 
   const existingIds = new Set(existingCandidates.map((c) => c.id));
-  const newCandidates: PassingCandidate[] = [];
-  let bookmarkFound = false;
-  let consecutivePagesWithZeroNew = 0;
-  const FALLBACK_THRESHOLD = 3;
+  const allScrapedCandidates: PassingCandidate[] = [];
   let pageNumber = 1;
   let isFirstPage = true;
 
@@ -110,41 +107,7 @@ export async function collectPassingCandidates(
     const pageCandidates = isFirstPage ? firstPageCards : await collectPageCandidates(page);
     isFirstPage = false;
 
-    if (existingLastProcessedId !== null && !bookmarkFound) {
-      const bookmarkIndex = pageCandidates.findIndex(
-        (c) => c.id === existingLastProcessedId,
-      );
-
-      if (bookmarkIndex !== -1) {
-        bookmarkFound = true;
-        const newOnPage = pageCandidates
-          .slice(0, bookmarkIndex)
-          .filter((c) => !existingIds.has(c.id));
-        newCandidates.push(...newOnPage);
-        console.log(
-          `[CandidateCollector] Bookmark reached at candidate ${existingLastProcessedId} — stopping pagination`,
-        );
-        break;
-      } else {
-        const newOnPage = pageCandidates.filter((c) => !existingIds.has(c.id));
-        newCandidates.push(...newOnPage);
-        if (newOnPage.length === 0) {
-          consecutivePagesWithZeroNew++;
-          if (consecutivePagesWithZeroNew >= FALLBACK_THRESHOLD) {
-            console.log(
-              `[CandidateCollector] Bookmark not found after ${FALLBACK_THRESHOLD} empty pages — stopping pagination`,
-            );
-            break;
-          }
-        } else {
-          consecutivePagesWithZeroNew = 0;
-        }
-      }
-    } else {
-      // First run (no bookmark) — collect everything
-      const newOnPage = pageCandidates.filter((c) => !existingIds.has(c.id));
-      newCandidates.push(...newOnPage);
-    }
+    allScrapedCandidates.push(...pageCandidates);
 
     const nextPageLi = page
       .locator("div.pager ul li.page-num.selected + li.page-num")
@@ -170,8 +133,13 @@ export async function collectPassingCandidates(
     pageNumber++;
   }
 
-  // Merge: new candidates at the front (they are newer)
-  const mergedCandidates = [...newCandidates, ...existingCandidates];
+  // All scraped candidates have fresh flag status from the DOM
+  const newCandidates = allScrapedCandidates.filter((c) => !existingIds.has(c.id));
+  const freshExistingCandidates = allScrapedCandidates.filter((c) => existingIds.has(c.id));
+  const existingUnflaggedCount = freshExistingCandidates.filter((c) => !c.flagged_status).length;
+
+  // mergedCandidates = all scraped candidates (fresh flag status for everyone)
+  const mergedCandidates = allScrapedCandidates;
 
   const { unflaggedCount, flaggedCount, colourSummary } =
     buildCollectSummary(mergedCandidates);
@@ -192,8 +160,6 @@ export async function collectPassingCandidates(
   };
 
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), "utf-8");
-
-  const existingUnflaggedCount = existingCandidates.filter((c) => !c.flagged_status).length;
 
   return { passingCandidates: mergedCandidates, newCandidates, totalFiltered, newCandidatesCount: newCandidates.length, previousLastProcessedId: existingLastProcessedId, existingUnflaggedCount };
 }

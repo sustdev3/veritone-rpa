@@ -340,7 +340,6 @@ export async function readAndProcessAdverts(
           collectResult.totalFiltered,
           llmModel,
           filterResult.selectedKeywords,
-          new Set(collectResult.passingCandidates.map((c) => c.id)),
         );
 
         if (!isWithinRunWindow()) {
@@ -381,7 +380,7 @@ export async function readAndProcessAdverts(
           employmentDateRejects: reviewResult.employmentDateRejects,
           civilLabourerRejects: reviewResult.civilLabourerRejects,
           productionWorkerRejects: reviewResult.productionWorkerRejects,
-          passCount: reviewResult.passCount,
+          passCount: reviewResult.passCount + collectResult.existingUnflaggedCount,
           skippedPreviouslyPassed: reviewResult.skippedPreviouslyPassed,
           defaultedToPassCount: reviewResult.defaultedToPassCount,
         });

@@ -71,7 +71,7 @@ export async function collectPassingCandidates(
   const totalFiltered = countMatch ? parseInt(countMatch[1], 10) : 0;
 
   if (totalFiltered === 0) {
-    return { passingCandidates: [], newCandidates: [], totalFiltered: 0, newCandidatesCount: 0, previousLastProcessedId: null };
+    return { passingCandidates: [], newCandidates: [], totalFiltered: 0, newCandidatesCount: 0, previousLastProcessedId: null, existingUnflaggedCount: 0 };
   }
 
   const tempDir = path.resolve(process.cwd(), "temp");
@@ -193,5 +193,7 @@ export async function collectPassingCandidates(
 
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), "utf-8");
 
-  return { passingCandidates: mergedCandidates, newCandidates, totalFiltered, newCandidatesCount: newCandidates.length, previousLastProcessedId: existingLastProcessedId };
+  const existingUnflaggedCount = existingCandidates.filter((c) => !c.flagged_status).length;
+
+  return { passingCandidates: mergedCandidates, newCandidates, totalFiltered, newCandidatesCount: newCandidates.length, previousLastProcessedId: existingLastProcessedId, existingUnflaggedCount };
 }

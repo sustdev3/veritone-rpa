@@ -96,7 +96,7 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
   );
 
   // TESTING: only process the 2 oldest adverts
-  const toProcess = withinWindow.slice(0, 2);
+  const toProcess = withinWindow.slice(0, 3);
 
   for (const a of toProcess) {
     console.log(

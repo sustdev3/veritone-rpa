@@ -19,6 +19,7 @@ export interface CollectResult {
   totalFiltered: number;
   newCandidatesCount: number;
   previousLastProcessedId: string | null;
+  existingUnflaggedCount: number;
 }
 
 export interface CardData {

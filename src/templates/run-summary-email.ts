@@ -38,7 +38,7 @@ export function buildRunSummaryHtml(
       ${cell(r.selectedKeywords?.join(', '))}
       ${cell(r.totalApplications)}
       ${cell(r.filteredCount)}
-      ${cell(r.passCount ?? 0)}
+      ${cell((r.passCount ?? 0) + (r.skippedPreviouslyPassed ?? 0))}
     </tr>`;
   }).join('');
 

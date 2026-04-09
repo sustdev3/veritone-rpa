@@ -273,9 +273,7 @@ export async function reviewResumes(
     pageNumber++;
   }
 
-  // Cumulative pass count: new passes this run + all previously passed
-  const newPassCount = results.filter((r) => r.ai_decision === "pass").length;
-  const passCount = newPassCount + previouslyPassedIds.size;
+  const passCount = results.filter((r) => r.ai_decision === "pass").length;
   const failCount = results.filter((r) => r.ai_decision === "fail").length;
 
   // Carry forward rejection counts from previous fails + add new fails

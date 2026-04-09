@@ -1,0 +1,30 @@
+{
+  "advertId": "519393",
+  "reviewedAt": "2026-04-08T20:12:44.621+10:00",
+  "totalReviewed": 3,
+  "ruleset": "standard",
+  "selectedKeywords": "fork* OR pick* OR labour*",
+  "results": [
+    {
+      "id": "490080285",
+      "name": "Peter Mckay",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria. Currently employed (02/2024-Date as Forklift Operator), has similar warehouse/labour experience within last 3 years, White Card held (issued 9/2012, valid for construction work), and no age-related rejection indicators. Date of birth listed (19th July 1985) confirms candidate is 39 years old, well under 50-year threshold for labouring roles. Email 'irishpete85@outlook.com' contains 85 which, while a 4-digit-appearing segment, is clearly part of the handle pattern and not a standalone birth year.",
+      "rejection_category": null
+    },
+    {
+      "id": "490076026",
+      "name": "Abdi Mire",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar warehouse/labour role within the last three years. Most recent role (QA and Compliance Team Member at Crusader Caravans, 2022/2023) ended over a year ago and does not constitute similar warehouse/labouring experience. No employment in the last 6 months is evident.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "490116774",
+      "name": "Max R. Trujillo Huaraca",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 31 years old (explicitly stated), has warehouse/labour experience within the last 6 months (Feb-Apr 2026 as Pick-Packer at TIC Group), and has relevant similar roles within the last 3 years. All general and labouring role filters are satisfied.",
+      "rejection_category": null
+    }
+  ]
+}

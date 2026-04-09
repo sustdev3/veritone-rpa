@@ -1,0 +1,26 @@
+{
+  "advertId": "519393",
+  "collectedAt": "2026-04-08T20:12:17.522+10:00",
+  "totalFiltered": 3,
+  "selectedKeywords": "fork* OR pick* OR labour*",
+  "passingCandidates": [
+    {
+      "id": "490116774",
+      "name": "Max R. Trujillo Huaraca",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490080285",
+      "name": "Peter Mckay",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "490076026",
+      "name": "Abdi Mire",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    }
+  ]
+}

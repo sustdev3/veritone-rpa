@@ -1,0 +1,20 @@
+{
+  "advertId": "519370",
+  "collectedAt": "2026-04-08T21:44:56.223+10:00",
+  "totalFiltered": 2,
+  "selectedKeywords": "fork* OR pick*",
+  "passingCandidates": [
+    {
+      "id": "487770722",
+      "name": "James Safar",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "486709011",
+      "name": "Kwabena Boakye-Yiadom",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

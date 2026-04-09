@@ -1,0 +1,58 @@
+{
+  "advertId": "519388",
+  "reviewedAt": "2026-04-08T20:32:50.474+10:00",
+  "totalReviewed": 7,
+  "ruleset": "standard",
+  "selectedKeywords": "production* OR labour* OR fork*",
+  "results": [
+    {
+      "id": "489847108",
+      "name": "cyanne leapai",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment (Hilton Foods) ended in 2020, with no current or recent positions listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489839948",
+      "name": "Yahya Sabawi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Laborer at AWX Labour Hire (10/2024 - Current), satisfying the 6-month requirement. Age cannot be determined from CV or email. No role-specific restrictions apply to this general labouring position.",
+      "rejection_category": null
+    },
+    {
+      "id": "489836145",
+      "name": "Eleni Tilahun",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role (warehouse/labour) within the last three years. All recent experience is in office-based, administrative, customer service, and retail roles with no evidence of labouring or warehouse work.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489831062",
+      "name": "Ngatokoono Tutaka",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Last employment ended in 2021, which is over 3 years ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "490120692",
+      "name": "Henry Tufele",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (September 2023 - Present) satisfying 6-month requirement. Has recent similar labouring/labour supervisor experience within last 3 years. Name 'Tufele' suggests Pacific Islander heritage (indicator of physical capability for labouring role). No explicit age indicators present (no DOB stated, email 'Htufele23' does not contain a standalone 4-digit birth year). No availability conflicts apparent. Meets all general and labouring role filters.",
+      "rejection_category": null
+    },
+    {
+      "id": "490043818",
+      "name": "summah nahu",
+      "ai_decision": "fail",
+      "ai_reason": "Employment dates are unclear and potentially unreliable. The candidate lists jobs with only month-year format (e.g. 'Feb – may 2025', 'Aug – nov 2025') without clear day specifications, making it difficult to verify actual employment duration. More critically, the timeline appears internally inconsistent or implausible: jobs are listed as occurring in 2025-2026 (future dates from a 2024 perspective) or the dates may be formatted incorrectly, creating uncertainty about whether the candidate has actually been employed in the last 6 months.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "490041147",
+      "name": "Jeanfranc Mugabe",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current forklift operator role (Dec 2024 - July 2025) satisfying 6-month requirement. Has similar labouring/warehouse experience within 3 years. No age can be determined from CV or email (jfmugabe13 does not contain a standalone birth year). No availability conflicts apparent. Meets general filters for blue-collar warehouse role.",
+      "rejection_category": null
+    }
+  ]
+}

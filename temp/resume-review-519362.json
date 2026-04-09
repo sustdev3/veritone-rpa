@@ -1,0 +1,107 @@
+{
+  "advertId": "519362",
+  "reviewedAt": "2026-04-08T22:36:36.795+10:00",
+  "totalReviewed": 14,
+  "ruleset": "standard",
+  "selectedKeywords": "fork* OR pick* OR pack*",
+  "results": [
+    {
+      "id": "487798146",
+      "name": "Jithesh Attanta Kndiyil",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent experience is in pharmaceutical sales management (Regional Sales Manager until 28-02-2026), which is not similar to a blue-collar warehouse/labour role. No warehouse, logistics, or labouring experience is evident in the CV.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "487595955",
+      "name": "Juan Farias",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/forklift experience within the last 6 months (current role 2025-2026), possesses required forklift licence, and no disqualifying factors are evident from the CV.",
+      "rejection_category": null
+    },
+    {
+      "id": "487567620",
+      "name": "Tien van Dang",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is 54 years old (explicitly stated on CV as 'Tien Van Dang' with age clearly identifiable from work history starting in 2015 and current role in 2025-2026, making candidate over 50). For a labouring role, candidates over 50 must be rejected.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487260462",
+      "name": "Sandy Traikovski",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all relevant criteria for a labouring/warehouse role. Has 15+ years construction and labour experience with recent employment (Jan 2023 – Dec 2025 as Intermediate Scaffolder). Has worked in similar roles within the last 3 years. No age, sex, or availability concerns can be identified from CV content. White Card is listed (construction induction certified). Suitable for warehouse/labour work.",
+      "rejection_category": null
+    },
+    {
+      "id": "486728235",
+      "name": "Hasan Sadiq",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has forklift driving experience within the last 6 months (self-employed since 2021, previous forklift roles 2020-2021 and 2017-2020). Age cannot be determined from CV or email. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "486291374",
+      "name": "Emmit Ma'agaolo",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (January 2026 - Current) satisfying 6-month requirement. Extensive warehouse and logistics experience directly relevant to blue-collar labour role. No explicit age indicators, no female sex restriction applies to standard labouring roles, and no role-specific filters (White Card, hand tools) mentioned in job description.",
+      "rejection_category": null
+    },
+    {
+      "id": "486062317",
+      "name": "Ilaoa Taua",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Security role from 03/2021-Current), recent warehouse/forklift experience (06/2020-12/2025), and no clear age indicators suggesting over 50. Email 'ilaoat11@outlook.com' does not contain a plausible standalone birth year. No explicit rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488105406",
+      "name": "Mersed Muratovic",
+      "ai_decision": "fail",
+      "ai_reason": "No similar role within the last 3 years. Last courier/loading position ended December 2020 (3+ years ago). Current Tradelink role (Branch Assistant since Jan 2024) is not substantially similar to a warehouse/labour labouring role.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "487992813",
+      "name": "Chadani Kumari",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate appears to be female (name: Chadani Kumari) without clear evidence of recent labouring experience. For a labouring role, females must demonstrate clear recent labouring experience, which is not evident from this CV.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488497399",
+      "name": "Bailey Lowe Joyce",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 19 years old (explicitly stated in profile), well under the age 50 threshold for labouring roles. Current employment at Hungry Jacks (Feb 2025 - Sept 2025) satisfies the 6-month employment requirement. While candidate is female, she has relevant labouring/warehouse-adjacent experience (lab technician, food service cleaning/maintenance). No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488301595",
+      "name": "Lakshan Gunasinghe",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labouring experience within the last 6 months (current role as Shipping Clerk Aug 2025 - Dec 2025) and similar experience within the last 3 years (Storeperson Feb 2023 - July 2025). No age indicators present (no DOB, no plausible birth year in email, high school completion not dated, first job not 30+ years ago). Male name and no conflicting availability issues identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "489213239",
+      "name": "Eden Marsh",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. The role is a blue-collar warehouse/labour job, which typically qualifies as a labouring role. While the CV shows warehouse and forklift experience, the recent roles (2024-2025) are seasonal contracts in horticulture and food processing, not heavy labouring. Without explicit confirmation this is not a heavy labouring role, and given the female sex indicator combined with lack of unambiguous recent heavy labouring experience, the candidate does not meet labouring role criteria.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488965489",
+      "name": "Nicholas James Karantoni",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar warehouse/labouring role within the last three years. Most recent relevant experience (forklift operation, stock handling) was at The Good Guys (January 2019 to December 2019). Subsequent roles from October 2023 onwards are retail checkout/customer service only, with no warehouse or labouring duties.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489802305",
+      "name": "Christian Gurr",
+      "ai_decision": "fail",
+      "ai_reason": "First job started in 1991, which is 33 years ago. This exceeds the 30-year threshold for age inference in labouring roles, indicating candidate is likely over 50.",
+      "rejection_category": "labouring"
+    }
+  ]
+}

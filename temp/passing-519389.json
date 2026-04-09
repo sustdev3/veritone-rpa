@@ -1,0 +1,110 @@
+{
+  "advertId": "519389",
+  "collectedAt": "2026-04-08T20:22:20.667+10:00",
+  "totalFiltered": 36,
+  "selectedKeywords": "\"civil labourer\" OR labour*",
+  "passingCandidates": [
+    {
+      "id": "490116489",
+      "name": "Braydan Mannix",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490111053",
+      "name": "Patel Ashik",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490109633",
+      "name": "Tim Izak",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490071050",
+      "name": "Giovanni Orlando",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490070609",
+      "name": "Erin Small",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "490067157",
+      "name": "lindon venter",
+      "flagged_status": true,
+      "flag_colour": "unranked"
+    },
+    {
+      "id": "489832078",
+      "name": "Darcy Berry",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489820273",
+      "name": "Domenic Scalzo",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489816143",
+      "name": "Ryan Nugara",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489812312",
+      "name": "George Mushamiri",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "489804134",
+      "name": "Stefan Nikolic",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "489803913",
+      "name": "saiyam verma",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489803887",
+      "name": "Codi Nord Cross",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489798335",
+      "name": "Richard Birch",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489798227",
+      "name": "Waseem Khan khill",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "489797646",
+      "name": "Raymond Crane",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "489796715",
+      "name": "Daniel Koech",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "advertId": "519367",
+  "reviewedAt": "2026-04-08T22:20:23.891+10:00",
+  "totalReviewed": 9,
+  "ruleset": "standard",
+  "selectedKeywords": "production* OR labour*",
+  "results": [
+    {
+      "id": "487763093",
+      "name": "Shaun Irving",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate's date of birth is explicitly stated as 8th December 1979, making them 44 years old. However, the employment history shows a current role at Mayfair Steel And Aluminium listed as '02 - 2023 - 03 - 2026'. The end date of March 2026 is in the future, which is implausible and creates uncertainty about actual current employment status. This ambiguity prevents confident confirmation that the candidate has been employed in the last 6 months.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "487519963",
+      "name": "nelson batu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (Aqua tech 2024, Truss Master 2021-2024, R&M House Tiling 2022-2023). Age cannot be determined from CV (no explicit DOB/age stated) or email (nelson.batu91@ — '91' is not a standalone 4-digit year between 1940-1974). No high school completion date provided. First job started in 2013, less than 30 years ago. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487295770",
+      "name": "Jason Lamb",
+      "ai_decision": "fail",
+      "ai_reason": "Email contains standalone 4-digit number '4915' which plausibly represents birth year 1949, indicating candidate is approximately 75 years old, exceeding the 50-year age limit for labouring roles.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "486305523",
+      "name": "Nick Mazich",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a blue-collar warehouse/labour role. Recent employment as Industrial Painter/Blaster/Skilled Labourer (05/2025–01/03/2026) satisfies the 6-month requirement. Extensive relevant labouring experience within the last 3 years across construction, warehousing, and industrial roles. No age-related disqualifiers present (no explicit DOB, no plausible birth year in email, no high school completion date, first job started in 2021). Male candidate with demonstrated hands-on labouring capability. Holds relevant certifications including White Card and Forklift Ticket.",
+      "rejection_category": null
+    },
+    {
+      "id": "486281497",
+      "name": "Petelo Petelo Akaimo",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is male, Pacific Islander (Samoan), has completed Certificate 3 in Warehouse Processing recently, and has 4 years of labour/trade experience from 2016-2018. No clear rejection criteria are met. Email 'petelosevao83' contains '83' which is not a standalone 4-digit birth year. Age cannot be reliably determined from available indicators, so defaults to pass. Recent warehouse qualification satisfies current relevance for warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488135592",
+      "name": "Rogiemar Basilango",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Production Labourer at Ingham's (2025-2026), demonstrating recent work within the last 6 months. Similar role experience as Pasta Maker (2023-2025) within the last three years. No age-related rejection indicators present. No explicit rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488954892",
+      "name": "Dom Thompson",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Scaffolder (July 2024 to date), satisfying the 6-month requirement. Multiple labouring roles in work history within last 3 years. No explicit age indicator, email does not contain standalone birth year (32 is not a year), and no high school completion date provided. Gender cannot be definitively determined from name alone. Meets general employment criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "489625079",
+      "name": "sharon Ndiulo",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. Most recent role (Jan-Aug 2022, packaging/production at Lactalics) is over 2 years old and does not constitute recent labouring experience sufficient to overcome the labouring role filter for females.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489875849",
+      "name": "Hassan Shukri abdi",
+      "ai_decision": "fail",
+      "ai_reason": "No clear employment in the last 6 months. The most recent role listed is '2020-2024 pick packer' with no end date specified, making it unclear whether the candidate is currently employed or when this role ended.",
+      "rejection_category": "employment_date"
+    }
+  ]
+}

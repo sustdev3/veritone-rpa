@@ -1,0 +1,74 @@
+{
+  "advertId": "519364",
+  "collectedAt": "2026-04-08T22:30:19.939+10:00",
+  "totalFiltered": 11,
+  "selectedKeywords": "fork*",
+  "passingCandidates": [
+    {
+      "id": "486654329",
+      "name": "Jason Crockford",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486308735",
+      "name": "Nick Mazich",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486051365",
+      "name": "Jordon Dearing",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486001919",
+      "name": "Aaron Holland",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485813129",
+      "name": "Tanya Moschos",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "485773960",
+      "name": "Jake Spence",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "485252237",
+      "name": "Nicholas Kramer",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "485251870",
+      "name": "Terry Pillar",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "485153969",
+      "name": "jacob mcgarth",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "485135743",
+      "name": "Ryan Zerphey",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484557863",
+      "name": "Tamale Taukolo",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    }
+  ]
+}

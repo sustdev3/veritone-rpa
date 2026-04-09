@@ -1,0 +1,122 @@
+{
+  "advertId": "519361",
+  "reviewedAt": "2026-04-08T22:38:05.432+10:00",
+  "totalReviewed": 16,
+  "ruleset": "standard",
+  "selectedKeywords": "fork* OR pick* OR pack* OR labour*",
+  "results": [
+    {
+      "id": "488729777",
+      "name": "Joseph Muchoki",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (2024–Present) as Warehouse Operator/Forklift Driver at One Harvest, satisfying the 6-month requirement. Similar warehouse/forklift roles within the last 3 years are clearly documented. No age, availability, or other rejection criteria are triggered. This is a standard warehouse/labour role, not a civil labourer, production worker, or heavy labouring role requiring additional filters.",
+      "rejection_category": null
+    },
+    {
+      "id": "487540331",
+      "name": "Arden Le Gay Brereton",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Work history consists of volunteer office admin (2018) and volunteer library assistant (2019). No warehouse, labour, or related manual work experience is evident. Currently enrolled in a Certificate IV in Cyber Security (July 2024 – June 2025), which indicates focus on IT education rather than labouring work.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "487516905",
+      "name": "Nick Kordic",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (windscreen technician 2025-present), relevant forklift/yard experience within last 3 years (2023-2024), and no disqualifying factors identified. Email 'n.kordic14@gmail.com' does not contain a standalone birth year. Age cannot be determined from other indicators.",
+      "rejection_category": null
+    },
+    {
+      "id": "487049721",
+      "name": "THOMAS PEIHOPA",
+      "ai_decision": "fail",
+      "ai_reason": "First job started in 1985 (approximately 40 years ago), indicating candidate is likely over 50 years old. This triggers automatic rejection for labouring roles in Australia.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487005659",
+      "name": "Andrew Stowers",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all general and labouring role criteria. Current employment as Forklift Driver/Storeperson (2024-2025) satisfies 6-month requirement. Similar warehouse/labouring roles within last 3 years. Age cannot be determined from CV or email (andrewstowers20 does not contain a standalone birth year between 1940-1974; '20' is not plausible as a birth year). No explicit age or DOB stated. High school completed in 2009, well under 32 years ago. Male candidate with extensive recent labouring experience.",
+      "rejection_category": null
+    },
+    {
+      "id": "486309052",
+      "name": "Nick Mazich",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a warehouse/labour role. Recent employment as Industrial Painter/Blaster (05/2025-01/03/2026) satisfies 6-month requirement. Similar labouring experience within 3 years (Trades Assistant 03/2023-09/2024, Woodworker Assistant 01/2023-03/2023). Age cannot be determined from CV or email. Male candidate with relevant hands-on experience, certifications (White Card, Forklift Ticket), and proficiency with hand tools.",
+      "rejection_category": null
+    },
+    {
+      "id": "486040629",
+      "name": "Nathan Saunia",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse employment (03/2022 - currently active) satisfying the 6-month requirement and has relevant labouring/warehouse experience within the last 3 years. No explicit age indicators present (no DOB stated, email contains no plausible birth year, Year 12 completed in 2018 is only 6 years ago). Male candidate with demonstrated physical labour capability (moving 30kg+ products, forklift operation). No role-specific filters (civil labourer/production worker) apply.",
+      "rejection_category": null
+    },
+    {
+      "id": "485582428",
+      "name": "Paul Dighton",
+      "ai_decision": "pass",
+      "ai_reason": "JSON parse error — defaulted to pass",
+      "rejection_category": null,
+      "defaulted": true
+    },
+    {
+      "id": "485567632",
+      "name": "Collins James",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current/recent employment (360 Personnel 2025, FedEx 2024-2025, Coles ADC 2023-2024) satisfying the 6-month requirement. Has relevant warehouse/labour experience within the last 3 years including loading/offloading, pick/pack, and material handling. No explicit age indicator present (email 'collinsjames1st' does not contain a standalone birth year 1940-1974). No disqualifying factors identified for a standard warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "485520743",
+      "name": "Wing Ki Gospel Tang",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant warehouse/labouring experience within the last 6 months (Forklift Operator Dec 2025 – Mar 2026, Line Supervisor Jul 2025 – Dec 2025). Age cannot be determined from CV or email (76.mukk@ does not follow a clear birth year pattern). No explicit rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "485308113",
+      "name": "Tanuu Vili",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Labour Box Feeder (11/2024 - Current), satisfying the 6-month requirement. Extensive warehouse and logistics experience with reach driving and forklift operation over 5+ years. No disqualifying factors identified under the provided rejection criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "489093793",
+      "name": "Tomotsugu Otsuki",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 29 years old (DoB 22 Sept 1994), well under 50. Has recent forklift and loader operating experience within the last 6 months (current role Nov 2025 - Jan 2026). Male candidate with relevant labouring experience. Meets all general and labouring role criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "489627756",
+      "name": "Joy Apuka",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labour experience within the last 6 months (Visy Recycling 11/2025-02/2026, Synergy Placements 10/2025-01/2026, Crew Select 04/2025-11/2025). No explicit age/DOB stated. Email 'joyapuka0@gmail.com' contains '0' which is not a plausible standalone birth year. High school completed in 2016 (8 years ago), well under 32 years. No age-related rejection criteria met. Female candidate has clear recent labouring experience (forklift operation, machine operation, waste sorting, manual handling). No specific role restrictions apply (not civil labourer or production worker role specified). Meets 6-month employment and similar role requirements.",
+      "rejection_category": null
+    },
+    {
+      "id": "489540307",
+      "name": "Matthew Forshey",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment ended May 2021, over 3 years ago.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489801054",
+      "name": "Cloe Byrnes",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Process Worker (2024–Present), satisfying 6-month requirement. Has relevant labouring/process work experience within last 3 years. Age cannot be determined from explicit DOB, email (clojess8378@ contains no standalone birth year 1940–1974), or high school completion date. Female candidate with clear recent labouring experience (process work, commercial cleaning, detailing). No role-specific filters triggered (not civil labourer, not production worker, not heavy labouring).",
+      "rejection_category": null
+    },
+    {
+      "id": "490046464",
+      "name": "jaiden lillie",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed as Forklift Driver from December 2019 to current (satisfies 6-month requirement); has 5+ years warehouse experience and recent labouring/warehouse work; no age indicators present (no DOB, no standalone birth year in email, first job started 2014); White Card listed (relevant if civil labourer role); hand tools experience mentioned; availability appears suitable for warehouse/labour role.",
+      "rejection_category": null
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "advertId": "519374",
+  "collectedAt": "2026-04-08T21:31:19.969+10:00",
+  "totalFiltered": 79,
+  "selectedKeywords": "fork*",
+  "passingCandidates": [
+    {
+      "id": "490060044",
+      "name": "Jake Cripps",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489885546",
+      "name": "Dylan Cooper",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489791731",
+      "name": "Jordan Derks",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "489783222",
+      "name": "Asama Dissanayake",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489726219",
+      "name": "Mohammad Ameri",
+      "flagged_status": true,
+      "flag_colour": "unranked"
+    },
+    {
+      "id": "489664971",
+      "name": "Paul Treen",
+      "flagged_status": true,
+      "flag_colour": "unranked"
+    },
+    {
+      "id": "488098926",
+      "name": "Xiaolong Hui",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488095920",
+      "name": "Val Joseph Semera",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488059442",
+      "name": "Lazaros Garatzioulas",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "488005260",
+      "name": "Muhamad Hairun Ikhwan Bin Kusno",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487984309",
+      "name": "David Pitt",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487958580",
+      "name": "Ledy Margaretha",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487827973",
+      "name": "Mao Yuok",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487787760",
+      "name": "Garry Nyagui",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487601377",
+      "name": "Sean Pearson",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487587968",
+      "name": "Deep Saliya",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487555490",
+      "name": "Dylan Foord",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487555481",
+      "name": "Declan Clark",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487547674",
+      "name": "ANISH AMATYA",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487519418",
+      "name": "Anthony Suthers",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487512800",
+      "name": "Ryan Andrado",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487502659",
+      "name": "Billy Tsekas",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "487500141",
+      "name": "Adam Male",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487479256",
+      "name": "Tyson Hills",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487468208",
+      "name": "Dylan Newman",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487321096",
+      "name": "Karl Bowditch",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "487294912",
+      "name": "Sanjay Kumar",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487280589",
+      "name": "Shane Mewett",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487271194",
+      "name": "Imesh Kariyapperuma Athukoralalage Don",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487267451",
+      "name": "Frank Azzam",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487258918",
+      "name": "Majny majing",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487249834",
+      "name": "John Murfet",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487247287",
+      "name": "Brian Kerr",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487241867",
+      "name": "Pa Cooper Pekama",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487240989",
+      "name": "Jasmen Nicholas",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487240920",
+      "name": "Abdi Hassan",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487229473",
+      "name": "Jeremiah Junio Tokoa Aurupa",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487214864",
+      "name": "Robert Tinney",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487191232",
+      "name": "Rowan Barkway",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487102270",
+      "name": "Patrick Dylan Paternott",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487064473",
+      "name": "Warren Lee",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487044530",
+      "name": "Ave Sale",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487037709",
+      "name": "Ali Rezaie",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487035999",
+      "name": "Trevor Peters",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487024961",
+      "name": "Predrag Pavasovic",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487012892",
+      "name": "kereana day",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487012302",
+      "name": "Christopher Panagopoulos",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487003963",
+      "name": "I made rama Waskita",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "487003371",
+      "name": "Mahsum Acar",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486998654",
+      "name": "Darren Bortignon",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486998051",
+      "name": "Paheerathan (Rathan) Kanesalingam",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486994596",
+      "name": "Daniel Maira",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486992576",
+      "name": "Karan Singh",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486991074",
+      "name": "anmol rana",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "486990520",
+      "name": "mohd khalid Tanti",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "486990390",
+      "name": "mohd sofeeyan omar ali",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486987978",
+      "name": "James Tuitama",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486982641",
+      "name": "Shujaullah Noori",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486966531",
+      "name": "Blake Marsh",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "486964560",
+      "name": "Leandro Silva",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

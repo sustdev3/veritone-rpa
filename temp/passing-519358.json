@@ -1,0 +1,302 @@
+{
+  "advertId": "519358",
+  "collectedAt": "2026-04-08T22:45:38.825+10:00",
+  "totalFiltered": 64,
+  "selectedKeywords": "fork*",
+  "passingCandidates": [
+    {
+      "id": "489905477",
+      "name": "Raendy Raendy",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "489229573",
+      "name": "lucas weldon",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "488985780",
+      "name": "William Salabogi",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "488341525",
+      "name": "Adam Bakour",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "487309865",
+      "name": "Simone Combeer",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "487281018",
+      "name": "Jan Luyten",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "487238468",
+      "name": "Kobe Tamati",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "486973413",
+      "name": "Andrean Rendra Sutanto",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "486691018",
+      "name": "Danny Maling",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "486471500",
+      "name": "Sagar PATEL",
+      "flagged_status": true,
+      "flag_colour": "unranked"
+    },
+    {
+      "id": "485263251",
+      "name": "Abdul Basith",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485255524",
+      "name": "Facundo Vizuara Robles",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485252674",
+      "name": "petar Milosevski",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485156412",
+      "name": "Ronald Priestley",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "485028974",
+      "name": "Meaole Matafeo",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484890231",
+      "name": "Tenzin Sherab",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484536186",
+      "name": "Pataratanan Visitserngtrakul",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484524753",
+      "name": "Nathan Jackson",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484511550",
+      "name": "Michael Benn",
+      "flagged_status": false,
+      "flag_colour": null
+    },
+    {
+      "id": "484504166",
+      "name": "Salem Massoud",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484501971",
+      "name": "Kirelous Yassa",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "484303368",
+      "name": "Dylan Garner",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484295804",
+      "name": "Ahmad Mustafa Sazgar",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484293749",
+      "name": "SOOHYUN KIM",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484291575",
+      "name": "Mark Eddison",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484289426",
+      "name": "John Olney",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484255870",
+      "name": "Takudzwa Brendon Mururami",
+      "flagged_status": true,
+      "flag_colour": "purple"
+    },
+    {
+      "id": "484255256",
+      "name": "Taejah Riki",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484241677",
+      "name": "Jury Thomson",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484240421",
+      "name": "Aerin Yoo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484233544",
+      "name": "malcolm wyld",
+      "flagged_status": true,
+      "flag_colour": "green"
+    },
+    {
+      "id": "484080575",
+      "name": "Sherab Lama",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "484033625",
+      "name": "Fabio Nicchi",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483994905",
+      "name": "Long Nguyen",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483985568",
+      "name": "VEYSEL OZDEMIR",
+      "flagged_status": true,
+      "flag_colour": "amber"
+    },
+    {
+      "id": "483976658",
+      "name": "Joanito Josse Shandra",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483957000",
+      "name": "Ivan Huertas Paez",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483949862",
+      "name": "Adam Baghdadi",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483946107",
+      "name": "HOSAIN MOUSA",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483943686",
+      "name": "daniel elliott",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "483926237",
+      "name": "Steven Boroevich",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483926010",
+      "name": "Darin Castle",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483915765",
+      "name": "Ronanda Paramayuda",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483864859",
+      "name": "Mengxin Zhang",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483748698",
+      "name": "Nasili Pani",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483743929",
+      "name": "JEREMY RIEDER",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483727152",
+      "name": "Seungmi Park",
+      "flagged_status": true,
+      "flag_colour": "red"
+    },
+    {
+      "id": "483714214",
+      "name": "John leftly",
+      "flagged_status": true,
+      "flag_colour": "good"
+    },
+    {
+      "id": "483708212",
+      "name": "Alejandro Jaramillo",
+      "flagged_status": true,
+      "flag_colour": "red"
+    }
+  ]
+}

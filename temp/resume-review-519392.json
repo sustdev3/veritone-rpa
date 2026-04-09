@@ -1,0 +1,100 @@
+{
+  "advertId": "519392",
+  "reviewedAt": "2026-04-08T20:14:49.484+10:00",
+  "totalReviewed": 13,
+  "ruleset": "standard",
+  "selectedKeywords": "pack* OR pick* OR labour*",
+  "results": [
+    {
+      "id": "490091479",
+      "name": "zeeshan ali anjum",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment listed (Machine Operator at Langtech from June 2014 - continue), satisfying the 6-month employment requirement. Recent manufacturing and warehouse experience (2018-2023, plus current role) is relevant to blue-collar warehouse/labour work. No age indicators present in CV or email. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "490088971",
+      "name": "Ryan Le",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Logistics Assistant (October 2025 - Present), which satisfies the 6-month requirement. Has relevant pick packing and warehouse experience within the last 3 years. No age, sex, or other rejection criteria can be clearly confirmed from CV content alone.",
+      "rejection_category": null
+    },
+    {
+      "id": "490087826",
+      "name": "Daniel Tira",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Process Worker (April 2025 – February 2026), which satisfies the 6-month employment requirement. Recent warehouse and operations experience within the last 3 years. No age indicators present (no DOB stated, email 'daniel.tira10' does not contain a standalone birth year, high school completed 2018). Male candidate. All general filters passed.",
+      "rejection_category": null
+    },
+    {
+      "id": "490083342",
+      "name": "Hayley Matavao",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labouring experience (Amazon May-Oct 2025, Campion Dec 2025-Jan 2026). Female candidate with clear evidence of recent labouring work in picking/packing roles. Age cannot be determined from CV or email (hayleymatavao6@ does not contain a standalone birth year). No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "490053670",
+      "name": "Joshua Christieson",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 22 years old (DOB stated as 22/01/2004), well under the 50-year age limit. Currently employed at Coles since February 2024 (satisfies 6-month requirement). Has recent labouring/warehouse experience including stock replenishment, dock loading/unloading, and physical stacking. Male candidate. No role-specific restrictions apply (not civil labourer, production worker, or heavy labouring role specified).",
+      "rejection_category": null
+    },
+    {
+      "id": "490053013",
+      "name": "Satya Gayathri Ghanta",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. Current roles (Store Team Member and Food Production Worker, both starting in 2025-2026) are retail/food production, not warehouse/labour roles. No demonstrated warehouse or heavy labour background.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "490051559",
+      "name": "Dominic Mastrantoni",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment (Courier/Freight Handler 2025, within last 6 months), similar labouring experience within 3 years (Basin Plumbing Services 2022-2024 involving manual handling and physical work), and holds White Card (2022). Age cannot be determined from CV or email. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "490050372",
+      "name": "Antonio Tamate-Forbes",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/pick packing experience (2023), which is similar to a warehouse/labour role. No disqualifying factors identified. Email does not contain a standalone birth year. No age, sex, or availability concerns that would trigger rejection.",
+      "rejection_category": null
+    },
+    {
+      "id": "490048882",
+      "name": "William Moutis",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all required criteria. Currently employed (January 2025 - current) satisfying 6-month requirement. Has relevant labouring experience within last 3 years (VISY waste management Jan 2025-current, Omnirecruit labour hire Dec 2022-Apr 2023, cabinet making Dec 2023-Jun 2023). White Card certification confirmed. Hand tools competency explicitly stated. No age indicators present (no DOB, no plausible birth year in email, high school completed 2021, first job 2022). Male candidate. No availability conflicts identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "490048863",
+      "name": "Alester Alcantara",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment (Cleaner, Aug 2024 – Feb 2026, currently active), warehouse/labour experience within 3 years (Picker/Packer May 2023 – Jul 2024), and no disqualifying factors identified. Age cannot be determined from CV or email. Availability aligns with warehouse work.",
+      "rejection_category": null
+    },
+    {
+      "id": "490081794",
+      "name": "Phil Hile",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar warehouse/labour role within the last three years. Last warehouse role ended Mar 2020 (5+ years ago); subsequent roles were teaching positions (2022-2025) in the UK. Current availability is unclear as teaching role only ended Jul 2025.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "490129048",
+      "name": "Anthony Ta",
+      "ai_decision": "pass",
+      "ai_reason": "Anthony Ta is 20 years old (DOB 21.07.2004), well under the 50-year age limit for labouring roles. He has current employment as a Food Team Member at IKEA (2023 AUG - 2025 AUG, which extends beyond the review date). He has relevant warehouse/factory experience including 8 months as a factory worker at VISY operating machinery (2023 JAN - 2023 AUG), satisfying the 3-year similar role requirement. No role-specific filters (civil labourer, production worker, heavy labouring) are explicitly mentioned in the job description provided. All general employment criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "490119986",
+      "name": "Isi Misiuata",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as scaffolder (2022-current), similar labouring role within last 3 years, White Card and Scaffold Ticket qualifications listed. Age cannot be determined from explicit statement, email, high school completion date (2018, less than 32 years ago), or first job start date (2018, less than 30 years ago). No rejection criteria clearly met.",
+      "rejection_category": null
+    }
+  ]
+}

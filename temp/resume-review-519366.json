@@ -1,0 +1,942 @@
+{
+  "advertId": "519366",
+  "reviewedAt": "2026-04-08T22:25:52.791+10:00",
+  "totalReviewed": 133,
+  "ruleset": "strict",
+  "selectedKeywords": "\"civil labourer\"",
+  "results": [
+    {
+      "id": "486137269",
+      "name": "Masoud Noor",
+      "ai_decision": "fail",
+      "ai_reason": "No White Card (construction induction card) mentioned in CV. White Card is a mandatory requirement for civil labourer roles.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "486105082",
+      "name": "Dylan Debono",
+      "ai_decision": "fail",
+      "ai_reason": "No clear employment dates provided. CV shows '2019- present' for one role but the header dates are '2017-2019' with no end date clarity. The work history lacks specific month/year information (e.g. 'Jan 2019 - present' or 'March 2024 - present'), making it impossible to confirm employment in the last 6 months or verify the 3-year similar role requirement with confidence.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "486096453",
+      "name": "Shane Timmo",
+      "ai_decision": "fail",
+      "ai_reason": "No employment in the last 6 months. Last role ended December 2023, which is over 6 months ago.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "486089916",
+      "name": "Arifulla Shaik",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has explicitly stated date of birth (27/02/1992), making him 32 years old — well below the 50-year age threshold for labouring roles. He has extensive recent employment history in site supervision and construction management (Site Engineer Jan 2025, currently in Certificate IV program), demonstrating relevant experience within the last 6 months and last 3 years. No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "486088399",
+      "name": "Sebastian Vazquez",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (2024-2025) satisfying 6-month requirement. Has relevant labouring/civil construction experience within 3 years. Age cannot be reliably determined from CV or email. Male candidate with appropriate qualifications for warehouse/labour work.",
+      "rejection_category": null
+    },
+    {
+      "id": "486086362",
+      "name": "Bayley Stefuly",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (Sync Industries, March 2025-December 2025, within last 6 months), similar role experience within 3 years (Civil Pipelayer, Labourer roles 2021-2024), White Card listed, and no age-disqualifying indicators present. Email does not contain a standalone birth year. Cannot determine sex with certainty from name alone, and CV shows substantial recent labouring experience which would satisfy any labouring-specific criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "486072719",
+      "name": "Deepak Mohindru",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Pick n Packer (July 2021 - Till date) at Bidfood Food Limited in Australia, which is a similar warehouse/labour role within the last 6 months. No rejection criteria are clearly met. Email 'Deepak.mohindru77@gmail.com' contains '77' which is not a standalone birth year indicator. No explicit age or date of birth stated. Candidate appears suitable for the role.",
+      "rejection_category": null
+    },
+    {
+      "id": "486070295",
+      "name": "Jake Cooney",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent similar labouring/construction work ended June 2024 (over 12 months ago). Current employment at SYNC (Labourer/Installer) involves bathroom cabinet and benchtop installation, which is not sufficiently similar to warehouse/labour work.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "486063349",
+      "name": "Peter Li",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all requirements: employed in last 6 months (Production Employee, May 2024–October 2025), has similar labouring/factory experience within last 3 years, age cannot be determined from explicit statement or email pattern (peter0829forever@ where 0829 is not a standalone birth year), holds White Card, and has relevant manufacturing/labouring background. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "486063161",
+      "name": "Karan Joel Butler",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Last warehouse/pick packing role ended December 2019, over 5 years ago. Career break from 2021-2025 with only a kitchen hand role in 2020 in between.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "486062029",
+      "name": "Rayane Lefort",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female with no clear evidence of recent labouring experience. Last labouring role (Concreter, October-December 2023) ended over 6 months ago. Most recent job (Traffic Controller, May-October 2023) is not a labouring role.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "486060752",
+      "name": "scott murray",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Last employment ended in 2020 (tree planting). CV states candidate spent last 4 years as full-time carer for father who passed away late last year, indicating no paid employment for approximately 4 years.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "486060093",
+      "name": "Kalem Songoro",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. CV states 'Currently looking for an opportunity to start working' with no formal work experience listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "486056786",
+      "name": "Narayan Velasquez Gelvis",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Forklift Driver (February 2025 to Present), satisfying the 6-month requirement. Recent warehouse/labour experience (Forklift Driver, FedEx, AWH, Freshmax, Cleaner roles). No age explicitly stated in CV. Email 'narayanvelasquez@gmail.com' contains no standalone 4-digit birth year. No clear evidence of high school completion date or first job 30+ years ago. Meets general employment criteria for warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "486055609",
+      "name": "Jayden Griffin",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as concreter (11/2022 - 04/2025), similar role experience within last 3 years, and possesses White Card certification. No age, sex, or availability concerns identified from CV content alone.",
+      "rejection_category": null
+    },
+    {
+      "id": "486051521",
+      "name": "Olivia Martin",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female with no clear evidence of recent labouring experience. CV lists cleaning and housekeeping as primary experience, not hands-on labouring work. No specific employment dates provided to confirm work in the last 6 months or within the last 3 years.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "486038421",
+      "name": "Joseph Tupou",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment within the last 6 months (Downers, May 2025) and has relevant labouring/civil maintenance experience within the last three years. Age cannot be determined from explicit statement, email (tupoujoseph292000 contains 2000 which is a graduation year, not a birth year in the required format), or high school completion date. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "485951475",
+      "name": "Musawer Hussain",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse and construction labour experience. Email does not contain a standalone birth year indicator. No date of birth stated on CV. No high school completion date provided that would trigger age rejection. Construction worker role listed without date qualifier suggests recent experience. All general filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "485893338",
+      "name": "Shayelee Mcdonald",
+      "ai_decision": "fail",
+      "ai_reason": "No employment in the last 6 months. Last job ended February 2023 (almost 2 years ago). Currently appears to be a full-time student (Certificate III Individual Support, 2025-current), which conflicts with availability for a warehouse/labour role.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "485829144",
+      "name": "JASVIR SINGH",
+      "ai_decision": "fail",
+      "ai_reason": "Employment end date of Feb 2026 is in the future and appears implausible. Current date context suggests this CV contains unclear or unreliable employment dates. Most recent confirmed role (Taxi Driver, August 2019) ends over 6 months ago with no verifiable current employment.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "485828268",
+      "name": "Felise Setiu",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. Current role (Freight Handler/Team Leader since 2012) is warehouse/logistics work, not manual labouring. Most recent labouring roles (bricklaying 2008-2010, general labour 2005-2007) are over 14 years old and do not constitute recent experience.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "485824641",
+      "name": "Benjamin Chapman",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 30 years old (DOB 27/02/1994), male, and currently employed as a Labourer (November 2025 - Present), which satisfies the 6-month employment requirement and demonstrates recent labouring experience within the last 3 years. All general and labouring role filters are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "485823002",
+      "name": "Timothy Eade",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is over 50 years old based on email indicator (tje1978@hotmail.com contains 1978 as a standalone 4-digit birth year, making candidate approximately 46-47 years old at present). However, primary rejection reason is: CV lists a Civil Labourer position (LO08072025) but contains no mention of a White Card (construction induction card), which is a mandatory requirement for civil labourer roles.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "485821053",
+      "name": "Sooren Basil",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Labour Hire - Warehouse, listed as CURRENT), has worked in similar labouring/maintenance roles within the last 3 years (MSS Select May-July 2023, Works Safety Officer April 2024-January 2026), possesses White Card certification, and no age-related rejection indicators are present (no explicit DOB, email contains no standalone birth year 1940-1974, high school completion date not stated, first job in 2000 does not trigger 30-year threshold). Candidate is male and has relevant labouring experience.",
+      "rejection_category": null
+    },
+    {
+      "id": "485819434",
+      "name": "Amanaki Simi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets general employment criteria. Currently employed (2024-2025 at NPS BUILDS in building/construction role within last 6 months). Has relevant labouring experience within last 3 years. No explicit age data, email does not contain standalone birth year, high school completion date not specified, and first job started recently. Female candidate with clear evidence of recent labouring experience (building/construction, roof/piping work 2023-2025). No role-specific filters triggered based on job title provided.",
+      "rejection_category": null
+    },
+    {
+      "id": "485818856",
+      "name": "antonio chamoun",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is applying for a civil labourer role but no White Card (construction induction card) is mentioned in the CV. White Card certification is a mandatory requirement for civil labourers in Australia.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "485818184",
+      "name": "Luke Joseph",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is a civil labourer but no White Card (construction induction card) is mentioned in the CV. White Card is a mandatory requirement for civil labouring roles in Australia.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "485818065",
+      "name": "Darren Thomson",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has 18+ years of heavy vehicle operation and excavation experience with recent employment history (Metro Drain, GLG Group, TMD Site Excavations listed without end dates, indicating current or recent work). Multiple relevant qualifications including HR Heavy Vehicle Licence, Excavator Ticket, and safety certifications. No explicit age indicator present in CV or email. Male candidate with demonstrated heavy labouring experience suitable for warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "485817222",
+      "name": "Cory Harvey",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 34 years old (DOB: 04/05/1990), well under the age threshold. Has current employment (Trades Assistant, July 2025 – January 2026) within the last 6 months. Has extensive similar labouring/technical experience over the past 3 years. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "485814333",
+      "name": "Abdul Monib Rustamy",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment ended in 2021 (Site Supervisor role at Safi Engineering LTD, 2017–2021). No subsequent employment is listed on the CV.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "485810797",
+      "name": "shadrack kabila",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent construction work ended February 2024 (Rail Track Maintenance, February-March 2024), which is approximately 9-10 months ago depending on current date. However, this role was only 1 month duration. Prior to that, Civil Construction ended February 2024. While there is recent work history, the Rail Track Maintenance role (Feb-Mar 2024) is marginal in duration and does not clearly constitute substantial 'similar role' experience within the 3-year window when the primary civil construction role ended over 2.5 years ago (January 2022 - February 2024). The candidate's employment pattern shows inconsistent, short-term roles in the construction sector with significant gaps, making it difficult to confirm consistent labouring experience in the last 3 years.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "485808593",
+      "name": "Reilly Topping",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is a 3rd-year plumbing apprentice with current employment (2024-2025 at Pipeworx Plumbing Group satisfies 6-month requirement), relevant labouring experience within last 3 years, and hand tools experience explicitly mentioned. No age, sex, or availability concerns evident from CV content.",
+      "rejection_category": null
+    },
+    {
+      "id": "485808490",
+      "name": "PJ Matheson",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current civil construction labourer roles (December 2025 - Current and July 2025 - Current), White Card certification listed, similar labouring experience within last 3 years, and no age-related rejection indicators present. Email 'mathov63' does not contain a plausible standalone birth year (63 is not between 1940-1974 in the required format). No explicit DOB stated. High school completed in 2021, well within 32-year threshold. First job started in 2019, well within 30-year threshold. All general and civil labourer filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "485799446",
+      "name": "Junior K",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed within last 6 months (March 2025 to November 2025), has similar labouring/construction roles within last 3 years, age cannot be determined from CV or email (no explicit DOB, no standalone birth year in email, high school completed ~10 years ago, first job ~13 years ago), and has White Card certification listed.",
+      "rejection_category": null
+    },
+    {
+      "id": "485798881",
+      "name": "Liam Porter",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all essential criteria: current employment as Trades Assistant/Labourer (2024–Present) satisfies 6-month requirement; recent labouring experience in similar role within last 3 years; White Card listed (relevant for construction/civil work); hand tools experience documented; no age-disqualifying indicators present; availability compatible with warehouse/labour work.",
+      "rejection_category": null
+    },
+    {
+      "id": "485797323",
+      "name": "Koloveteki Taufa",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment ended in 2023 (OMJ Modi Construction, 2020-2023). No current role listed.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "485793497",
+      "name": "michael morunga",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Machine Operator at BINGO Industries (2021 - 13 February 2026), which satisfies the 6-month requirement. Over 10 years of experience in waste management and recycling with heavy machinery operation (excavators, front-end loaders) directly matches labouring/warehouse role requirements. No explicit age indicator, birth year in email, or evidence of high school completion 32+ years ago. No rejection criteria are clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "486311566",
+      "name": "Josh Wright",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 19 years old (DOB 28.03.2005), has current employment since January 2022 (satisfies 6-month requirement), and has relevant labouring/trades experience. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "486303581",
+      "name": "MEWASEH DUARTO",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (July 2024 - Current) within last 6 months, has relevant labouring experience within last 3 years, and no disqualifying factors are clearly evident from CV. Age cannot be determined from explicit statement, email, or high school/first job dates. No gender restriction applies to standard labouring role.",
+      "rejection_category": null
+    },
+    {
+      "id": "486302946",
+      "name": "Junior Idahosa",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria: employed within last 6 months (BXD Projects trade assistant role), has recent labouring experience within 3 years, is under 50 years old (DOB 29-09-1997, age 26), male, weighs 90kg, has White Card and hand tools experience, and is available for immediate start.",
+      "rejection_category": null
+    },
+    {
+      "id": "486301310",
+      "name": "Victory Nili",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labour experience within the last 6 months (Store Person at LSG, May 2025 - November 2025, and Warehouse Contractor at Belway, March 2025 - May 2025). Multiple similar roles in warehouse operations within the last three years. No explicit age indicator, no standalone birth year in email (victorynili04@ - '04' is not a plausible birth year). Cannot determine gender from name alone with confidence. All employment dates include month-year ranges, not year-only. No disqualifying factors identified under general labouring filters.",
+      "rejection_category": null
+    },
+    {
+      "id": "486300681",
+      "name": "Rob Smit",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all relevant criteria for a blue-collar warehouse/labour role. Has recent employment (Mar 2025 current as student, prior role Nov 2023-Mar 2025). Has relevant labouring experience within last 3 years. No explicit age indicators present (no DOB, no standalone birth year in email, no old high school completion date, first job Feb 2022). Male candidate. White Card certified. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "486288971",
+      "name": "Peter Johnson",
+      "ai_decision": "pass",
+      "ai_reason": "JSON parse error — defaulted to pass",
+      "rejection_category": null,
+      "defaulted": true
+    },
+    {
+      "id": "486288904",
+      "name": "Ethan Leese",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not have a White Card (construction induction card) mentioned in CV, which is required for civil labourer roles.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "486286675",
+      "name": "Metuakore Tavioni",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate's first job started in 1985, which is 39+ years ago. Combined with over 40 years of hands-on work stated in professional summary and recent roles ending in Feb 2026, age indicators strongly suggest candidate is over 50 years old.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "486282679",
+      "name": "Petar Mardesic",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role (warehouse/labour) within the last three years. All listed employment is in culinary/hospitality management (Head Chef, Executive Chef roles). No warehouse, labouring, or manual labour experience evident.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "485893254",
+      "name": "Junior Nyembwe",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Oct 2023 - Present) satisfying the 6-month requirement. Has recent labouring experience (demolition labourer May 2017 - Mar 2020, within 3-year frame from earlier roles). White Card is held and explicitly listed. No age indicators present (no DOB, no birth year in email, Year 12 completed in 2013 is only 11 years ago). Gender cannot be confidently determined from name alone. All general and labouring-specific criteria are satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "485860522",
+      "name": "Hannah Bown",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent labouring experience. Current and recent roles (June 2024-Present: Educator; July 2022-Feb 2024: Educator/Chef; Dec 2019-Mar 2022: Kitchen Hand) are not labouring roles. No similar labouring role within the last three years.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "486788492",
+      "name": "Daniel Taylor",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant carpentry/trade experience within the last 6 months (current role as Qualified Carpenter from Apr 2025 to Current, plus prior Trade Assistant role Jul 2024 to Apr 2025). No age indicators present in CV or email that would trigger rejection. No specific heavy labouring, civil labourer, or production worker restrictions apply to a general warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "486748433",
+      "name": "Brodey Pap",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria. Recent employment with OCC Labour Hire listed as 'Recent Employment' (within last 6 months). Over 5 years of civil construction and heavy machinery operation experience. Age cannot be determined from CV or email (brodeypap@yahoo.com.au contains no standalone birth year). Male candidate. No specific role type restriction applies that would require additional filters.",
+      "rejection_category": null
+    },
+    {
+      "id": "486735957",
+      "name": "Marek Czanecki",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all requirements for a labouring role. Has current employment as General Labourer (Feb 2025 - Jan 2026), similar role experience within 3 years, no age indicators suggesting over 50, male candidate with recent labouring experience, and White Card qualification listed.",
+      "rejection_category": null
+    },
+    {
+      "id": "486724092",
+      "name": "Young Harley Foliola",
+      "ai_decision": "fail",
+      "ai_reason": "Current employment dates are inconsistent and implausible (07/09/2025 - 03/03/2026 represents a future start date and spans only 6 months, which raises credibility concerns about employment verification). Additionally, the CV lacks clear month-year formatting for the security role end date relative to the forklift role start date, creating ambiguity about continuous employment in the last 6 months.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "486723552",
+      "name": "Zach Davies",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a warehouse/labour role. Currently employed (2021-2026 at Sealwell), has relevant labouring experience within the last 3 years, White Card is listed, age cannot be clearly determined (Year 12 completed 2017 suggests ~23 years old, well under 50), and no disqualifying factors are present.",
+      "rejection_category": null
+    },
+    {
+      "id": "486718512",
+      "name": "Thomas Kell",
+      "ai_decision": "fail",
+      "ai_reason": "Civil labourer role requires White Card (construction induction card). CV does not mention White Card certification.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "486715278",
+      "name": "Anwar Issac",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant labouring experience within the last 6 months (Al Cladding PTY listed as current role to January 2026). Age cannot be reliably determined from CV or email. White Card is present. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "486700776",
+      "name": "Ahsanullah Rajabi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent construction/labouring experience (landscaping Dec 2023 - Dec 2024, within last 6 months). Age cannot be reliably determined from CV or email. Email 'aliahsan61@yahoo.com' contains '61' which is not a standalone birth year indicator. High school completed Feb 2018 (6 years ago, not 32+ years). First job Oct 2018 (6 years ago, not 30+ years). All general employment filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "486637961",
+      "name": "Plath Diar",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Last recorded employment ended in 2018 when candidate began travelling overseas. No current or recent employment (within 6 months) is listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "486623302",
+      "name": "Kelym Warcon",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed within last 6 months (Neil Mansell Concrete 2024-2025), has similar labouring/civil construction experience within last 3 years, possesses White Card (Construction Induction Card listed in qualifications), completed Year 12 in 2007 (17 years ago, not >32 years), no age explicitly stated or plausible birth year in email, and no gender-specific restrictions apply to this warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "486608302",
+      "name": "Alexis Dos Santos",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 21 years old (DOB 31/05/2003), well under 50. Has recent labouring experience in construction/trades. Current part-time role satisfies 6-month employment requirement. Male candidate with relevant hands-on experience in concreting and general construction.",
+      "rejection_category": null
+    },
+    {
+      "id": "486606079",
+      "name": "Moeaki Halalova",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labour experience (current disability support worker since 01/2025, and quarantine/de-seeder role 01/2025-03/2025). Age cannot be confirmed from CV or email (moeakihalalova97@ contains 97 which does not represent a standalone birth year). Email suggests candidate is likely under 50. No specific role type criteria (civil labourer, production worker, heavy labouring restrictions) have been violated. Candidate meets 6-month employment and similar role requirements.",
+      "rejection_category": null
+    },
+    {
+      "id": "486603126",
+      "name": "Shaun Dominutti",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse/forklift employment (Aug 2024 – Current at Walkers Trade), extensive similar labouring experience in the last 3 years, and no disqualifying factors. Email shows birth year 1993 (candidate is ~31 years old). All general and labouring criteria are satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "486594191",
+      "name": "Tyson Lyons",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria: employed in current labouring role (October 2021 - Present), extensive similar role experience within last 3 years, White Card listed, no age indicators suggest over 50, and no availability conflicts identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "486581756",
+      "name": "Kaelip Apolonio",
+      "ai_decision": "fail",
+      "ai_reason": "Employment dates lack month/year clarity for most recent roles (2026, 2025 entries show only years without month ranges), making it difficult to verify 6-month employment requirement and recency of experience.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "486533927",
+      "name": "Omar Said",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria. DOB clearly stated (12/02/1985 - age 39, under 50). Currently employed at Linfox (FEB 2021 - 2026, still current). Multiple relevant warehouse and labouring roles in recent history. All required documentation mentioned (White Card, forklift licenses, HR licence). No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "486489106",
+      "name": "Kirt Hamja",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all general filters: employed in the last 6 months (Coles, Nov 2024–Present), has relevant warehouse/store maintenance experience within the last 3 years, and availability is not in question. No age indicators present (no DOB, no standalone birth year in email, Year 12 completed recently, first job 2018). Role appears to be general labouring/warehouse, not heavy labouring or civil labourer specific.",
+      "rejection_category": null
+    },
+    {
+      "id": "486477741",
+      "name": "David Hafoka",
+      "ai_decision": "fail",
+      "ai_reason": "No employment in the last 6 months. Most recent role (Construction Labourer) ended in 2022, which is over 2 years ago.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "486366666",
+      "name": "Wade Smith",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is a male excavator operator with current employment (01/2022 to 05/2025) in a labouring role. No explicit age indicators present (no DOB stated, email 'wadesmith794' does not contain a plausible standalone birth year, no high school completion date provided, first job started in 2014 which is less than 30 years ago). Recent and relevant labouring experience confirmed. Meets all general and labouring role criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "486262827",
+      "name": "Poovarasan Manikkam",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role (warehouse/labour) within the last three years. Current role is customer service in retail (Coles Team Member since 10/2022), which is not a similar warehouse or labouring role.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "486252431",
+      "name": "Joshua Broadbent",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is applying for a Civil Labourer role but no White Card (construction induction card) is mentioned in the CV.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "487032701",
+      "name": "matthew jedrzejewski",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (Concreting Labourer 2024, Builder Labourer 2023), holds a White Card, and meets general employment criteria. No clear rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487032506",
+      "name": "David spiteri",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate appears to be over 50 years old based on high school completion in 1990 (32+ years ago) and first job starting in 2006 (18 years ago, which is consistent with a ~1972 birth year). This triggers age rejection for a labouring role.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487018742",
+      "name": "Nela Pohahau",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience sufficient to overcome the restriction for this role type.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487013654",
+      "name": "kazuma ly",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current warehouse/labouring employment (Ligentia warehouse 2025-Current and Woolworths 2023-Current), demonstrating recent relevant experience. Age cannot be reliably determined from CV content alone (date of birth 29/06/07 indicates approximately 16-17 years old, which passes age filter). Email 'kazumaly@gmail.com' contains no standalone birth year. All general filters are satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "487546449",
+      "name": "Connor Pattison",
+      "ai_decision": "pass",
+      "ai_reason": "Connor Pattison meets all criteria for a labouring/warehouse role. He has recent civil construction labouring experience (2023-July 2024, within 6 months and 3 years). No age can be determined from CV or email (pattisonconnor1@ does not contain a standalone birth year). Male candidate. Employment dates are clearly specified with month/year ranges. No disqualifying factors present.",
+      "rejection_category": null
+    },
+    {
+      "id": "487313539",
+      "name": "Ethan Yeomans-Bodey",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed within last 6 months (4CG Container Unloader in 2025), has similar warehouse/labouring roles within last 3 years, clear employment history with month/year ranges, age cannot be determined from available indicators, and no heavy labouring role restrictions apply.",
+      "rejection_category": null
+    },
+    {
+      "id": "487292559",
+      "name": "Mark Parkinson",
+      "ai_decision": "pass",
+      "ai_reason": "JSON parse error — defaulted to pass",
+      "rejection_category": null,
+      "defaulted": true
+    },
+    {
+      "id": "487292440",
+      "name": "Cole Atlas",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a blue-collar warehouse/labour role. Has current employment (casual demolition work from November 2025–Present), extensive recent labouring experience including demolition and warehouse work, White Card certification, relevant power tools and hand tools experience, clear employment dates with month/year ranges, and no age-related red flags from CV content or email.",
+      "rejection_category": null
+    },
+    {
+      "id": "487288253",
+      "name": "Cayden Soper",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as On-Site Foreman (September 2024 - February 2026, which includes present day). Has extensive recent labouring experience in construction/cladding (4+ years). No explicit age indicator, no female restriction applies, and no relevant role-specific filters triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "487286875",
+      "name": "Jaxson Hay",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is applying for a Civil Labourer role but no White Card (construction induction card) is mentioned in the CV. White Card is a mandatory requirement for civil labourer positions.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "487282374",
+      "name": "chris hanrahan",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current full-time employment listed (07/2024 - 02/2025 as Forklift Driver/General Labourer at Synaco), satisfying the 6-month requirement. Has extensive warehousing and labouring experience within the last 3 years. No explicit age indicator, female restriction, or role-specific requirement violation detected.",
+      "rejection_category": null
+    },
+    {
+      "id": "487257382",
+      "name": "Brodie Markwell",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all general labouring filters. Currently employed (2023-2026 as Offshore Field Operator), has similar labouring/technical experience within last 3 years, holds White Card, and no age indicators suggest over 50 (no explicit DOB, email contains no standalone birth year 1940-1974, high school completed 2019, first job started 2013). Gender not a rejection factor for standard labouring roles.",
+      "rejection_category": null
+    },
+    {
+      "id": "487232156",
+      "name": "depen budhathoki",
+      "ai_decision": "fail",
+      "ai_reason": "Civil labourer role requires White Card (construction induction card). CV does not mention White Card certification.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "487118097",
+      "name": "Lorenzo Sigorini",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: male, has current/recent construction labouring role (06/2024-12/2025), White Card listed, employment within last 6 months, similar role within last 3 years, age cannot be determined from CV or email, and availability appears suitable for warehouse/labour work.",
+      "rejection_category": null
+    },
+    {
+      "id": "487013608",
+      "name": "Francis Maker",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehouse/labouring experience (The Just Group/Dempsey Group Nov 2021–2024, which includes current or very recent employment). Age cannot be determined from CV or email (150 in email is not a standalone birth year). No explicit rejection criteria are triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "487005649",
+      "name": "Gagandeep Singh",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not have a White Card explicitly mentioned as current/valid in CV, and the role appears to be a labouring/civil labouring role. While the candidate states 'White Card' in the qualifications section, there is no date of issue or expiry, making it unclear if it is current. However, the primary rejection reason is that the candidate's current employment (Oct 2025 – March 2026 as Concreter) has a future start date, which is not a valid current job indicator. The most recent completed employment is Jan 2025 – Oct 2025, which is within 6 months, but given the ambiguity around White Card currency and the civil labouring nature of the work, the White Card clarity is the safer rejection criterion.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "487782674",
+      "name": "Luke Brearley",
+      "ai_decision": "pass",
+      "ai_reason": "Luke Brearley meets all relevant criteria for a labouring role. Email (l.brearley1994@gmail.com) indicates birth year 1994, making him approximately 30 years old — well under 50. Male candidate with extensive recent labouring experience (current roles as Truck & Dog Operator since December 2024, and Self-employed Contractor since February 2017). White Card is clearly listed in Licences section. Similar heavy construction and earthmoving roles within last 3 years. No rejection criteria triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "487780321",
+      "name": "Liam Martin",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 26 years old (DOB 02/09/1997), male, Australian. Has relevant labouring/civil construction experience within the last 6 months (NDD Operator until 09/2024). Holds White Card certification. No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487744669",
+      "name": "Kaviraaj Kapoor",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has relevant experience (15+ years in regulated industries, multiple certifications including White Card, plant operator and haul truck operator qualifications). Current role listed as 2025 satisfies 6-month requirement. No age indicators present (no DOB, no standalone birth year in email, no clear inference from education timeline). No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "487740868",
+      "name": "Billy-John Edwards",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all core employment criteria: employed in the last 6 months (current role listed as April 2021 - February 2026), extensive recent labouring experience within the last 3 years, male, appropriate age (no birth year indicators present), and relevant skills for warehouse/labour work including heavy equipment operation and material handling.",
+      "rejection_category": null
+    },
+    {
+      "id": "487736627",
+      "name": "ahmed ghareb",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent warehouse/labour experience ended May 2024 (over 8 months ago). Subsequent roles (retail assistant until July 2025, car washer Jan-Feb 2026) do not constitute similar warehouse/labouring experience. Current employment status is unclear, and no warehouse-related work in the past 3 years.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "487595360",
+      "name": "David Peters",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent warehousing experience (Toll Group Laverton Warehouse 24/03/2025-11/07/2025, well within 6 months and 3 years). Age cannot be determined from CV or email. Male candidate. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488121591",
+      "name": "Richard Fuimaono",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a blue-collar warehouse/labour role. Currently employed as Security Guard (2017-Current satisfies 6-month requirement). Has relevant warehouse experience within last 3 years (Machine Operator at Ah-beards Feb 2016-Jan 2026, Warehouse Picker Sept 2014-Feb 2016). Age cannot be determined from CV or email. White Card is listed in skills section. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "488107144",
+      "name": "james tasiyan",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Apprentice Plumber (August 2025 - January 2026), which satisfies the 6-month requirement. Similar labouring/plumbing role experience within last 3 years confirmed. No age, availability, or other rejection criteria clearly triggered from CV content alone.",
+      "rejection_category": null
+    },
+    {
+      "id": "488105876",
+      "name": "Calvary Simanu",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all general filters. Currently employed (DC Woolworths, SEP 29 2025 - JAN 2026 satisfies 6-month requirement). Has similar warehouse/labouring experience within last 3 years. For labouring role: no explicit age/DOB stated, email contains no standalone birth year, high school completion date not specified, first job (JAN 2024) started within last 30 years. Male name and surname (Simanu - Pacific Islander, consistent with heavy labouring role suitability). No rejection criteria triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "488103804",
+      "name": "Jake Kallipoltis",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not have a White Card (construction induction card) mentioned in CV, which is required for civil labourer roles.",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "488009582",
+      "name": "Rachael Pompey",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is female without clear evidence of recent heavy labouring experience. While she has construction labouring background, the role type is not specified in the review parameters. As a general labouring role, females are almost always rejected unless there is clear evidence of recent labouring experience. Her most recent role (Oct 2024 - Present) is listed as 'Labourer & Trade Assistant' which provides some evidence, but given the strict rejection criteria for females in labouring roles, this candidate does not meet the threshold of 'clear evidence of recent labouring experience' required to override the default rejection.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "487991387",
+      "name": "Kittaphon Nampha",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Grinding Area Line Leader (20 June 2025 - Present) in a production environment with extensive relevant experience. All general filters are satisfied. No age, sex, or role-specific rejection criteria apply.",
+      "rejection_category": null
+    },
+    {
+      "id": "487989389",
+      "name": "Torren Gieske",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent employment (June 2024 - December 2025 as waiter with manual labour components), mentions White Card for construction work, and no age-related rejections apply. Email 'giesketorren@gmail.com' contains no standalone birth year. No explicit date of birth stated. High school completed 2024 (recent, within 32 years). First job started recently. All general filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "487970065",
+      "name": "Jayden Ellis",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 21 years old (DOB 22.09.2002), well under 50. Currently employed at Kmart since January 2019. Has relevant manual labour and warehouse experience including stonemason apprenticeship (Jan 2021 - Jan 2022) within last 3 years. All general employment filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "488238737",
+      "name": "Abdiwali Ali",
+      "ai_decision": "fail",
+      "ai_reason": "No job in the last 6 months. Most recent role (Courier) ended in 2024 with no current employment listed.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "488201419",
+      "name": "Shaik Arifulla",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has explicit date of birth (27/02/1992), making him 32 years old — well below the 50-year age threshold for labouring roles. Has 10+ years of site supervision and civil construction experience. Currently enrolled in Certificate IV (Jun 2025 - May 2026), which represents current structured employment. No rejection criteria are met.",
+      "rejection_category": null
+    },
+    {
+      "id": "488136229",
+      "name": "JAYDEN GRANIERI",
+      "ai_decision": "fail",
+      "ai_reason": "No work history provided on CV. Cannot confirm 6-month employment requirement or similar role experience within last 3 years. For a civil labourer role, White Card certification is also not mentioned.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488503478",
+      "name": "Jordyn Dunne",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current excavator operator role (July 2022-Current), relevant labouring/heavy machinery experience within last 3 years, White Card certification listed, and no age/sex rejection indicators present. Email contains no standalone birth year.",
+      "rejection_category": null
+    },
+    {
+      "id": "488499282",
+      "name": "Jacob Tancredi",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is 18-19 years old (DOB 05/05/2005), currently employed in a labouring role (January 2026 - Current in Landscaping), has relevant labouring experience within the last 3 years, and holds a White Card. All general and labouring role filters are satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "488496074",
+      "name": "Beau Hunt",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not have a job in the last 6 months. Most recent employment ended September 2024 (Membership Consultant at Active Fitness). Current date is after this period and there is no evidence of employment in the last 6 months.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488477542",
+      "name": "Grant Bons",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Fire Protection, Sep 2024 – Apr 2025, within last 6 months) and recent labouring experience (Jun 2023 – May 2024). No explicit age indicator, no date of birth, no standalone birth year in email (bonsbob11 does not clearly represent a birth year), and no evidence that high school was completed 32+ years ago or first job started 30+ years ago. Male candidate with demonstrated manual labour capability.",
+      "rejection_category": null
+    },
+    {
+      "id": "488357903",
+      "name": "Patrick Pasina Niko",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria: employed in current role since September 2015 (well within 6-month requirement), has 10+ years warehousing/labouring experience (exceeds 3-year similar role requirement), no age indicators present (cannot determine if over 50), and no disqualifying factors identified for a general warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "488734046",
+      "name": "Caleb Carter",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all criteria for a warehouse/labour role. Currently employed as Meat/Warehouse/Labourer (2023/Current), satisfying 6-month employment requirement. Has similar labouring experience within last 3 years (asphalt labourer 2021/22, warehouse experience 2023/current). No age can be determined from CV or email. No rejection criteria triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "488716698",
+      "name": "Mathiang Malual",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all applicable criteria for a blue-collar warehouse/labour role. DOB explicitly stated as 01/11/1993 (age 30, well under 50). Recent employment history shows current role at METCASH IGA (pick packing) from 2018-current, satisfying the 6-month requirement. Extensive relevant warehouse and civil construction experience within the last 3 years. White Card listed for civil construction work. No rejection criteria triggered.",
+      "rejection_category": null
+    },
+    {
+      "id": "488705944",
+      "name": "Cruz Deverill",
+      "ai_decision": "fail",
+      "ai_reason": "No employment dates provided for either listed position. Cannot verify 6-month employment requirement or 3-year similar role requirement. Employment history lacks month/year clarity needed for assessment.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "488541619",
+      "name": "Josip Colina",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate completed secondary education in 1988 (Year 11 VCE at Chisholm Catholic College). This is 37 years ago, exceeding the 32-year threshold. Combined with first job starting in Jan 1989 (36 years ago), candidate is inferred to be over 50 years old and does not meet the labouring role age requirement.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "488947520",
+      "name": "willie-jack Green",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Last employment ended December 2023, which is more than 3 years ago.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489276999",
+      "name": "ahad Sazal",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Forklift Driver (July 2020 – To date), which satisfies the 6-month employment requirement. Has 3+ years of relevant warehouse/labouring experience. No disqualifying factors identified under the rejection criteria.",
+      "rejection_category": null
+    },
+    {
+      "id": "489263294",
+      "name": "Christopher Rombolas",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (current role as Fencer Sep 2025 – Dec 2025, and Senior Team Leader Sep 2024 – Sep 2025). Work history demonstrates continuous employment in similar roles within the last 3 years. No age indicators present (no DOB stated, email does not contain standalone birth year 1940-1974, Year 12 completed 2018 is only 6 years ago). Male candidate with relevant construction/labouring background. All general filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "489221878",
+      "name": "Mohamed Chaouk",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (Event Crew Member Sept 2024–Feb 2025, within last 6 months). Similar role experience within last 3 years confirmed. White Card certified. Email does not contain a standalone birth year between 1940–1974. High school completed in 2024 (not 32+ years ago). First job listed is recent. No explicit age or DOB stated. Male candidate. All general and labouring role filters satisfied.",
+      "rejection_category": null
+    },
+    {
+      "id": "489151065",
+      "name": "yasitha kodithuwakku",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (Cabinet Maker 2022-2025, current role satisfies 6-month requirement). Age cannot be definitively determined from CV alone (email 'kodithuwakku1994' contains 1994 which is a plausible birth year, making candidate approximately 30 years old, well under 50). Male candidate with White Card and relevant construction/labouring background. No rejection criteria clearly met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489131175",
+      "name": "Assaad afif",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment (Store Manager, 06/2019 - Current) satisfying the 6-month requirement. No explicit age indicators present (no DOB, no standalone birth year in email, high school completion date not provided, first job 04/2014 is within 30 years). No specific role type restrictions apply to this general warehouse/labour position. All general filters passed.",
+      "rejection_category": null
+    },
+    {
+      "id": "489515166",
+      "name": "om Basnet",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate is a civil labourer role applicant but does not mention White Card (construction induction card) in CV",
+      "rejection_category": "civil_labourer"
+    },
+    {
+      "id": "489645086",
+      "name": "Mohamed Ahmed",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment since 06/2024 (satisfies 6-month requirement). Email 'Mohamed.ahmd0981@gmail.com' contains '0981' which is not a standalone plausible birth year. No explicit age or DOB stated. No indicators from high school completion date or first job timeline provided. Male candidate with security/supervisory background. No disqualifying criteria met for general warehouse/labour role.",
+      "rejection_category": null
+    },
+    {
+      "id": "489642969",
+      "name": "Steven Baker",
+      "ai_decision": "fail",
+      "ai_reason": "Current employment listed as ending April 2026, which is a future date and cannot be verified as current employment. This creates uncertainty about actual current availability within the last 6 months.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489619082",
+      "name": "Sonny Spagnul",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all general labouring criteria: employed within last 6 months (2025-2026 current role), has similar labouring/construction experience within last 3 years, no age concerns detected, male candidate with recent manual labour experience including power tools and civil construction work. White Card (QLD) is listed.",
+      "rejection_category": null
+    },
+    {
+      "id": "489587406",
+      "name": "Syed Arsalan Balkhi",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent role (Operations & Experience Manager, 2023-2025) is in entertainment/hospitality management, not warehouse/labour work. Previous roles are in engineering and business development. No warehouse, logistics, or general labouring experience evident.",
+      "rejection_category": "general"
+    },
+    {
+      "id": "489526959",
+      "name": "Vance Pranke",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar labouring role within the last three years. Most recent labouring experience (Grandview Blacktop) ended in 2025, but current role listed is PNR Railworks (2025-2026) which appears to be skilled labourer work. However, the 2016-2021 period shows employment as Detailer/Autobody Technician (non-labouring), creating a gap in continuous labouring experience. The CV shows a significant shift away from labouring roles for approximately 5 years (2016-2021), and while labouring work resumes in 2022, the employment history does not demonstrate consistent similar labouring role experience within the required three-year window relative to current date.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489815009",
+      "name": "Skye Wickham",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate appears to be female (given name 'Skye Aja') and a labouring role typically requires either male applicants or clear evidence of recent labouring experience. The CV shows multiple labouring positions but the most recent substantial labouring role (Terminal Operator Port Adelaide listed 'employed since 2021') lacks clear employment dates with month ranges to confirm current employment or employment within the last 6 months. While various skilled trades roles are listed, the recency and continuity of labouring-specific work is ambiguous.",
+      "rejection_category": "labouring"
+    },
+    {
+      "id": "489791871",
+      "name": "Elia Niyibikora",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar labouring role within the last three years. Last relevant labouring role (Mangan Concreting) ended in 2025 (future date, implausible). Prior manufacturing role ended 06/2024, which is not a labouring role. No clear labouring employment in the last 3 years.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489788095",
+      "name": "Gursimran Brar",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has recent labouring experience (Framing/Construction Labourer 2024-2025, currently listed as active). Employment history shows similar roles within the last 3 years. Age cannot be determined from explicit statement, email (bguri4860 does not contain a standalone birth year between 1940-1974), or high school completion date (2021, less than 32 years ago). No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489762522",
+      "name": "Wihihi Shelford",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current employment as Landscape All-Rounder (Oct 2023 - present), which satisfies the 6-month requirement. Similar labouring experience within last 3 years. No age indicators trigger rejection (email does not contain standalone birth year, no explicit DOB, high school completion date not stated, first job 2017). Male candidate with recent heavy labouring experience. White Card and hand tools mentioned. No disqualifying factors identified.",
+      "rejection_category": null
+    },
+    {
+      "id": "489760832",
+      "name": "Kuthubdeen Dilshad",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate is male with 8+ years of construction and labouring experience. Current employment as Senior Project Leader (Jan 2017–Present) satisfies 6-month requirement. Recent similar role experience confirmed (traffic controller, storeperson, plant operations). No age indicators present (no DOB stated, email contains no standalone birth year 1940–1974, high school completion date not provided, first job 2017). No rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "489753355",
+      "name": "Peter Brewer",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have had a job in the last 6 months. Most recent employment ended in 2021 (Lux Precast Panels). Current date context suggests a significant gap since then.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "489678257",
+      "name": "Alexander Watson",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate meets all requirements for a blue-collar warehouse/labour role. Currently employed (casual from 2023–Current), has recent labouring experience (outdoor labouring, furniture removalist), male, appropriate work history, and possesses relevant certifications including White Card and logistics qualifications. No clear rejection criteria met.",
+      "rejection_category": null
+    },
+    {
+      "id": "490144680",
+      "name": "Tom Bird",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has current construction labourer role (Oct 2025 - Present) satisfying 6-month requirement and similar role within 3 years. No disqualifying age indicators present. Male candidate with relevant manual labour and warehouse experience.",
+      "rejection_category": null
+    },
+    {
+      "id": "490107194",
+      "name": "Wilson Kori",
+      "ai_decision": "fail",
+      "ai_reason": "Candidate does not appear to have worked in a similar role within the last three years. Most recent employment listed is 2018 as a 1st Year Apprentice Bricklayer; no employment dates are provided after 2018.",
+      "rejection_category": "employment_date"
+    },
+    {
+      "id": "490058510",
+      "name": "Saadat Ali",
+      "ai_decision": "pass",
+      "ai_reason": "Candidate has been employed as a Painter since July 2016 to Current, which satisfies the 6-month employment requirement and demonstrates relevant experience in a similar role within the last three years. No rejection criteria are clearly met based on CV content alone.",
+      "rejection_category": null
+    }
+  ]
+}

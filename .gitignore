@@ -11,7 +11,7 @@ dist/
 credentials/
 
 # Temp candidate data (auto-deleted after each run, privacy-sensitive)
-# temp/
+temp/
 
 # Logs
 logs/

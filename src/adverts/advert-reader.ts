@@ -340,6 +340,7 @@ export async function readAndProcessAdverts(
           collectResult.totalFiltered,
           llmModel,
           filterResult.selectedKeywords,
+          new Set(collectResult.passingCandidates.map((c) => c.id)),
         );
 
         if (!isWithinRunWindow()) {

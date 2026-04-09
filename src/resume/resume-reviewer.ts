@@ -20,6 +20,7 @@ export async function reviewResumes(
   totalFiltered: number,
   llmModel: string,
   selectedKeywords: string[],
+  allPassingCandidateIds: Set<string> = new Set(),
 ): Promise<ReviewSummary> {
   const strictMode = totalFiltered > 60;
 
@@ -273,7 +274,12 @@ export async function reviewResumes(
     pageNumber++;
   }
 
-  const passCount = results.filter((r) => r.ai_decision === "pass").length;
+  const newPassCount = results.filter((r) => r.ai_decision === "pass").length;
+  // Count historical passes that are still in the current filtered pool
+  const relevantHistoricalPassCount = previousResults.filter(
+    (r) => r.ai_decision === "pass" && allPassingCandidateIds.has(r.id),
+  ).length;
+  const passCount = newPassCount + relevantHistoricalPassCount;
   const failCount = results.filter((r) => r.ai_decision === "fail").length;
 
   // Carry forward rejection counts from previous fails + add new fails

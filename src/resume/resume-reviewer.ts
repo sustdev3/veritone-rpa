@@ -46,14 +46,17 @@ export async function reviewResumes(
   let previousResults: ReviewResult[] = [];
   const previouslyPassedIds = new Set<string>();
   let defaultedToPassCount = 0;
+  let existingLastProcessedId: string | null = null;
 
   const previousRaw = await fs.readFile(outputPath, "utf-8").catch(() => null);
   if (previousRaw !== null) {
     try {
       const previousFile = JSON.parse(previousRaw) as {
         results: ReviewResult[];
+        lastProcessedId?: string | null;
       };
       previousResults = previousFile.results ?? [];
+      existingLastProcessedId = previousFile.lastProcessedId ?? null;
       for (const r of previousResults) {
         if (r.ai_decision === "pass") {
           previouslyPassedIds.add(r.id);
@@ -86,18 +89,52 @@ export async function reviewResumes(
       `(${skippedCount} already flagged — skipped)`,
   );
 
+  // Capture newLastProcessedId from first visible card before the loop
+  let newLastProcessedId: string | null = null;
+  const firstVisibleIds: string[] = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("div.result.searchable")).map(
+      (el) => el.getAttribute("external-candidate-id") ?? "",
+    ),
+  );
+  if (firstVisibleIds.length > 0) newLastProcessedId = firstVisibleIds[0];
+
   const results: ReviewResult[] = [];
   let flaggedCount = 0;
   let skippedPreviouslyPassed = 0;
+  let newCandidatesReviewed = 0;
   let pageNumber = 1;
+  let bookmarkFound = false;
+  let consecutivePagesWithZeroNew = 0;
+  const FALLBACK_THRESHOLD = 3;
   const llmSelections = { "resume review": llmModel };
 
   while (true) {
-    const visibleIds: string[] = await page.evaluate(() =>
+    let visibleIds: string[] = await page.evaluate(() =>
       Array.from(document.querySelectorAll("div.result.searchable")).map(
         (el) => el.getAttribute("external-candidate-id") ?? "",
       ),
     );
+
+    if (existingLastProcessedId !== null && !bookmarkFound) {
+      const bookmarkIndex = visibleIds.findIndex(
+        (id) => id === existingLastProcessedId,
+      );
+      if (bookmarkIndex !== -1) {
+        bookmarkFound = true;
+        visibleIds = visibleIds.slice(0, bookmarkIndex);
+        console.log(
+          `[ResumeReviewer] Bookmark reached at candidate ${existingLastProcessedId} — stopping pagination`,
+        );
+      } else {
+        consecutivePagesWithZeroNew++;
+        if (consecutivePagesWithZeroNew >= FALLBACK_THRESHOLD) {
+          console.log(
+            `[ResumeReviewer] Bookmark not found after ${FALLBACK_THRESHOLD} empty pages — stopping pagination`,
+          );
+          break;
+        }
+      }
+    }
 
     const pageToReview = visibleIds.filter((id) => toReviewMap.has(id));
 
@@ -184,6 +221,7 @@ export async function reviewResumes(
         rejection_category: parsed.rejection_category,
         defaulted: parsed.defaulted || undefined,
       });
+      newCandidatesReviewed++;
 
       if (parsed.decision !== "pass") {
         const flagIcon = page.locator(
@@ -209,6 +247,8 @@ export async function reviewResumes(
       await randomDelay();
     }
 
+    if (bookmarkFound) break;
+
     const nextPageLi = page
       .locator("div.pager ul li.page-num.selected + li.page-num")
       .first();
@@ -233,16 +273,22 @@ export async function reviewResumes(
     pageNumber++;
   }
 
-  const passCount = results.filter((r) => r.ai_decision === "pass").length;
+  // Cumulative pass count: new passes this run + all previously passed
+  const newPassCount = results.filter((r) => r.ai_decision === "pass").length;
+  const passCount = newPassCount + previouslyPassedIds.size;
   const failCount = results.filter((r) => r.ai_decision === "fail").length;
-  const {
-    generalFilterRejects,
-    labouringFilterRejects,
-    heavyLabouringRejects,
-    employmentDateRejects,
-    civilLabourerRejects,
-    productionWorkerRejects,
-  } = tallyRejectionCounts(results);
+
+  // Carry forward rejection counts from previous fails + add new fails
+  const prevFails = previousResults.filter((r) => r.ai_decision === "fail");
+  const newFails = results.filter((r) => r.ai_decision === "fail");
+  const prevCounts = tallyRejectionCounts(prevFails);
+  const newCounts = tallyRejectionCounts(newFails);
+  const generalFilterRejects = prevCounts.generalFilterRejects + newCounts.generalFilterRejects;
+  const labouringFilterRejects = prevCounts.labouringFilterRejects + newCounts.labouringFilterRejects;
+  const heavyLabouringRejects = prevCounts.heavyLabouringRejects + newCounts.heavyLabouringRejects;
+  const employmentDateRejects = prevCounts.employmentDateRejects + newCounts.employmentDateRejects;
+  const civilLabourerRejects = prevCounts.civilLabourerRejects + newCounts.civilLabourerRejects;
+  const productionWorkerRejects = prevCounts.productionWorkerRejects + newCounts.productionWorkerRejects;
 
   const previousIds = new Set(previousResults.map((r) => r.id));
   const newResults = results.filter((r) => !previousIds.has(r.id));
@@ -254,6 +300,7 @@ export async function reviewResumes(
     totalReviewed: mergedResults.length,
     ruleset: strictMode ? "strict" : "standard",
     selectedKeywords: selectedKeywords[0] ?? "",
+    lastProcessedId: newLastProcessedId,
     results: mergedResults,
   };
 
@@ -272,6 +319,7 @@ export async function reviewResumes(
     skippedCount,
     skippedPreviouslyPassed,
     defaultedToPassCount,
+    newCandidatesReviewed,
     generalFilterRejects,
     labouringFilterRejects,
     heavyLabouringRejects,

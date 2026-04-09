@@ -71,15 +71,80 @@ export async function collectPassingCandidates(
   const totalFiltered = countMatch ? parseInt(countMatch[1], 10) : 0;
 
   if (totalFiltered === 0) {
-    return { passingCandidates: [], totalFiltered: 0 };
+    return { passingCandidates: [], newCandidates: [], totalFiltered: 0, newCandidatesCount: 0, previousLastProcessedId: null };
   }
 
-  const passingCandidates: PassingCandidate[] = [];
+  const tempDir = path.resolve(process.cwd(), "temp");
+  const outputPath = path.join(tempDir, `passing-${advertId}.json`);
+
+  let existingLastProcessedId: string | null = null;
+  let existingCandidates: PassingCandidate[] = [];
+
+  const existingRaw = await fs.readFile(outputPath, "utf-8").catch(() => null);
+  if (existingRaw !== null) {
+    try {
+      const existingFile = JSON.parse(existingRaw) as {
+        lastProcessedId?: string | null;
+        passingCandidates: PassingCandidate[];
+      };
+      existingLastProcessedId = existingFile.lastProcessedId ?? null;
+      existingCandidates = existingFile.passingCandidates ?? [];
+    } catch {
+      existingCandidates = [];
+    }
+  }
+
+  const existingIds = new Set(existingCandidates.map((c) => c.id));
+  const newCandidates: PassingCandidate[] = [];
+  let bookmarkFound = false;
+  let consecutivePagesWithZeroNew = 0;
+  const FALLBACK_THRESHOLD = 3;
   let pageNumber = 1;
+  let isFirstPage = true;
+
+  // Pre-fetch page 1 to capture newLastProcessedId before entering the loop
+  const firstPageCards = await collectPageCandidates(page);
+  const newLastProcessedId: string | null = firstPageCards[0]?.id ?? null;
 
   while (true) {
-    const pageCandidates = await collectPageCandidates(page);
-    passingCandidates.push(...pageCandidates);
+    const pageCandidates = isFirstPage ? firstPageCards : await collectPageCandidates(page);
+    isFirstPage = false;
+
+    if (existingLastProcessedId !== null && !bookmarkFound) {
+      const bookmarkIndex = pageCandidates.findIndex(
+        (c) => c.id === existingLastProcessedId,
+      );
+
+      if (bookmarkIndex !== -1) {
+        bookmarkFound = true;
+        const newOnPage = pageCandidates
+          .slice(0, bookmarkIndex)
+          .filter((c) => !existingIds.has(c.id));
+        newCandidates.push(...newOnPage);
+        console.log(
+          `[CandidateCollector] Bookmark reached at candidate ${existingLastProcessedId} — stopping pagination`,
+        );
+        break;
+      } else {
+        const newOnPage = pageCandidates.filter((c) => !existingIds.has(c.id));
+        newCandidates.push(...newOnPage);
+        if (newOnPage.length === 0) {
+          consecutivePagesWithZeroNew++;
+          if (consecutivePagesWithZeroNew >= FALLBACK_THRESHOLD) {
+            console.log(
+              `[CandidateCollector] Bookmark not found after ${FALLBACK_THRESHOLD} empty pages — stopping pagination`,
+            );
+            break;
+          }
+        } else {
+          consecutivePagesWithZeroNew = 0;
+        }
+      }
+    } else {
+      // First run (no bookmark) — collect everything
+      const newOnPage = pageCandidates.filter((c) => !existingIds.has(c.id));
+      newCandidates.push(...newOnPage);
+    }
 
     const nextPageLi = page
       .locator("div.pager ul li.page-num.selected + li.page-num")
@@ -105,26 +170,28 @@ export async function collectPassingCandidates(
     pageNumber++;
   }
 
+  // Merge: new candidates at the front (they are newer)
+  const mergedCandidates = [...newCandidates, ...existingCandidates];
+
   const { unflaggedCount, flaggedCount, colourSummary } =
-    buildCollectSummary(passingCandidates);
+    buildCollectSummary(mergedCandidates);
   console.log(
     `[CandidateCollector] ${unflaggedCount} unflagged, ${flaggedCount} already flagged` +
       (colourSummary ? ` (colours: ${colourSummary})` : ""),
   );
 
-  const tempDir = path.resolve(process.cwd(), "temp");
   await fs.mkdir(tempDir, { recursive: true });
 
-  const outputPath = path.join(tempDir, `passing-${advertId}.json`);
   const output = {
     advertId,
     collectedAt: DateTime.now().toISO(),
     totalFiltered,
     selectedKeywords: selectedKeywords[0] ?? "",
-    passingCandidates,
+    lastProcessedId: newLastProcessedId,
+    passingCandidates: mergedCandidates,
   };
 
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), "utf-8");
 
-  return { passingCandidates, totalFiltered };
+  return { passingCandidates: mergedCandidates, newCandidates, totalFiltered, newCandidatesCount: newCandidates.length, previousLastProcessedId: existingLastProcessedId };
 }

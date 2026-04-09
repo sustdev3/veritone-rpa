@@ -15,7 +15,10 @@ export interface FilterResult {
 
 export interface CollectResult {
   passingCandidates: PassingCandidate[];
+  newCandidates: PassingCandidate[];
   totalFiltered: number;
+  newCandidatesCount: number;
+  previousLastProcessedId: string | null;
 }
 
 export interface CardData {

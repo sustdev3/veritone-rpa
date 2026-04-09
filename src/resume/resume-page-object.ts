@@ -14,6 +14,7 @@ export interface ReviewSummary {
   skippedCount: number;
   skippedPreviouslyPassed: number;
   defaultedToPassCount: number;
+  newCandidatesReviewed: number;
   generalFilterRejects: number;
   labouringFilterRejects: number;
   heavyLabouringRejects: number;

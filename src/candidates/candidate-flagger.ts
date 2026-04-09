@@ -49,6 +49,7 @@ export async function flagFailingCandidates(
   advertId: string,
   passingCandidates: PassingCandidate[],
   totalResponses: number,
+  previousLastProcessedId: string | null,
 ): Promise<FlagResult> {
   await page.goto(
     `https://www.adcourier.com/view-vacancy.cgi?advert_id=${advertId}`,
@@ -61,14 +62,25 @@ export async function flagFailingCandidates(
     `[CandidateFlagger] Navigated to unfiltered responses for advert ${advertId}`,
   );
 
+  const existingLastProcessedId = previousLastProcessedId;
   const passingIds = new Set(passingCandidates.map((c) => c.id));
 
   let totalSkipped = 0;
   let flaggedCount = 0;
   let alreadyFlaggedCount = 0;
   let pageNumber = 1;
+  let bookmarkFound = false;
+  let consecutivePagesWithZeroNew = 0;
+  const FALLBACK_THRESHOLD = 3;
 
   while (true) {
+    // Get ordered card IDs for bookmark detection
+    const pageIds: string[] = await page.evaluate(() =>
+      Array.from(document.querySelectorAll("div.result.searchable")).map(
+        (el) => el.getAttribute("external-candidate-id") ?? "",
+      ),
+    );
+
     const { noFlag, alreadyFlagged, skipped } = await classifyPageCandidates(
       page,
       passingIds,
@@ -76,7 +88,30 @@ export async function flagFailingCandidates(
     totalSkipped += skipped;
     alreadyFlaggedCount += alreadyFlagged.length;
 
-    for (const candidate of noFlag) {
+    let candidatesToFlag = noFlag;
+
+    if (existingLastProcessedId !== null && !bookmarkFound) {
+      const bookmarkIndex = pageIds.indexOf(existingLastProcessedId);
+      if (bookmarkIndex !== -1) {
+        bookmarkFound = true;
+        candidatesToFlag = noFlag.filter(
+          (c) => pageIds.indexOf(c.id) < bookmarkIndex,
+        );
+        console.log(
+          `[CandidateFlagger] Bookmark reached at candidate ${existingLastProcessedId} — stopping pagination`,
+        );
+      } else {
+        consecutivePagesWithZeroNew++;
+        if (consecutivePagesWithZeroNew >= FALLBACK_THRESHOLD) {
+          console.log(
+            `[CandidateFlagger] Bookmark not found after ${FALLBACK_THRESHOLD} empty pages — stopping pagination`,
+          );
+          break;
+        }
+      }
+    }
+
+    for (const candidate of candidatesToFlag) {
       const flagIcon = page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] i.candidate-flag-rank-21`,
       );
@@ -86,6 +121,8 @@ export async function flagFailingCandidates(
       await randomDelay();
       flaggedCount++;
     }
+
+    if (bookmarkFound) break;
 
     await (totalResponses >= 800 ? heavyLoadDelay() : randomDelay());
 

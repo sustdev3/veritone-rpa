@@ -3,12 +3,7 @@ import { DateTime } from "luxon";
 import path from "path";
 import fs from "fs/promises";
 import { randomDelay, heavyLoadDelay, takeScreenshot } from "../shared/utils";
-import {
-  appendToExcel,
-  markAdvertSkipped,
-  finaliseAdvertRow,
-  writeAdvertError,
-} from "../shared/excel-service";
+// import { appendToExcel } from "../shared/excel-service";
 import { filterCandidates } from "../candidates/candidate-filter";
 import { collectPassingCandidates } from "../candidates/candidate-collector";
 import { flagFailingCandidates } from "../candidates/candidate-flagger";
@@ -259,9 +254,6 @@ export async function readAndProcessAdverts(
 
       if (!isWithinRunWindow()) {
         console.log("[AdvertReader] Run window ended — stopping immediately.");
-        try {
-          await writeAdvertError("Run stopped — time window ended");
-        } catch {}
         shouldStop = true;
         break;
       }
@@ -274,9 +266,6 @@ export async function readAndProcessAdverts(
 
       if (!isWithinRunWindow()) {
         console.log("[AdvertReader] Run window ended — stopping immediately.");
-        try {
-          await writeAdvertError("Run stopped — time window ended");
-        } catch {}
         shouldStop = true;
         break;
       }
@@ -285,16 +274,16 @@ export async function readAndProcessAdverts(
         console.log(
           `[AdvertReader] No candidates passed the filter for advert ${advert.advertId} — skipping`,
         );
-        await appendToExcel({
-          startTime,
-          jobTitle: detail.jobTitle,
-          location: detail.location,
-          jobDescription: detail.jobDescription,
-          totalApplications: detail.totalApplicants,
-          selectedKeywords: filterResult.selectedKeywords,
-          filteredCount: filterResult.filteredCount,
-        });
-        await markAdvertSkipped();
+        // await appendToExcel({
+        //   datePosted: advert.datePosted.toFormat('dd/MM/yyyy'),
+        //   refNumber: advert.refNumber,
+        //   jobTitle: detail.jobTitle,
+        //   location: detail.location,
+        //   keywordsUsed: filterResult.selectedKeywords.join(', '),
+        //   totalApplications: detail.totalApplicants,
+        //   filteredCount: filterResult.filteredCount,
+        //   passingCandidatesCount: 0,
+        // });
         runResults.push({
           advertTitle: detail.jobTitle,
           status: "skipped",
@@ -312,15 +301,13 @@ export async function readAndProcessAdverts(
           advert.advertId,
           collectResult.passingCandidates,
           advert.totalResponses,
+          collectResult.previousLastProcessedId,
         );
 
         if (!isWithinRunWindow()) {
           console.log(
             "[AdvertReader] Run window ended — stopping immediately.",
           );
-          try {
-            await writeAdvertError("Run stopped — time window ended");
-          } catch {}
           shouldStop = true;
           break;
         }
@@ -329,25 +316,27 @@ export async function readAndProcessAdverts(
           `[AdvertReader] Flagging done — ` +
             `flagged purple: ${flagResult.flaggedCount}, ` +
             `skipped (passing): ${flagResult.skippedPassing}, ` +
-            `already flagged: ${flagResult.alreadyFlagged}`,
+            `already flagged: ${flagResult.alreadyFlagged}, ` +
+            `new candidates: ${collectResult.newCandidatesCount}`,
         );
 
-        await appendToExcel({
-          startTime,
-          jobTitle: detail.jobTitle,
-          location: detail.location,
-          jobDescription: detail.jobDescription,
-          totalApplications: detail.totalApplicants,
-          selectedKeywords: filterResult.selectedKeywords,
-          filteredCount: filterResult.filteredCount,
-        });
+        // await appendToExcel({
+        //   datePosted: advert.datePosted.toFormat('dd/MM/yyyy'),
+        //   refNumber: advert.refNumber,
+        //   jobTitle: detail.jobTitle,
+        //   location: detail.location,
+        //   keywordsUsed: filterResult.selectedKeywords.join(', '),
+        //   totalApplications: detail.totalApplicants,
+        //   filteredCount: filterResult.filteredCount,
+        //   passingCandidatesCount: collectResult.passingCandidates.filter((c) => !c.flagged_status).length,
+        // });
 
         const llmModel =
           llmSelections["resume review"] ?? "claude-haiku-4-5-20251001";
         const reviewResult = await reviewResumes(
           page,
           advert.advertId,
-          collectResult.passingCandidates,
+          collectResult.newCandidates,
           collectResult.totalFiltered,
           llmModel,
           filterResult.selectedKeywords,
@@ -357,9 +346,6 @@ export async function readAndProcessAdverts(
           console.log(
             "[AdvertReader] Run window ended — stopping immediately.",
           );
-          try {
-            await writeAdvertError("Run stopped — time window ended");
-          } catch {}
           shouldStop = true;
           break;
         }
@@ -368,25 +354,13 @@ export async function readAndProcessAdverts(
           `[AdvertReader] Resume review done — ` +
             `passed: ${reviewResult.passCount}, failed: ${reviewResult.failCount}, ` +
             `flagged purple: ${reviewResult.flaggedCount}, skipped: ${reviewResult.skippedCount}, ` +
-            `skipped (prev passed): ${reviewResult.skippedPreviouslyPassed}`,
+            `skipped (prev passed): ${reviewResult.skippedPreviouslyPassed}, ` +
+            `new candidates reviewed: ${reviewResult.newCandidatesReviewed}`,
         );
 
         const endTime = DateTime.now().setZone("Australia/Sydney");
         const elapsedMins = endTime.diff(startTime, "minutes").minutes;
         const elapsedStr = `${elapsedMins.toFixed(1)} mins`;
-
-        await finaliseAdvertRow({
-          endTime,
-          elapsedStr,
-          passCount: reviewResult.passCount,
-          generalFilterRejects: reviewResult.generalFilterRejects,
-          labouringFilterRejects: reviewResult.labouringFilterRejects,
-          heavyLabouringRejects: reviewResult.heavyLabouringRejects,
-          employmentDateRejects: reviewResult.employmentDateRejects,
-          civilLabourerRejects: reviewResult.civilLabourerRejects,
-          productionWorkerRejects: reviewResult.productionWorkerRejects,
-          defaultedToPassCount: reviewResult.defaultedToPassCount,
-        });
 
         runResults.push({
           advertTitle: detail.jobTitle,
@@ -399,7 +373,7 @@ export async function readAndProcessAdverts(
           totalApplications: detail.totalApplicants,
           filteredCount: filterResult.filteredCount,
           unflaggedForReview:
-            collectResult.passingCandidates.length - reviewResult.skippedCount,
+            collectResult.newCandidates.filter((c) => !c.flagged_status).length,
           generalFilterRejects: reviewResult.generalFilterRejects,
           labouringFilterRejects: reviewResult.labouringFilterRejects,
           heavyLabouringRejects: reviewResult.heavyLabouringRejects,
@@ -429,9 +403,6 @@ export async function readAndProcessAdverts(
           datePostedIso: advert.datePosted.toISO() ?? undefined,
           errorMessage: errMsg,
         });
-        try {
-          await writeAdvertError(`${advert.jobTitle}: ${errMsg}`);
-        } catch {}
         await sendErrorReportEmail(errMsg, advert.jobTitle, screenshotPath ?? undefined);
         shouldStop = true;
         break;
@@ -452,10 +423,6 @@ export async function readAndProcessAdverts(
         `[AdvertReader] ERROR processing advert ${advert.advertId}: ${errMsg} | Screenshot: ${screenshotPath ?? "none"}`,
       );
       console.log(`[AdvertReader] ERROR type "${errorType}" count: ${count}`);
-
-      try {
-        await writeAdvertError(`${advert.jobTitle}: ${errMsg}`);
-      } catch {}
 
       if (count >= 2) {
         console.log(

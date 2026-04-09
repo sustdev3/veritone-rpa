@@ -90,15 +90,19 @@ export function filterAndSort(adverts: AdvertSummary[]): AdvertSummary[] {
     );
   }
 
+  // TESTING: oldest first (production: b.datePosted.toMillis() - a.datePosted.toMillis())
   withinWindow.sort(
-    (a, b) => b.datePosted.toMillis() - a.datePosted.toMillis(),
+    (a, b) => a.datePosted.toMillis() - b.datePosted.toMillis(),
   );
 
-  for (const a of withinWindow) {
+  // TESTING: only process the 2 oldest adverts
+  const toProcess = withinWindow.slice(0, 2);
+
+  for (const a of toProcess) {
     console.log(
       `[AdvertReader] Will process: ID=${a.advertId} — "${a.jobTitle}"`,
     );
   }
 
-  return withinWindow;
+  return toProcess;
 }

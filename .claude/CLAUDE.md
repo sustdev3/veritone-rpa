@@ -22,7 +22,7 @@ In `RUN_MODE=testing` the time-window check is not enforced.
 | Library | Purpose |
 |---|---|
 | TypeScript 5.7 / Node.js | Language and runtime |
-| Playwright 1.50 | Browser automation (Chromium, headful) |
+| Playwright 1.50 | Browser automation (Chromium, headless with automated login) |
 | `@anthropic-ai/sdk` 0.39 | LLM calls for keyword selection and resume review |
 | ExcelJS 4.4 | Read/write `.xlsx` files |
 | Luxon 3.5 | Date parsing and comparison |
@@ -123,36 +123,22 @@ They must not be violated.
 
 ### `data/Processing-Report.xlsx`
 
-One row is appended per advert processed. Column indices are defined in
-`src/shared/excel-service.ts` as the `COL` constant.
+**Note:** Excel writing is currently **disabled** via commented-out code in `src/adverts/advert-reader.ts` (lines that call `appendToExcel`). The output report functionality is handled entirely by email summaries. See §9 (Email Reports) below.
 
-The initial row write (`appendToExcel`) writes START_TIME through AFTER_KW_FILTER.
-Subsequent writes update the same row via `finaliseAdvertRow` (on success),
-`markAdvertSkipped` (zero filtered candidates), or `writeAdvertError` (on error).
+The schema is defined in `src/shared/excel-service.ts` as the `COL` constant for potential future re-enablement:
 
-| Column | Index | Written? |
+| Column | Index | Purpose |
 |---|---|---|
-| START_TIME | 1 | Yes — `dd/MM/yyyy HH:mm:ss` |
-| END_TIME | 2 | Yes — ISO timestamp (Sydney time); `"SKIPPED (NO FILTERED CANDIDATES)"` if zero results |
-| ELAPSED | 3 | Yes — `"X.X mins"`; `"SKIPPED (NO FILTERED CANDIDATES)"` if zero results |
-| JOB_TITLE | 4 | Yes |
-| LOCATION | 5 | Yes |
-| JOB_DESCRIPTION | 6 | Yes |
-| TOTAL_APPLICATIONS | 7 | Yes |
-| KEYWORD_1 | 8 | Yes |
-| KEYWORD_2 | 9 | Yes |
-| KEYWORD_3 | 10 | Yes |
-| KEYWORD_4 | 11 | Yes |
-| AFTER_KW_FILTER | 12 | Yes — filtered candidate count |
-| AFTER_RESUME | 13 | Yes — LLM pass count after resume review |
-| ERROR | 14 | Yes — `"no errors"` on success; error message on failure |
-| GENERAL_FILTER_REJECTS | 15 | Yes — LLM fails with `rejection_category = "general"` |
-| LABOURING_FILTER_REJECTS | 16 | Yes — LLM fails with `rejection_category = "labouring"` |
-| HEAVY_LABOURING_REJECTS | 17 | Yes — LLM fails with `rejection_category = "heavy_labouring"` |
-| EMPLOYMENT_DATE_REJECTS | 18 | Yes — LLM fails with `rejection_category = "employment_date"` |
+| DATE_POSTED | 1 | Advert posting date (`dd/MM/yyyy`) |
+| JOB_REF_NUMBER | 2 | Reference number from Veritone Hire |
+| JOB_TITLE | 3 | Job title |
+| LOCATION | 4 | Job location |
+| KEYWORDS_USED | 5 | Keywords applied to filter (comma-separated) |
+| TOTAL_APPLICATIONS | 6 | Total candidates on the advert |
+| AFTER_KW_FILTER | 7 | Candidates passing keyword + location filter |
+| PASSING_CANDIDATES | 8 | Candidates passing LLM resume review (unflagged count) |
 
-Row 1 is assumed to be a header row. The service scans down from row 2 to find the first
-empty `JOB_TITLE` cell and writes there.
+Row 1 is assumed to be a header row. If re-enabled, one row is appended per advert processed.
 
 ### `data/Variables-used-by-LLMs.xlsx`
 
@@ -267,44 +253,177 @@ survives all retries is caught by `isFatalError` and stops the run.
 
 ---
 
-## 8. PERSISTENT RUN STATE
+## 8. PERSISTENT RUN STATE & BOOKMARK ARCHITECTURE
 
-The bot persists state in `temp/resume-review-{advertId}.json` to make re-runs efficient
-after an interrupted or partial run.
+The bot persists state in two files per advert to support efficient pagination and avoid
+re-processing candidates across runs:
 
-### What is saved
+### File 1: `temp/passing-{advertId}.json`
 
-Each file stores:
-- `selectedKeywords` — the keywords chosen by the LLM for this advert's filter
-- `results` — every candidate review record (`id`, `name`, `ai_decision`, `ai_reason`,
-  `rejection_category`, `defaulted?`) — `defaulted: true` is set when the LLM response
-  could not be parsed and the candidate was automatically passed
-- `advertId`, `reviewedAt`, `totalReviewed`, `ruleset`
+Saved by `collectPassingCandidates()` after candidate collection.
 
-### Keyword reuse (`candidate-filter.ts`)
+```json
+{
+  "advertId": "12345",
+  "collectedAt": "2026-04-10T19:30:00.000Z",
+  "totalFiltered": 42,
+  "selectedKeywords": "plumbing",
+  "lastProcessedId": "cand-001",
+  "passingCandidates": [...]
+}
+```
+
+**Fields:**
+- `passingCandidates` — all candidates who passed keyword + location filter, with fresh flag
+  status from tonight's scrape (not from previous JSON). This includes:
+  - New candidates found this run (not seen before)
+  - Existing candidates from previous run, re-scraped with current flag status
+  
+  **Why both?** HR may manually flag a candidate between runs. Re-scraping ensures the email
+  report shows the correct current flag status.
+
+- `lastProcessedId` — the first candidate ID seen on page 1 of the filtered list. Passed to
+  `flagFailingCandidates()` as the pagination bookmark.
+
+- `totalFiltered` — count of candidates passing keyword + location filter (used to determine
+  strict vs standard LLM ruleset)
+
+### File 2: `temp/resume-review-{advertId}.json`
+
+Saved by `reviewResumes()` after LLM review. Contains cumulative state across runs.
+
+```json
+{
+  "advertId": "12345",
+  "reviewedAt": "2026-04-10T19:45:00.000Z",
+  "totalReviewed": 38,
+  "ruleset": "standard",
+  "selectedKeywords": "plumbing",
+  "lastProcessedId": "cand-001",
+  "results": [...]
+}
+```
+
+**Fields:**
+- `results` — every candidate review ever recorded for this advert (new + previous). Each record:
+  ```json
+  {
+    "id": "cand-123",
+    "name": "John Doe",
+    "ai_decision": "pass" | "fail",
+    "ai_reason": "Strong 10+ years experience",
+    "rejection_category": "general" | null,
+    "defaulted": true | undefined
+  }
+  ```
+  Records persist forever. When writing the file, previous results are kept as-is and only
+  new candidate records are appended.
+
+- `lastProcessedId` — the first candidate ID seen on page 1 after navigation to adcresponses.
+  Becomes the pagination bookmark for the next run's reviewer.
+
+- `selectedKeywords` — the keyword(s) selected for this advert's filter (from LLM or reused
+  from previous run).
+
+### Bookmark-Based Pagination Strategy
+
+The bot uses bookmarks to stop pagination when re-processing candidates:
+
+#### Candidate Collection (`candidate-collector.ts`)
+**Bookmark:** None — full re-scrape every run
+- Paginates through all filtered candidates
+- Captures fresh flag status for all candidates (to detect manual HR flags)
+- Records `newLastProcessedId` from page 1
+
+**Rationale:** Ensures accurate flag detection across runs.
+
+#### Candidate Flagging (`candidate-flagger.ts`)
+**Bookmark:** `previousLastProcessedId` (from collector, passed as parameter)
+- Uses bookmark to stop pagination when the ID is reached
+- Only flags candidates above the bookmark (newly seen)
+- Falls back: if bookmark not found after 3 empty pages, continues pagination
+
+**Rationale:** Most candidates haven't changed. Skipping already-flagged candidates saves
+browser interactions.
+
+#### Resume Review (`resume-reviewer.ts`)
+**Bookmark:** `existingLastProcessedId` (from previous run's `resume-review-{advertId}.json`)
+- Uses bookmark to stop pagination when the ID is reached
+- **Skips LLM calls** for candidates in `previouslyPassedIds` (those with `ai_decision: "pass"`)
+- Falls back: if bookmark not found after 3 empty pages, continues pagination
+
+**Rationale:** LLM calls are expensive. Skipping already-reviewed candidates minimizes API cost.
+The bookmark ensures candidates above it (newly seen) are reviewed; those below are marked
+as "pass" without re-opening their modal.
+
+### Keyword Reuse (`candidate-filter.ts`)
 
 At the start of `filterCandidates()`, the bot checks for an existing
 `temp/resume-review-{advertId}.json`. If found and `selectedKeywords` is non-empty, the
 LLM call is skipped entirely and those keywords are reused. Logs:
 `[CandidateFilter] Reusing keywords from previous run: ...`
 
-### Resume review skip (`resume-reviewer.ts`)
+**Rationale:** Keyword selection is deterministic — reusing them saves an LLM call.
+
+### Resume Review Skip
 
 At the start of `reviewResumes()`, previously passed candidates (where `ai_decision === "pass"`
 in the existing file) are loaded into `previouslyPassedIds`. Any candidate in this set is
-skipped without opening their modal or calling the LLM. The count is reported in
-`ReviewSummary.skippedPreviouslyPassed` and logged in the advert-reader summary line.
+skipped without opening their modal or calling the LLM.
 
 Previously defaulted-to-pass candidates (where `defaulted === true` in the existing file) are
 also counted into `defaultedToPassCount` at load time so the tally carries forward across runs.
 
-When writing the output file, new results are merged with the previous results — previous
-records are kept as-is and only new candidate records are appended.
+### Stale File Cleanup (`advert-reader.ts`)
 
-### Stale file cleanup (`advert-reader.ts`)
+After `filterAndSort()` produces the run's advert list, both state files in `temp/` whose
+advert ID is not in the current run are deleted. Logs:
+`[AdvertReader] Deleted stale state file for advert {advertId} — not in current run`
 
-After `filterAndSort()` produces the run's advert list, both `resume-review-{advertId}.json`
-and `passing-{advertId}.json` files in `temp/` whose advert ID is not in the current run are
-deleted. Logs: `[AdvertReader] Deleted stale state file for advert {advertId} — not in current run`
+---
+
+## 9. EMAIL REPORTS
+
+At the end of each run, the bot sends a summary email via `sendRunSummaryEmail()` in
+`src/shared/email-service.ts`. Excel output is disabled (code is commented out).
+
+### Email Recipients
+
+Hardcoded in `src/shared/email-service.ts` (lines 65–70):
+- `sustdev3@gmail.com`
+- `bruce@8020green.com`
+- `simonm@s1hr.com.au` (optional, see below)
+- `suziew@s1hr.com.au` (optional, see below)
+
+To change recipients, edit the `to` array in `sendRunSummaryEmail()`.
+
+### Email Content
+
+Generated by `buildRunSummaryHtml()` in `src/templates/run-summary-email.ts`.
+
+**Summary metrics:**
+- Total adverts processed, skipped, and errored
+- Timestamp (Sydney time: `dd/MM/yyyy HH:mm`)
+
+**Per-advert table:**
+Each row contains:
+- Job title and reference number
+- Date posted
+- Location
+- Keywords applied
+- Candidates passing keyword filter
+- **Passing candidates** (unflagged count after resume review)
+  - Calculated as: `reviewResult.passCount + collectResult.existingUnflaggedCount`
+  - Ensures manual HR flags are reflected in the count
+- Rejection categories (count of LLM fails by category)
+- Elapsed time for the advert
+- Status (success / skipped / error)
+
+### Error Emails
+
+On fatal or repeated errors, the bot sends an additional email via `sendErrorReportEmail()` with:
+- Error type and message
+- Advert title
+- Screenshot path (if captured)
 
 ---

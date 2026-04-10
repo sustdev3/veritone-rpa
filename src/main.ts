@@ -10,16 +10,9 @@ import { readAndProcessAdverts } from './adverts/advert-reader';
 import { cleanupSession, takeScreenshot } from './shared/utils';
 import { loadAllVariables } from './shared/llm-service';
 
-const LOG_PATH = path.resolve(__dirname, '..', 'logs', 'run.log');
-try {
-  fs.unlinkSync(LOG_PATH);
-} catch {}
-
 console.log = (...args: unknown[]) => logger.info(args.join(' '));
 console.warn = (...args: unknown[]) => logger.warn(args.join(' '));
 console.error = (...args: unknown[]) => logger.error(args.join(' '));
-
-console.log('[Main] Previous run log cleared.');
 
 process.on('uncaughtException', async (err: Error) => {
   console.error('[Main] Uncaught exception:', err.message, err.stack);
@@ -42,6 +35,12 @@ process.on('unhandledRejection', async (reason: unknown) => {
 let activeSession: Awaited<ReturnType<typeof launchAndWaitForLogin>> | null = null;
 
 async function runBot() {
+  const LOG_PATH = path.resolve(__dirname, '..', 'logs', 'run.log');
+  try {
+    fs.unlinkSync(LOG_PATH);
+    console.log('[Main] Previous run log cleared.');
+  } catch {}
+
   console.log('[Main] Veritone RPA starting...');
   console.log(`[Main] Mode: ${process.env.RUN_MODE ?? 'testing'}`);
 

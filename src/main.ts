@@ -1,14 +1,13 @@
 import 'dotenv/config';
-import fs from 'fs';
-import path from 'path';
 import * as cron from 'node-cron';
 import { DateTime } from 'luxon';
-import { logger } from './activity-logger';
+import { logger, initFileLogging } from './activity-logger';
 import { launchAndWaitForLogin, getActivePage } from './browser-session';
 import { navigateToManageAdverts } from './adverts/page-navigation';
 import { readAndProcessAdverts } from './adverts/advert-reader';
 import { cleanupSession, takeScreenshot } from './shared/utils';
 import { loadAllVariables } from './shared/llm-service';
+import { sendErrorReportEmail } from './shared/email-service';
 
 console.log = (...args: unknown[]) => logger.info(args.join(' '));
 console.warn = (...args: unknown[]) => logger.warn(args.join(' '));
@@ -17,30 +16,38 @@ console.error = (...args: unknown[]) => logger.error(args.join(' '));
 process.on('uncaughtException', async (err: Error) => {
   console.error('[Main] Uncaught exception:', err.message, err.stack);
   const page = getActivePage();
+  let screenshotPath: string | null = null;
   if (page) {
-    await takeScreenshot(page, 'fatal-crash');
+    screenshotPath = await takeScreenshot(page, 'fatal-crash');
   }
+  await sendErrorReportEmail(
+    `Uncaught exception: ${err.message}\n${err.stack ?? ''}`,
+    undefined,
+    screenshotPath ?? undefined,
+  ).catch(() => {});
   process.exit(1);
 });
 
 process.on('unhandledRejection', async (reason: unknown) => {
-  console.error('[Main] Unhandled rejection:', String(reason));
+  const msg = String(reason);
+  console.error('[Main] Unhandled rejection:', msg);
   const page = getActivePage();
+  let screenshotPath: string | null = null;
   if (page) {
-    await takeScreenshot(page, 'fatal-crash');
+    screenshotPath = await takeScreenshot(page, 'fatal-crash');
   }
+  await sendErrorReportEmail(
+    `Unhandled rejection: ${msg}`,
+    undefined,
+    screenshotPath ?? undefined,
+  ).catch(() => {});
   process.exit(1);
 });
 
 let activeSession: Awaited<ReturnType<typeof launchAndWaitForLogin>> | null = null;
 
 async function runBot() {
-  const LOG_PATH = path.resolve(__dirname, '..', 'logs', 'run.log');
-  try {
-    fs.unlinkSync(LOG_PATH);
-    console.log('[Main] Previous run log cleared.');
-  } catch {}
-
+  initFileLogging();
   console.log('[Main] Veritone RPA starting...');
   console.log(`[Main] Mode: ${process.env.RUN_MODE ?? 'testing'}`);
 

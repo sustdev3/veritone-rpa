@@ -67,13 +67,13 @@ async function runBot() {
 const runMode = process.env.RUN_MODE ?? 'testing';
 
 if (runMode === 'production') {
-  console.log('[Main] Production mode — scheduler active. Waiting for 7:00 PM Sydney time.');
-  cron.schedule('0 19 * * *', async () => {
+  console.log('[Main] Production mode — scheduler active. Waiting for 10:00 PM Sydney time.');
+  cron.schedule('0 22 * * 0-5', async () => {
     console.log('[Main] Scheduled run starting...');
     const now = DateTime.now().setZone('Australia/Sydney');
     const h = now.hour;
-    if (h >= 7 && h < 19) {
-      console.log('[Main] Outside allowed run window (7:00 PM – 7:00 AM). Skipping.');
+    if (h >= 1 && h < 22) {
+      console.log('[Main] Outside allowed run window (10:00 PM – 1:00 AM). Skipping.');
       return;
     }
     const hardResetTimeout = setTimeout(async () => {
@@ -82,7 +82,7 @@ if (runMode === 'production') {
         await cleanupSession(activeSession).catch(() => {});
       }
       process.exit(0);
-    }, 12 * 60 * 60 * 1000);
+    }, 3 * 60 * 60 * 1000);
     await runBot().catch((err: Error) => {
       console.error('[Main] Fatal error:', err.message);
     });

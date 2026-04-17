@@ -164,7 +164,7 @@ EOF
 chmod 600 .env
 
 # Start with pm2
-pm2 start dist/main.js --name "veritone-rpa" --cron "0 19 * * *"
+pm2 start dist/main.js --name "veritone-rpa" --cron "0 22 * * 0-5"
 pm2 save
 ```
 

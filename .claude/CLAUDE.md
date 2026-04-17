@@ -14,7 +14,7 @@ lookback window, and for each advert:
 4. Reviews CVs of passing candidates via LLM and records pass/fail decisions
 5. Writes a row to a Processing Report spreadsheet
 
-**Intended schedule:** nightly between 7 pm and 7 am Sydney time (AEST/AEDT).
+**Intended schedule:** nightly between 10 pm and 1 am Sydney time (AEST/AEDT), Sunday to Friday (not Saturday).
 In `RUN_MODE=testing` the time-window check is not enforced.
 
 **Language and core libraries:**
@@ -27,7 +27,7 @@ In `RUN_MODE=testing` the time-window check is not enforced.
 | ExcelJS 4.4 | Read/write `.xlsx` files |
 | Luxon 3.5 | Date parsing and comparison |
 | Winston 3.17 | Structured logging to console + rolling log file |
-| node-cron 3.0 | Nightly scheduler — fires at 7:00 PM Sydney time (`0 19 * * *`) |
+| node-cron 3.0 | Nightly scheduler — fires at 10:00 PM Sydney time, Sun–Fri (`0 22 * * 0-5`) |
 | nodemailer 6.9 | Fault email notifications (fatal + repeated errors) |
 | dotenv 16 | Loads `.env` at startup |
 | tsx 4.19 | Dev runner (`npm run dev`) |

@@ -58,18 +58,27 @@ veritone-rpa/
 │   │                              CollectResult, FlagResult, CardData, NonPassingNoFlag,
 │   │                              NonPassingAlreadyFlagged, FLAG_COLOUR_MAP, classifyCards,
 │   │                              buildCollectSummary, selectKeywordsViaLLM
+│   ├── candidates/
+│   │   └── questionnaire-screener.ts  Parses "Screening Form Response" notes from candidate
+│   │                                  profiles; returns ScreeningAnswers or null; determines
+│   │                                  purple flag via shouldPurpleFlag() — checked before LLM
 │   ├── resume/
-│   │   ├── resume-reviewer.ts    Playwright steps: paginates, opens CV modal, extracts text,
-│   │   │                         calls LLM, flags failed candidates
-│   │   └── resume-page-object.ts All resume logic and types: ReviewResult, ReviewSummary,
-│   │                              validRejectionCategories, RejectionCategory,
-│   │                              validateLlmResponse, tallyRejectionCounts
+│   │   ├── resume-reviewer.ts    Playwright steps: paginates, opens CV modal, checks screening
+│   │   │                         note first (purple flags + skips LLM if questionnaire fails),
+│   │   │                         then extracts CV text and calls LLM for remaining candidates
+│   │   └── resume-page-object.ts All resume logic and types: ReviewResult, ReviewSummary
+│   │                              (includes questionnaireFlaggedCount), validRejectionCategories,
+│   │                              RejectionCategory, validateLlmResponse, tallyRejectionCounts
+│   ├── services/
+│   │   └── questionnaire-sheet.ts  Reads the Summary tab from the shared Google Sheet;
+│   │                                returns Map<"adrefNo|datePosted", count> via getAnsweredCounts()
 │   ├── shared/
 │   │   ├── utils.ts              randomDelay, cleanupSession, parseAdvertDate, takeScreenshot
 │   │   ├── excel-service.ts      appendToExcel, markAdvertSkipped, finaliseAdvertRow,
 │   │   │                         writeAdvertError; COL column-index map
 │   │   ├── llm-service.ts        callLLM; loadLLMSelections; loadCommonKeywords; loadAllVariables
 │   │   └── email-service.ts      sendRunSummaryEmail; sendErrorReportEmail; AdvertRunResult
+│   │                             (includes answeredQuestionsCount field)
 │   └── prompts/
 │       ├── identify-keywords.ts  buildKeywordPrompt() — keyword selection prompt
 │       └── review-resume.ts      buildReviewPrompt() — resume review prompt
@@ -169,6 +178,9 @@ Copy `.env.template` to `.env` and fill in real values. Never commit `.env`.
 | `EMAIL_PASS` | — | Gmail App Password for the sending account |
 | `VERITONE_USERNAME` | — | Veritone Hire login username (optional — falls back to manual login if not set) |
 | `VERITONE_PASSWORD` | — | Veritone Hire login password (optional — falls back to manual login if not set) |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | — | Service account email for Google Sheets access (same account as note-adding RPA) |
+| `GOOGLE_PRIVATE_KEY` | — | Service account private key — include `\n` line breaks |
+| `GOOGLE_SHEET_ID` | — | ID from the Google Sheet URL (same sheet as note-adding RPA) |
 
 **Email recipients** are hardcoded in `email-service.ts`: `sustdev3@gmail.com` and `bruce@8020green.com`. They are not read from `.env`.
 

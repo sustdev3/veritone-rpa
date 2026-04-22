@@ -85,6 +85,9 @@ cp .env.template .env
 | `EMAIL_PASS` | Yes | Gmail App Password for the sending account |
 | `VERITONE_USERNAME` | Yes | Veritone Hire login username (no manual login fallback in headless mode) |
 | `VERITONE_PASSWORD` | Yes | Veritone Hire login password |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Yes | Service account email — same as the note-adding RPA |
+| `GOOGLE_PRIVATE_KEY` | Yes | Service account private key (include `\n` line breaks) |
+| `GOOGLE_SHEET_ID` | Yes | Google Sheet ID — same sheet as the note-adding RPA |
 
 ### 5. Build
 
@@ -248,11 +251,26 @@ The bot saves two files per advert in the `temp/` folder:
 - `lastProcessedId` = first candidate ID from page 1 (used as bookmark by reviewer for next run)
 - Candidates with `ai_decision: "pass"` are skipped in next run without re-opening their modal
 
+### Questionnaire-Based Purple Flagging
+
+When the note-adding RPA adds a screening form note to a candidate's Veritone profile, the pre-screening RPA reads it during resume review. If the candidate's answers meet any disqualifying criteria, they are immediately purple-flagged and the LLM CV review is skipped:
+
+| Criterion | Disqualifying value |
+|---|---|
+| Driver's licence | No |
+| Gets to work by | Public Transport, Get a Lift, or Other |
+| Available to work full time | No |
+| Able to start | Longer |
+| Finished last job | More than a month |
+
+If no screening note is found, or the candidate passes all criteria, the normal LLM review proceeds.
+
 ### Email Reports
 
 At the end of each run, the bot sends an email summary with:
 - Breakdown of success/skip/error counts
 - Detailed per-advert results (keyword filter count, resume review pass count, rejection categories)
+- **Number of applicants who answered questions** — cumulative total read from the `Summary` tab of the shared Google Sheet (written by the note-adding RPA). Matched by `refNumber + datePosted`. Shows `—` if no data is available for that advert
 - Run duration and elapsed time per advert
 
 Email recipients are hardcoded in `src/shared/email-service.ts` and include bruce@8020green.com and other team members.

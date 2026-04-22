@@ -14,6 +14,7 @@ import {
   AdvertRunResult,
   AdvertListEntry,
 } from "../shared/email-service";
+import { getAnsweredCounts } from "../services/questionnaire-sheet";
 import {
   AdvertSummary,
   AdvertDetail,
@@ -353,7 +354,8 @@ export async function readAndProcessAdverts(
         console.log(
           `[AdvertReader] Resume review done — ` +
             `passed: ${reviewResult.passCount}, failed: ${reviewResult.failCount}, ` +
-            `flagged purple: ${reviewResult.flaggedCount}, skipped: ${reviewResult.skippedCount}, ` +
+            `flagged purple: ${reviewResult.flaggedCount} (${reviewResult.questionnaireFlaggedCount} via questionnaire), ` +
+            `skipped: ${reviewResult.skippedCount}, ` +
             `skipped (prev passed): ${reviewResult.skippedPreviouslyPassed}, ` +
             `new candidates reviewed: ${reviewResult.newCandidatesReviewed}`,
         );
@@ -469,6 +471,22 @@ export async function readAndProcessAdverts(
       location: a.location,
       totalResponses: a.totalResponses,
     }));
+
+  let answeredCounts = new Map<string, number>();
+  try {
+    answeredCounts = await getAnsweredCounts();
+    console.log(`[AdvertReader] Loaded answered counts for ${answeredCounts.size} adverts from summary sheet`);
+  } catch (err) {
+    console.warn(`[AdvertReader] WARNING: Could not load answered counts — column will be blank: ${err}`);
+  }
+
+  for (const result of runResults) {
+    if (result.refNumber && result.datePostedIso) {
+      const datePosted = result.datePostedIso.substring(0, 10);
+      const count = answeredCounts.get(`${result.refNumber}|${datePosted}`);
+      if (count !== undefined) result.answeredQuestionsCount = count;
+    }
+  }
 
   await sendRunSummaryEmail(runResults, advertList);
 }

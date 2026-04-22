@@ -43,6 +43,7 @@ export interface AdvertRunResult {
   skippedPreviouslyPassed?: number;
   defaultedToPassCount?: number;
   skippedReason?: string;
+  answeredQuestionsCount?: number;
 }
 
 export async function sendRunSummaryEmail(

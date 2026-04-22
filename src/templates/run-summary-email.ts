@@ -39,6 +39,7 @@ export function buildRunSummaryHtml(
       ${cell(r.totalApplications)}
       ${cell(r.filteredCount)}
       ${cell(r.passCount ?? 0)}
+      ${cell(r.answeredQuestionsCount)}
     </tr>`;
   }).join('');
 
@@ -78,6 +79,7 @@ export function buildRunSummaryHtml(
             ${th('Total number of applicants')}
             ${th('Number of applicants after location and keyword check')}
             ${th('Number of passing candidates (unranked - grey flags)')}
+            ${th('Number of applicants who answered questions')}
           </tr>
         </thead>
         <tbody>

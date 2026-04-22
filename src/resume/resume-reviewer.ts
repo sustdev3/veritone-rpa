@@ -12,6 +12,7 @@ import {
   validateLlmResponse,
   tallyRejectionCounts,
 } from "./resume-page-object";
+import { parseScreeningNote, shouldPurpleFlag } from "../candidates/questionnaire-screener";
 
 export async function reviewResumes(
   page: Page,
@@ -100,6 +101,7 @@ export async function reviewResumes(
 
   const results: ReviewResult[] = [];
   let flaggedCount = 0;
+  let questionnaireFlaggedCount = 0;
   let skippedPreviouslyPassed = 0;
   let newCandidatesReviewed = 0;
   let pageNumber = 1;
@@ -153,6 +155,38 @@ export async function reviewResumes(
       await eyeButton.click();
       await page.locator("div.profile-box").waitFor({ state: "visible" });
       await page.waitForTimeout(1500);
+
+      // Check screening form notes before CV review
+      const noteTexts = await page
+        .locator("div.profile-box ul.notes-list li.note")
+        .allTextContents();
+      const combinedNotes = noteTexts.join("\n");
+      const screeningAnswers = parseScreeningNote(combinedNotes);
+
+      if (screeningAnswers !== null && shouldPurpleFlag(screeningAnswers)) {
+        console.log(
+          `[ResumeReviewer] Questionnaire fail — flagging purple: ${candidate.name}`,
+        );
+        const flagIcon = page.locator(
+          "div.adcresponses-profile-flagging i.candidate-flag-rank-21",
+        );
+        await flagIcon.click();
+        await page.waitForTimeout(800);
+        questionnaireFlaggedCount++;
+        flaggedCount++;
+        try {
+          await page.locator("a.profile-close").click();
+        } catch {}
+        await page
+          .waitForFunction(
+            () =>
+              (document.querySelector("#gritter-notice-wrapper")
+                ?.childElementCount ?? 0) === 0,
+            { timeout: 10000 },
+          )
+          .catch(() => {});
+        continue;
+      }
 
       let cvText = "";
 
@@ -307,13 +341,15 @@ export async function reviewResumes(
 
   console.log(
     `[ResumeReviewer] Done — ${passCount} passed, ${failCount} failed ` +
-      `(${flaggedCount} flagged purple), ${skippedCount} skipped (already flagged)`,
+      `(${flaggedCount} flagged purple, ${questionnaireFlaggedCount} via questionnaire), ` +
+      `${skippedCount} skipped (already flagged)`,
   );
 
   return {
     passCount,
     failCount,
     flaggedCount,
+    questionnaireFlaggedCount,
     skippedCount,
     skippedPreviouslyPassed,
     defaultedToPassCount,

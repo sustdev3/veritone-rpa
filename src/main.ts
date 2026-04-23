@@ -83,8 +83,16 @@ if (runMode === 'production') {
       }
       process.exit(0);
     }, 3 * 60 * 60 * 1000);
-    await runBot().catch((err: Error) => {
+    await runBot().catch(async (err: Error) => {
       console.error('[Main] Fatal error:', err.message);
+      const page = getActivePage();
+      let screenshotPath: string | null = null;
+      if (page) screenshotPath = await takeScreenshot(page, 'fatal-crash');
+      await sendErrorReportEmail(
+        `Fatal error: ${err.message}\n${err.stack ?? ''}`,
+        undefined,
+        screenshotPath ?? undefined,
+      ).catch(() => {});
     });
     clearTimeout(hardResetTimeout);
     process.exit(0);
@@ -92,8 +100,16 @@ if (runMode === 'production') {
     timezone: 'Australia/Sydney',
   });
 } else {
-  runBot().catch((err: Error) => {
+  runBot().catch(async (err: Error) => {
     console.error('[Main] Fatal error:', err.message);
+    const page = getActivePage();
+    let screenshotPath: string | null = null;
+    if (page) screenshotPath = await takeScreenshot(page, 'fatal-crash');
+    await sendErrorReportEmail(
+      `Fatal error: ${err.message}\n${err.stack ?? ''}`,
+      undefined,
+      screenshotPath ?? undefined,
+    ).catch(() => {});
     process.exit(1);
   });
 }

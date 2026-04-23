@@ -43,7 +43,7 @@ async function performAutoLogin(page: Page): Promise<void> {
 
   await page.fill('input[name="username"]', process.env.VERITONE_USERNAME!);
   await page.fill('input[name="password"]', process.env.VERITONE_PASSWORD!);
-  await page.click('a#submit_button');
+  await page.click('button#submit_button');
 
   const redirected = await page
     .waitForURL(url => POST_LOGIN_URL_PATTERN.test(url.href), { timeout: 15000 })

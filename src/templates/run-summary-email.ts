@@ -23,10 +23,15 @@ export function buildRunSummaryHtml(
   });
 
   const th = (label: string) =>
-    `<th style="padding:9px 10px;background:#2c3e50;color:#fff;font-size:11px;font-weight:bold;text-align:left;white-space:nowrap;">${label}</th>`;
+    `<th style="padding:9px 10px;background:#2c3e50;color:#fff;font-size:11px;font-weight:bold;text-align:center;white-space:nowrap;">${label}</th>`;
 
   const cell = (val: string | number | undefined | null) =>
-    `<td style="padding:8px 10px;border-bottom:1px solid #e8e8e8;font-size:12px;vertical-align:top;">${val ?? '—'}</td>`;
+    `<td style="padding:8px 10px;border-bottom:1px solid #e8e8e8;font-size:12px;vertical-align:top;text-align:right;">${val ?? '—'}</td>`;
+
+  const fmtPct = (answered: number | undefined, total: number | undefined): string => {
+    if (answered === undefined || !total || total === 0) return '—';
+    return `${Math.round((answered / total) * 100)}%`;
+  };
 
   const processedRows = sorted.map((r, i) => {
     const bg = i % 2 === 0 ? '#f9f9f9' : '#ffffff';
@@ -40,8 +45,25 @@ export function buildRunSummaryHtml(
       ${cell(r.filteredCount)}
       ${cell(r.passCount ?? 0)}
       ${cell(r.answeredQuestionsCount)}
+      ${cell(fmtPct(r.answeredQuestionsCount, r.totalApplications))}
     </tr>`;
   }).join('');
+
+  const totalsRow = (() => {
+    const totalApps = sorted.reduce((s, r) => s + (r.totalApplications ?? 0), 0);
+    const totalFiltered = sorted.reduce((s, r) => s + (r.filteredCount ?? 0), 0);
+    const totalPass = sorted.reduce((s, r) => s + (r.passCount ?? 0), 0);
+    const totalAnswered = sorted.reduce((s, r) => s + (r.answeredQuestionsCount ?? 0), 0);
+    const tdStyle = 'padding:8px 10px;font-size:12px;font-weight:bold;border-top:2px solid #2c3e50;background:#f0f3f6;vertical-align:top;text-align:right;';
+    return `<tr>
+      <td colspan="5" style="${tdStyle}text-align:left;">Totals</td>
+      <td style="${tdStyle}">${totalApps}</td>
+      <td style="${tdStyle}">${totalFiltered}</td>
+      <td style="${tdStyle}">${totalPass}</td>
+      <td style="${tdStyle}">${totalAnswered}</td>
+      <td style="${tdStyle}">${fmtPct(totalAnswered, totalApps)}</td>
+    </tr>`;
+  })();
 
   const allAdvertsSorted = [...allAdverts].sort((a, b) =>
     b.datePostedIso.localeCompare(a.datePostedIso),
@@ -71,19 +93,21 @@ export function buildRunSummaryHtml(
       <table style="width:100%;border-collapse:collapse;">
         <thead>
           <tr>
-            ${th('Date job posted')}
-            ${th('Job ref number')}
+            ${th('Date')}
+            ${th('Job Ref')}
             ${th('Job title')}
             ${th('Location')}
-            ${th('Key words used')}
-            ${th('Total number of applicants')}
-            ${th('Number of applicants after location and keyword check')}
-            ${th('Number of passing candidates (unranked - grey flags)')}
-            ${th('Number of applicants who answered questions')}
+            ${th('Key words')}
+            ${th('Total applicants')}
+            ${th('Number after location/keywords')}
+            ${th('Suitable (grey flags)')}
+            ${th('Answered questions')}
+            ${th('% answering questions')}
           </tr>
         </thead>
         <tbody>
           ${processedRows}
+          ${totalsRow}
         </tbody>
       </table>
     </div>

@@ -148,7 +148,7 @@ function isWithinRunWindow(): boolean {
   if ((process.env.RUN_MODE ?? "testing") !== "production") return true;
   const now = DateTime.now().setZone("Australia/Sydney");
   const h = now.hour;
-  return h >= 19 || h < 7;
+  return h >= 19 && h < 22;
 }
 
 export async function readAndProcessAdverts(

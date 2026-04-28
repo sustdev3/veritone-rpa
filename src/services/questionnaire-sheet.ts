@@ -21,7 +21,7 @@ async function getAuthenticatedSheets() {
   return { sheets: google.sheets({ version: "v4", auth }), sheetId };
 }
 
-// Returns a map of "adrefNo|datePosted" -> cumulative answered count.
+// Returns a map of "adrefNo|advertTitle" -> cumulative answered count.
 // Summary tab columns: A=adrefNo, B=advertTitle, C=datePosted (YYYY-MM-DD), D=totalAnswered
 export async function getAnsweredCounts(): Promise<Map<string, number>> {
   const { sheets, sheetId } = await getAuthenticatedSheets();
@@ -35,9 +35,9 @@ export async function getAnsweredCounts(): Promise<Map<string, number>> {
 
   for (const row of response.data.values || []) {
     const adrefNo = (row[0] || "").trim();
-    const datePosted = (row[2] || "").trim();
+    const advertTitle = (row[1] || "").trim();
     const count = parseInt(row[3] || "0", 10);
-    if (adrefNo && datePosted) counts.set(`${adrefNo}|${datePosted}`, count);
+    if (adrefNo && advertTitle) counts.set(`${adrefNo}|${advertTitle}`, count);
   }
 
   return counts;

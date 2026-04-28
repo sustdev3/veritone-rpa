@@ -481,9 +481,8 @@ export async function readAndProcessAdverts(
   }
 
   for (const result of runResults) {
-    if (result.refNumber && result.datePostedIso) {
-      const datePosted = result.datePostedIso.substring(0, 10);
-      const count = answeredCounts.get(`${result.refNumber}|${datePosted}`);
+    if (result.refNumber) {
+      const count = answeredCounts.get(`${result.refNumber}|${result.advertTitle}`);
       if (count !== undefined) result.answeredQuestionsCount = count;
     }
   }

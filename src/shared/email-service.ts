@@ -65,9 +65,9 @@ export async function sendRunSummaryEmail(
       from: "Veritone RPA <sustdev3@gmail.com>",
       to: [
         "sustdev3@gmail.com",
-        "bruce@8020green.com",
-        "simonm@s1hr.com.au",
-        "suziew@s1hr.com.au",
+        // "bruce@8020green.com",
+        // "simonm@s1hr.com.au",
+        // "suziew@s1hr.com.au",
       ],
       subject: `Veritone RPA — Run Complete [${timestamp}]`,
       html,
@@ -101,7 +101,7 @@ export async function sendErrorReportEmail(
   try {
     await transporter.sendMail({
       from: "Veritone RPA <sustdev3@gmail.com>",
-      to: ["sustdev3@gmail.com", "bruce@8020green.com"],
+      to: ["sustdev3@gmail.com" /*, "bruce@8020green.com"*/],
       subject: `Veritone RPA — ERROR [${timestamp}]`,
       text: body,
     });

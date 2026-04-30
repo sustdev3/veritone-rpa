@@ -286,6 +286,7 @@ export async function readAndProcessAdverts(
         //   passingCandidatesCount: 0,
         // });
         runResults.push({
+          advertId: advert.advertId,
           advertTitle: detail.jobTitle,
           status: "skipped",
           refNumber: advert.refNumber,
@@ -365,6 +366,7 @@ export async function readAndProcessAdverts(
         const elapsedStr = `${elapsedMins.toFixed(1)} mins`;
 
         runResults.push({
+          advertId: advert.advertId,
           advertTitle: detail.jobTitle,
           status: "success",
           refNumber: advert.refNumber,
@@ -400,6 +402,7 @@ export async function readAndProcessAdverts(
           `[AdvertReader] FATAL ERROR — stopping immediately: ${errMsg}`,
         );
         runResults.push({
+          advertId: advert.advertId,
           advertTitle: advert.jobTitle,
           status: "error",
           datePostedIso: advert.datePosted.toISO() ?? undefined,
@@ -415,6 +418,7 @@ export async function readAndProcessAdverts(
       errorTracker.set(errorType, count);
       errorLog.push({ advertTitle: advert.jobTitle, message: errMsg });
       runResults.push({
+        advertId: advert.advertId,
         advertTitle: advert.jobTitle,
         status: "error",
         datePostedIso: advert.datePosted.toISO() ?? undefined,
@@ -481,8 +485,8 @@ export async function readAndProcessAdverts(
   }
 
   for (const result of runResults) {
-    if (result.refNumber) {
-      const count = answeredCounts.get(`${result.refNumber}|${result.advertTitle}`);
+    if (result.advertId) {
+      const count = answeredCounts.get(result.advertId);
       if (count !== undefined) result.answeredQuestionsCount = count;
     }
   }

@@ -22,6 +22,7 @@ export interface AdvertListEntry {
 }
 
 export interface AdvertRunResult {
+  advertId?: string;
   advertTitle: string;
   status: "success" | "skipped" | "error";
   refNumber?: string;

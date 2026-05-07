@@ -22,8 +22,11 @@ export function buildRunSummaryHtml(
     return b.datePostedIso.localeCompare(a.datePostedIso);
   });
 
-  const th = (label: string) =>
-    `<th style="padding:9px 10px;background:#2c3e50;color:#fff;font-size:11px;font-weight:bold;text-align:center;white-space:nowrap;">${label}</th>`;
+  const th = (label: string, extraStyle = '') =>
+    `<th style="padding:9px 10px;background:#2c3e50;color:#fff;font-size:11px;font-weight:bold;text-align:center;white-space:nowrap;${extraStyle}">${label}</th>`;
+
+  const thWrap = (label: string) =>
+    `<th style="padding:9px 10px;background:#2c3e50;color:#fff;font-size:11px;font-weight:bold;text-align:center;width:80px;">${label}</th>`;
 
   const cell = (val: string | number | undefined | null) =>
     `<td style="padding:8px 10px;border-bottom:1px solid #e8e8e8;font-size:12px;vertical-align:top;text-align:right;">${val ?? '—'}</td>`;
@@ -93,16 +96,16 @@ export function buildRunSummaryHtml(
       <table style="width:100%;border-collapse:collapse;">
         <thead>
           <tr>
-            ${th('Date')}
+            ${th('Date', 'width:95px;')}
             ${th('Job Ref')}
             ${th('Job title')}
-            ${th('Location')}
-            ${th('Key words')}
-            ${th('Total applicants')}
-            ${th('Number after location/keywords')}
-            ${th('Suitable (grey flags)')}
-            ${th('Answered questions')}
-            ${th('% answering questions')}
+            ${th('Location', 'width:140px;')}
+            ${th('Keywords', 'width:140px;')}
+            ${thWrap('Total applicants')}
+            ${thWrap('Number after location/keywords')}
+            ${thWrap('Suitable (grey flags)')}
+            ${thWrap('Answered questions')}
+            ${thWrap('% answering questions')}
           </tr>
         </thead>
         <tbody>

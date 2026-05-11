@@ -231,6 +231,7 @@ export async function readAndProcessAdverts(
     console.log(
       `\n[AdvertReader] ─── ${advert.jobTitle} (ID: ${advert.advertId}) ───`,
     );
+    console.log(`[AdvertReader] AdCourier total responses: ${advert.totalResponses}`);
 
     try {
       await randomDelay();
@@ -429,6 +430,8 @@ export async function readAndProcessAdverts(
       console.log(
         `[AdvertReader] ERROR processing advert ${advert.advertId}: ${errMsg} | Screenshot: ${screenshotPath ?? "none"}`,
       );
+      const stack = err instanceof Error ? (err.stack ?? err.message) : String(err);
+      console.log(`[AdvertReader] Stack: ${stack}`);
       console.log(`[AdvertReader] ERROR type "${errorType}" count: ${count}`);
 
       if (count >= 2) {

@@ -33,9 +33,20 @@ export function advertStatePath(advertId: string): string {
 
 export async function readAdvertState(advertId: string): Promise<AdvertStateFile | null> {
   const raw = await fs.readFile(advertStatePath(advertId), "utf-8").catch(() => null);
-  if (raw === null) return null;
+  if (raw === null) {
+    console.log(`[AdvertState] advert-state-${advertId}.json not found — fresh state`);
+    return null;
+  }
   try {
-    return JSON.parse(raw) as AdvertStateFile;
+    const state = JSON.parse(raw) as AdvertStateFile;
+    const toReview = state.candidates.filter(c => c.review_status === null && !c.flagged_status).length;
+    const flagged = state.candidates.filter(c => c.flagged_status).length;
+    const passed = state.candidates.filter(c => c.review_status === "pass" && !c.flagged_status).length;
+    console.log(
+      `[AdvertState] Read advert-state-${advertId}.json — ${state.candidates.length} candidates ` +
+      `(${toReview} to review, ${flagged} flagged, ${passed} passed)`,
+    );
+    return state;
   } catch {
     return null;
   }
@@ -45,4 +56,5 @@ export async function writeAdvertState(state: AdvertStateFile): Promise<void> {
   await fs.mkdir(tempDir, { recursive: true });
   state.updatedAt = DateTime.now().toISO() ?? state.updatedAt;
   await fs.writeFile(advertStatePath(state.advertId), JSON.stringify(state, null, 2), "utf-8");
+  console.log(`[AdvertState] Wrote advert-state-${state.advertId}.json — ${state.candidates.length} candidates`);
 }

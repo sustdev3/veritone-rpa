@@ -81,6 +81,8 @@ export async function reviewResumes(
   let defaultedToPassCount = 0;
   let pageNumber = 1;
   let bookmarkFound = false;
+  let candidateIndex = 0;
+  const totalToReview = toReviewMap.size;
   let consecutivePagesWithZeroNew = 0;
   const FALLBACK_THRESHOLD = 3;
   const llmSelections = { "resume review": llmModel };
@@ -118,6 +120,7 @@ export async function reviewResumes(
 
     for (const id of pageToReview) {
       const candidate = toReviewMap.get(id)!;
+      candidateIndex++;
 
       const eyeButton = page.locator(
         `div.result.searchable[external-candidate-id="${id}"] ` +
@@ -135,7 +138,16 @@ export async function reviewResumes(
       const screeningAnswers = parseScreeningNote(combinedNotes);
 
       if (screeningAnswers !== null && shouldPurpleFlag(screeningAnswers)) {
-        console.log(`[ResumeReviewer] Questionnaire fail — flagging purple: ${candidate.name}`);
+        const transportFails =
+          screeningAnswers.transport.trim() !== "" &&
+          !screeningAnswers.transport.toLowerCase().includes("car/motorbike");
+        let failReason = "";
+        if (screeningAnswers.licence.toLowerCase() === "no") failReason = "no licence";
+        else if (transportFails) failReason = "transport not Car/Motorbike";
+        else if (screeningAnswers.fulltimeHours.toLowerCase() === "no") failReason = "not available fulltime";
+        console.log(
+          `[ResumeReviewer] Candidate ${candidateIndex}/${totalToReview}: ${candidate.name} (${id}) — FAIL [questionnaire] (${failReason}) — flagging purple`,
+        );
         const flagIcon = page.locator(
           "div.adcresponses-profile-flagging i.candidate-flag-rank-21",
         );
@@ -186,10 +198,11 @@ export async function reviewResumes(
       }
 
       cvText = cvText.trim();
+      const cvSource = hasPdf ? "PDF" : "HTML";
 
       if (cvText.length < 50) {
         console.log(
-          `[ResumeReviewer] WARNING: CV text too short or empty for ${candidate.name} — skipping`,
+          `[ResumeReviewer] Candidate ${candidateIndex}/${totalToReview}: ${candidate.name} (${id}) — SKIP (CV too short, ${cvSource}, ${cvText.length} chars)`,
         );
         try { await page.locator("a.profile-close").click(); } catch {}
         await page
@@ -205,6 +218,12 @@ export async function reviewResumes(
       const rawResponse = await callLLM("resume review", prompt, llmSelections);
       const parsed = validateLlmResponse(rawResponse, candidate.name);
       if (parsed.defaulted) defaultedToPassCount++;
+
+      if (parsed.decision !== "pass") {
+        console.log(
+          `[ResumeReviewer] Candidate ${candidateIndex}/${totalToReview}: ${candidate.name} (${id}) — FAIL [${parsed.rejection_category ?? "unknown"}] | CV: ${cvSource}, ${cvText.length} chars | "${parsed.reason}"`,
+        );
+      }
 
       const stateCandidate = candidateMap.get(id)!;
       stateCandidate.review_status = parsed.decision as "pass" | "fail";

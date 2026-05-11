@@ -182,12 +182,17 @@ export async function readAndProcessAdverts(
   const tempFiles = await fs.readdir(tempDir).catch(() => [] as string[]);
 
   for (const file of tempFiles) {
-    const resumeMatch = file.match(/^resume-review-(\d+)\.json$/);
-    const passingMatch = file.match(/^passing-(\d+)\.json$/);
-    const match = resumeMatch ?? passingMatch;
-    if (!match) continue;
+    // Delete legacy two-file format unconditionally on first run after migration
+    if (/^(resume-review|passing)-\d+\.json$/.test(file)) {
+      await fs.unlink(path.join(tempDir, file));
+      console.log(`[AdvertReader] Deleted legacy state file: ${file}`);
+      continue;
+    }
 
-    const advertId = match[1];
+    const stateMatch = file.match(/^advert-state-(\d+)\.json$/);
+    if (!stateMatch) continue;
+
+    const advertId = stateMatch[1];
     const advertEntry = allAdvertsMap.get(advertId);
 
     if (advertEntry) {
@@ -338,10 +343,7 @@ export async function readAndProcessAdverts(
         const reviewResult = await reviewResumes(
           page,
           advert.advertId,
-          collectResult.newCandidates,
-          collectResult.totalFiltered,
           llmModel,
-          filterResult.selectedKeywords,
         );
 
         if (!isWithinRunWindow()) {
@@ -376,15 +378,14 @@ export async function readAndProcessAdverts(
           selectedKeywords: filterResult.selectedKeywords,
           totalApplications: detail.totalApplicants,
           filteredCount: filterResult.filteredCount,
-          unflaggedForReview:
-            collectResult.newCandidates.filter((c) => !c.flagged_status).length,
+          unflaggedForReview: reviewResult.newCandidatesReviewed,
           generalFilterRejects: reviewResult.generalFilterRejects,
           labouringFilterRejects: reviewResult.labouringFilterRejects,
           heavyLabouringRejects: reviewResult.heavyLabouringRejects,
           employmentDateRejects: reviewResult.employmentDateRejects,
           civilLabourerRejects: reviewResult.civilLabourerRejects,
           productionWorkerRejects: reviewResult.productionWorkerRejects,
-          passCount: reviewResult.passCount + collectResult.existingUnflaggedCount,
+          passCount: reviewResult.passCount,
           skippedPreviouslyPassed: reviewResult.skippedPreviouslyPassed,
           defaultedToPassCount: reviewResult.defaultedToPassCount,
         });

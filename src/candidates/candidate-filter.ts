@@ -1,9 +1,8 @@
 import { Page } from 'playwright';
-import path from 'path';
-import fs from 'fs/promises';
 import { randomDelay } from '../shared/utils';
 import { KeywordMappingEntry } from '../shared/llm-service';
 import { FilterResult, selectKeywordsViaLLM } from './candidate-page-object';
+import { readAdvertState } from '../shared/advert-state';
 
 async function enterLocationSelect2(page: Page, suburb: string): Promise<void> {
   await page.locator('.select2-container.unediable-input a.select2-choice').click();
@@ -47,32 +46,9 @@ export async function filterCandidates(
 
   let savedKeywords: string[] = [];
 
-  const resumeStateFile = path.resolve(process.cwd(), 'temp', `resume-review-${advertId}.json`);
-  const resumeStateRaw = await fs.readFile(resumeStateFile, 'utf-8').catch(() => null);
-  if (resumeStateRaw !== null) {
-    try {
-      const data = JSON.parse(resumeStateRaw) as { selectedKeywords?: string | string[] };
-      if (typeof data.selectedKeywords === 'string' && data.selectedKeywords.length > 0) {
-        savedKeywords = [data.selectedKeywords];
-      } else if (Array.isArray(data.selectedKeywords) && data.selectedKeywords.length > 0) {
-        savedKeywords = data.selectedKeywords;
-      }
-    } catch {}
-  }
-
-  if (savedKeywords.length === 0) {
-    const passingFile = path.resolve(process.cwd(), 'temp', `passing-${advertId}.json`);
-    const passingRaw = await fs.readFile(passingFile, 'utf-8').catch(() => null);
-    if (passingRaw !== null) {
-      try {
-        const data = JSON.parse(passingRaw) as { selectedKeywords?: string | string[] };
-        if (typeof data.selectedKeywords === 'string' && data.selectedKeywords.length > 0) {
-          savedKeywords = [data.selectedKeywords];
-        } else if (Array.isArray(data.selectedKeywords) && data.selectedKeywords.length > 0) {
-          savedKeywords = data.selectedKeywords;
-        }
-      } catch {}
-    }
+  const state = await readAdvertState(advertId);
+  if (state?.selectedKeywords) {
+    savedKeywords = [state.selectedKeywords];
   }
 
   await randomDelay();
@@ -82,11 +58,7 @@ export async function filterCandidates(
   let selectedKeywords: string[];
   if (savedKeywords.length > 0) {
     selectedKeywords = savedKeywords;
-    if (resumeStateRaw !== null) {
-      console.log(`[CandidateFilter] Reusing keywords from previous run: ${selectedKeywords.join(', ')}`);
-    } else {
-      console.log(`[CandidateFilter] Reusing keywords from passing file (previous partial run): ${selectedKeywords.join(', ')}`);
-    }
+    console.log(`[CandidateFilter] Reusing keywords from previous run: ${selectedKeywords.join(', ')}`);
   } else {
     selectedKeywords = await selectKeywordsViaLLM(
       jobTitle,

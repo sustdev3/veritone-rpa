@@ -1,7 +1,5 @@
 import { Page } from "playwright";
 import { DateTime } from "luxon";
-import path from "path";
-import fs from "fs/promises";
 import { randomDelay, heavyLoadDelay } from "../shared/utils";
 import {
   PassingCandidate,
@@ -9,6 +7,12 @@ import {
   FLAG_COLOUR_MAP,
   buildCollectSummary,
 } from "./candidate-page-object";
+import {
+  readAdvertState,
+  writeAdvertState,
+  AdvertCandidate,
+  AdvertStateFile,
+} from "../shared/advert-state";
 
 async function waitForStableCards(page: Page): Promise<void> {
   let previousCount = 0;
@@ -71,35 +75,18 @@ export async function collectPassingCandidates(
   const totalFiltered = countMatch ? parseInt(countMatch[1], 10) : 0;
 
   if (totalFiltered === 0) {
-    return { passingCandidates: [], newCandidates: [], totalFiltered: 0, newCandidatesCount: 0, previousLastProcessedId: null, existingUnflaggedCount: 0 };
+    return { passingCandidates: [], newCandidates: [], totalFiltered: 0, newCandidatesCount: 0, previousLastProcessedId: null };
   }
 
-  const tempDir = path.resolve(process.cwd(), "temp");
-  const outputPath = path.join(tempDir, `passing-${advertId}.json`);
-
-  let existingLastProcessedId: string | null = null;
-  let existingCandidates: PassingCandidate[] = [];
-
-  const existingRaw = await fs.readFile(outputPath, "utf-8").catch(() => null);
-  if (existingRaw !== null) {
-    try {
-      const existingFile = JSON.parse(existingRaw) as {
-        lastProcessedId?: string | null;
-        passingCandidates: PassingCandidate[];
-      };
-      existingLastProcessedId = existingFile.lastProcessedId ?? null;
-      existingCandidates = existingFile.passingCandidates ?? [];
-    } catch {
-      existingCandidates = [];
-    }
-  }
-
+  const existingState = await readAdvertState(advertId);
+  const existingCollectionLastProcessedId = existingState?.collectionLastProcessedId ?? null;
+  const existingCandidates: AdvertCandidate[] = existingState?.candidates ?? [];
   const existingIds = new Set(existingCandidates.map((c) => c.id));
+
   const allScrapedCandidates: PassingCandidate[] = [];
   let pageNumber = 1;
   let isFirstPage = true;
 
-  // Pre-fetch page 1 to capture newLastProcessedId before entering the loop
   const firstPageCards = await collectPageCandidates(page);
   const newLastProcessedId: string | null = firstPageCards[0]?.id ?? null;
 
@@ -133,33 +120,57 @@ export async function collectPassingCandidates(
     pageNumber++;
   }
 
-  // All scraped candidates have fresh flag status from the DOM
+  const scrapedIds = new Set(allScrapedCandidates.map((c) => c.id));
   const newCandidates = allScrapedCandidates.filter((c) => !existingIds.has(c.id));
-  const freshExistingCandidates = allScrapedCandidates.filter((c) => existingIds.has(c.id));
-  const existingUnflaggedCount = freshExistingCandidates.filter((c) => !c.flagged_status).length;
 
-  // mergedCandidates = all scraped candidates (fresh flag status for everyone)
-  const mergedCandidates = allScrapedCandidates;
+  // Merge: scraped candidates get fresh flag status; preserve existing review data
+  const mergedCandidates: AdvertCandidate[] = [
+    ...allScrapedCandidates.map((scraped) => {
+      const existing = existingCandidates.find((e) => e.id === scraped.id);
+      return {
+        id: scraped.id,
+        name: scraped.name,
+        flagged_status: scraped.flagged_status,
+        flag_colour: scraped.flag_colour,
+        review_status: existing?.review_status ?? null,
+        ai_reason: existing?.ai_reason ?? null,
+        rejection_category: existing?.rejection_category ?? null,
+        ...(existing?.defaulted !== undefined ? { defaulted: existing.defaulted } : {}),
+      };
+    }),
+    // Keep existing candidates not seen on the filtered page this run
+    ...existingCandidates.filter((c) => !scrapedIds.has(c.id)),
+  ];
 
   const { unflaggedCount, flaggedCount, colourSummary } =
-    buildCollectSummary(mergedCandidates);
+    buildCollectSummary(allScrapedCandidates);
   console.log(
     `[CandidateCollector] ${unflaggedCount} unflagged, ${flaggedCount} already flagged` +
       (colourSummary ? ` (colours: ${colourSummary})` : ""),
   );
 
-  await fs.mkdir(tempDir, { recursive: true });
-
-  const output = {
+  const newState: AdvertStateFile = {
     advertId,
-    collectedAt: DateTime.now().toISO(),
+    updatedAt: DateTime.now().toISO()!,
+    selectedKeywords: selectedKeywords[0] ?? existingState?.selectedKeywords ?? "",
+    ruleset: existingState?.ruleset ?? null,
+    collectionLastProcessedId: newLastProcessedId,
+    reviewLastProcessedId: existingState?.reviewLastProcessedId ?? null,
     totalFiltered,
-    selectedKeywords: selectedKeywords[0] ?? "",
-    lastProcessedId: newLastProcessedId,
-    passingCandidates: mergedCandidates,
+    candidates: mergedCandidates,
   };
 
-  await fs.writeFile(outputPath, JSON.stringify(output, null, 2), "utf-8");
+  await writeAdvertState(newState);
 
-  return { passingCandidates: mergedCandidates, newCandidates, totalFiltered, newCandidatesCount: newCandidates.length, previousLastProcessedId: existingLastProcessedId, existingUnflaggedCount };
+  // Build PassingCandidate[] (used by flagger — runtime only, not persisted)
+  const passingCandidates: PassingCandidate[] = allScrapedCandidates;
+  const newPassingCandidates: PassingCandidate[] = newCandidates;
+
+  return {
+    passingCandidates,
+    newCandidates: newPassingCandidates,
+    totalFiltered,
+    newCandidatesCount: newCandidates.length,
+    previousLastProcessedId: existingCollectionLastProcessedId,
+  };
 }

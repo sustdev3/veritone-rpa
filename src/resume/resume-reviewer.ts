@@ -172,6 +172,14 @@ export async function reviewResumes(
         );
         await flagIcon.click();
         await page.waitForTimeout(800);
+        results.push({
+          id,
+          name: candidate.name,
+          ai_decision: "fail",
+          ai_reason: "Failed screening note criteria",
+          rejection_category: null,
+        });
+        newCandidatesReviewed++;
         questionnaireFlaggedCount++;
         flaggedCount++;
         try {

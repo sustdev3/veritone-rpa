@@ -6,8 +6,6 @@ export interface ScreeningAnswers {
   lastJobEnd: string;
 }
 
-const DISQUALIFYING_TRANSPORT = ['public transport', 'get a lift', 'other'];
-
 export function parseScreeningNote(noteText: string): ScreeningAnswers | null {
   if (!noteText.includes('Screening Form Response')) return null;
 
@@ -26,10 +24,13 @@ export function parseScreeningNote(noteText: string): ScreeningAnswers | null {
 }
 
 export function shouldPurpleFlag(answers: ScreeningAnswers): boolean {
-  if (answers.licence.toLowerCase() === 'no') return true;
-  if (DISQUALIFYING_TRANSPORT.some((t) => answers.transport.toLowerCase().includes(t))) return true;
-  if (answers.fulltimeHours.toLowerCase() === 'no') return true;
-  if (answers.immediateStart.toLowerCase() === 'longer') return true;
-  if (answers.lastJobEnd.toLowerCase() === 'more than a month') return true;
-  return false;
+  const transportFails =
+    answers.transport.trim() !== '' &&
+    !answers.transport.toLowerCase().includes('car/motorbike');
+
+  return (
+    answers.licence.toLowerCase() === 'no' ||
+    transportFails ||
+    answers.fulltimeHours.toLowerCase() === 'no'
+  );
 }

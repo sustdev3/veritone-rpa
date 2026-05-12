@@ -75,7 +75,7 @@ export async function filterCandidates(
 
   await randomDelay();
   await page.locator('input[placeholder="30"]').clear();
-  await page.locator('input[placeholder="30"]').fill('20');
+  await page.locator('input[placeholder="30"]').fill('15');
 
   await randomDelay();
   await enterLocationSelect2(page, location);

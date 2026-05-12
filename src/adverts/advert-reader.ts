@@ -8,6 +8,7 @@ import { filterCandidates } from "../candidates/candidate-filter";
 import { collectPassingCandidates } from "../candidates/candidate-collector";
 import { flagFailingCandidates } from "../candidates/candidate-flagger";
 import { reviewResumes } from "../resume/resume-reviewer";
+import { syncFinalGreyCount } from "../candidates/final-sync";
 import {
   sendRunSummaryEmail,
   sendErrorReportEmail,
@@ -364,6 +365,8 @@ export async function readAndProcessAdverts(
             `new candidates reviewed: ${reviewResult.newCandidatesReviewed}`,
         );
 
+        const finalPassCount = await syncFinalGreyCount(page, advert.advertId);
+
         const endTime = DateTime.now().setZone("Australia/Sydney");
         const elapsedMins = endTime.diff(startTime, "minutes").minutes;
         const elapsedStr = `${elapsedMins.toFixed(1)} mins`;
@@ -386,7 +389,7 @@ export async function readAndProcessAdverts(
           employmentDateRejects: reviewResult.employmentDateRejects,
           civilLabourerRejects: reviewResult.civilLabourerRejects,
           productionWorkerRejects: reviewResult.productionWorkerRejects,
-          passCount: reviewResult.passCount,
+          passCount: finalPassCount,
           skippedPreviouslyPassed: reviewResult.skippedPreviouslyPassed,
           defaultedToPassCount: reviewResult.defaultedToPassCount,
         });

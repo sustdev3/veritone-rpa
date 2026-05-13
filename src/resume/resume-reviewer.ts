@@ -191,6 +191,7 @@ export async function reviewResumes(
         if (screeningAnswers.licence.toLowerCase() === "no") failReason = "no licence";
         else if (transportFails) failReason = "transport not Car/Motorbike";
         else if (screeningAnswers.fulltimeHours.toLowerCase() === "no") failReason = "not available fulltime";
+        else if (screeningAnswers.livingInAus.toLowerCase() === "no") failReason = "not living in Australia";
         console.log(
           `[ResumeReviewer] Candidate ${candidateIndex}/${totalToReview}: ${candidate.name} (${id}) — FAIL [questionnaire] (${failReason}) — flagging purple`,
         );

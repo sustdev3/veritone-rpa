@@ -4,6 +4,7 @@ export interface ScreeningAnswers {
   fulltimeHours: string;
   immediateStart: string;
   lastJobEnd: string;
+  livingInAus: string;
 }
 
 export function parseScreeningNote(noteText: string): ScreeningAnswers | null {
@@ -20,6 +21,7 @@ export function parseScreeningNote(noteText: string): ScreeningAnswers | null {
     fulltimeHours: extract('Fulltime Hours'),
     immediateStart: extract('Immediate Start'),
     lastJobEnd: extract('Last Job End'),
+    livingInAus: extract('Living in AUS'),
   };
 }
 
@@ -31,6 +33,7 @@ export function shouldPurpleFlag(answers: ScreeningAnswers): boolean {
   return (
     answers.licence.toLowerCase() === 'no' ||
     transportFails ||
-    answers.fulltimeHours.toLowerCase() === 'no'
+    answers.fulltimeHours.toLowerCase() === 'no' ||
+    answers.livingInAus.toLowerCase() === 'no'
   );
 }

@@ -8,7 +8,7 @@ export interface AdvertCandidate {
   name: string;
   flagged_status: boolean;
   flag_colour: string | null;
-  review_status: "pass" | "fail" | "questionnaire_fail" | null;
+  review_status: "pass" | "fail" | "questionnaire_fail" | "prior_red_flagged" | null;
   ai_reason: string | null;
   rejection_category: RejectionCategory | null;
   defaulted?: boolean;

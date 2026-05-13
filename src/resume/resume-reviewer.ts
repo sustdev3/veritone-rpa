@@ -23,6 +23,7 @@ export async function reviewResumes(
     console.log(`[ResumeReviewer] No state file for advert ${advertId} — nothing to review`);
     return {
       passCount: 0, failCount: 0, flaggedCount: 0, questionnaireFlaggedCount: 0,
+      priorRedFlagCount: 0,
       skippedCount: 0, skippedPreviouslyPassed: 0, defaultedToPassCount: 0,
       newCandidatesReviewed: 0, generalFilterRejects: 0, labouringFilterRejects: 0,
       heavyLabouringRejects: 0, employmentDateRejects: 0, civilLabourerRejects: 0,
@@ -77,6 +78,7 @@ export async function reviewResumes(
 
   let flaggedCount = 0;
   let questionnaireFlaggedCount = 0;
+  let priorRedFlagCount = 0;
   let newCandidatesReviewed = 0;
   let defaultedToPassCount = 0;
   let pageNumber = 1;
@@ -129,6 +131,50 @@ export async function reviewResumes(
       await eyeButton.click();
       await page.locator("div.profile-box").waitFor({ state: "visible" });
       await page.waitForTimeout(1500);
+
+      // Check Other Applications for prior red flags — if found, skip questionnaire + CV review
+      const hasRedPriorApp = await page.evaluate(() => {
+        const icons = document.querySelectorAll(
+          "#application_history .application-rank-container i.icon-flag-circled",
+        );
+        const RED = new Set(["rgb(255, 0, 0)", "#ff0000"]);
+        return Array.from(icons).some(
+          (el) => RED.has((el as HTMLElement).style.color.toLowerCase().trim()),
+        );
+      });
+
+      if (hasRedPriorApp) {
+        console.log(
+          `[ResumeReviewer] Candidate ${candidateIndex}/${totalToReview}: ${candidate.name} (${id}) — FAIL [prior red flag] — flagging purple`,
+        );
+        const flagIcon = page.locator(
+          "div.adcresponses-profile-flagging i.candidate-flag-rank-21",
+        );
+        await flagIcon.click();
+        await page.waitForTimeout(800);
+
+        // candidateMap holds references into state.candidates — mutating stateCandidate
+        // also mutates the object inside state, so writeAdvertState persists the change.
+        const stateCandidate = candidateMap.get(id)!;
+        stateCandidate.review_status = "prior_red_flagged";
+        stateCandidate.ai_reason = "Prior red-flagged application found";
+        stateCandidate.rejection_category = null;
+        stateCandidate.flagged_status = true;
+        stateCandidate.flag_colour = "purple";
+        await writeAdvertState(state);
+
+        priorRedFlagCount++;
+        flaggedCount++;
+        newCandidatesReviewed++;
+        try { await page.locator("a.profile-close").click(); } catch {}
+        await page
+          .waitForFunction(
+            () => (document.querySelector("#gritter-notice-wrapper")?.childElementCount ?? 0) === 0,
+            { timeout: 10000 },
+          )
+          .catch(() => {});
+        continue;
+      }
 
       // Questionnaire check before CV review
       const noteTexts = await page
@@ -309,12 +355,13 @@ export async function reviewResumes(
   } = tallyRejectionCounts(failResults);
 
   const failCount = state.candidates.filter(
-    (c) => c.review_status === "fail" || c.review_status === "questionnaire_fail",
+    (c) => c.review_status === "fail" || c.review_status === "questionnaire_fail" || c.review_status === "prior_red_flagged",
   ).length;
 
   console.log(
     `[ResumeReviewer] Done — ${passCount} suitable (cumulative), ${failCount} rejected ` +
-      `(${flaggedCount} flagged purple this run, ${questionnaireFlaggedCount} via questionnaire), ` +
+      `(${flaggedCount} flagged purple this run, ${questionnaireFlaggedCount} via questionnaire, ` +
+      `${priorRedFlagCount} prior red flag), ` +
       `${skippedCount} skipped (already flagged)`,
   );
 
@@ -323,6 +370,7 @@ export async function reviewResumes(
     failCount,
     flaggedCount,
     questionnaireFlaggedCount,
+    priorRedFlagCount,
     skippedCount,
     skippedPreviouslyPassed: 0,
     defaultedToPassCount,

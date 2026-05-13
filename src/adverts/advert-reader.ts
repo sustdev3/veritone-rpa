@@ -359,7 +359,7 @@ export async function readAndProcessAdverts(
         console.log(
           `[AdvertReader] Resume review done — ` +
             `passed: ${reviewResult.passCount}, failed: ${reviewResult.failCount}, ` +
-            `flagged purple: ${reviewResult.flaggedCount} (${reviewResult.questionnaireFlaggedCount} via questionnaire), ` +
+            `flagged purple: ${reviewResult.flaggedCount} (${reviewResult.questionnaireFlaggedCount} via questionnaire, ${reviewResult.priorRedFlagCount} prior red flag), ` +
             `skipped: ${reviewResult.skippedCount}, ` +
             `skipped (prev passed): ${reviewResult.skippedPreviouslyPassed}, ` +
             `new candidates reviewed: ${reviewResult.newCandidatesReviewed}`,

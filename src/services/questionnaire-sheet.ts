@@ -22,20 +22,20 @@ async function getAuthenticatedSheets() {
 }
 
 // Returns a map of advertId -> cumulative answered count.
-// Summary tab columns: A=adrefNo, B=advertTitle, C=datePosted, D=totalAnswered, E=updatedAt, F=advertId
+// Summary tab columns: A=totalAnswered, B=updatedAt, C=advertId
 export async function getAnsweredCounts(): Promise<Map<string, number>> {
   const { sheets, sheetId } = await getAuthenticatedSheets();
 
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: sheetId,
-    range: "Summary!A2:F",
+    range: "Summary!A2:C",
   });
 
   const counts = new Map<string, number>();
 
   for (const row of response.data.values || []) {
-    const advertId = (row[5] || "").trim();
-    const count = parseInt(row[3] || "0", 10);
+    const advertId = (row[2] || "").trim();
+    const count = parseInt(row[0] || "0", 10);
     if (advertId) counts.set(advertId, count);
   }
 

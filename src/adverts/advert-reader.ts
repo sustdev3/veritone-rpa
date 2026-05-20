@@ -145,13 +145,6 @@ async function extractAdvertDetail(
   };
 }
 
-function isWithinRunWindow(): boolean {
-  if ((process.env.RUN_MODE ?? "testing") !== "production") return true;
-  const now = DateTime.now().setZone("Australia/Sydney");
-  const h = now.hour;
-  return h >= 19 && h < 22;
-}
-
 export async function readAndProcessAdverts(
   page: Page,
   llmSelections: Record<string, string>,
@@ -223,12 +216,6 @@ export async function readAndProcessAdverts(
   for (const advert of adverts) {
     const startTime = DateTime.now();
 
-    if (!isWithinRunWindow()) {
-      console.log("[AdvertReader] Run window ended — stopping immediately.");
-      shouldStop = true;
-      break;
-    }
-
     console.log(
       `\n[AdvertReader] ─── ${advert.jobTitle} (ID: ${advert.advertId}) ───`,
     );
@@ -260,23 +247,11 @@ export async function readAndProcessAdverts(
         keywordMapping,
       );
 
-      if (!isWithinRunWindow()) {
-        console.log("[AdvertReader] Run window ended — stopping immediately.");
-        shouldStop = true;
-        break;
-      }
-
       const collectResult = await collectPassingCandidates(
         page,
         advert.advertId,
         filterResult.selectedKeywords,
       );
-
-      if (!isWithinRunWindow()) {
-        console.log("[AdvertReader] Run window ended — stopping immediately.");
-        shouldStop = true;
-        break;
-      }
 
       if (collectResult.totalFiltered === 0) {
         console.log(
@@ -313,14 +288,6 @@ export async function readAndProcessAdverts(
           collectResult.previousLastProcessedId,
         );
 
-        if (!isWithinRunWindow()) {
-          console.log(
-            "[AdvertReader] Run window ended — stopping immediately.",
-          );
-          shouldStop = true;
-          break;
-        }
-
         console.log(
           `[AdvertReader] Flagging done — ` +
             `flagged purple: ${flagResult.flaggedCount}, ` +
@@ -347,14 +314,6 @@ export async function readAndProcessAdverts(
           advert.advertId,
           llmModel,
         );
-
-        if (!isWithinRunWindow()) {
-          console.log(
-            "[AdvertReader] Run window ended — stopping immediately.",
-          );
-          shouldStop = true;
-          break;
-        }
 
         console.log(
           `[AdvertReader] Resume review done — ` +

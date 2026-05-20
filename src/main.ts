@@ -1,6 +1,4 @@
 import 'dotenv/config';
-import * as cron from 'node-cron';
-import { DateTime } from 'luxon';
 import { logger, initFileLogging } from './activity-logger';
 import { launchAndWaitForLogin, getActivePage } from './browser-session';
 import { navigateToManageAdverts } from './adverts/page-navigation';
@@ -64,43 +62,9 @@ async function runBot() {
   console.log('[Main] Done.');
 }
 
-const runMode = process.env.RUN_MODE ?? 'testing';
-
-if (runMode === 'production') {
-  console.log('[Main] Production mode — scheduler active. Waiting for 9:00 PM Sydney time.');
-  cron.schedule('0 21 * * 0-5', async () => {
-    console.log('[Main] Scheduled run starting...');
-    const now = DateTime.now().setZone('Australia/Sydney');
-    const h = now.hour;
-    if (h < 21) {
-      console.log('[Main] Outside allowed run window (9:00 PM – 12:00 AM). Skipping.');
-      return;
-    }
-    const hardResetTimeout = setTimeout(async () => {
-      console.log('[Main] Maximum run time reached — forcing process exit.');
-      if (activeSession) {
-        await cleanupSession(activeSession).catch(() => {});
-      }
-      process.exit(0);
-    }, 3 * 60 * 60 * 1000);
-    await runBot().catch(async (err: Error) => {
-      console.error('[Main] Fatal error:', err.message);
-      const page = getActivePage();
-      let screenshotPath: string | null = null;
-      if (page) screenshotPath = await takeScreenshot(page, 'fatal-crash');
-      await sendErrorReportEmail(
-        `Fatal error: ${err.message}\n${err.stack ?? ''}`,
-        undefined,
-        screenshotPath ?? undefined,
-      ).catch(() => {});
-    });
-    clearTimeout(hardResetTimeout);
-    process.exit(0);
-  }, {
-    timezone: 'Australia/Sydney',
-  });
-} else {
-  runBot().catch(async (err: Error) => {
+runBot()
+  .then(() => process.exit(0))
+  .catch(async (err: Error) => {
     console.error('[Main] Fatal error:', err.message);
     const page = getActivePage();
     let screenshotPath: string | null = null;
@@ -112,4 +76,3 @@ if (runMode === 'production') {
     ).catch(() => {});
     process.exit(1);
   });
-}

@@ -32,21 +32,17 @@ async function readPageCandidates(
       let flagged_status = false;
       let flag_colour: string | null = null;
 
-      const hasGreyIcon = flagIcons.some((icon) => {
+      let nonGreyCount = 0;
+      let activeColour: string | null = null;
+      for (const icon of flagIcons) {
         const color = (icon as HTMLElement).style.color?.trim().toLowerCase() ?? "";
-        return color === "grey" || color === "gray";
-      });
-
-      if (hasGreyIcon) {
-        for (const icon of flagIcons) {
-          const color = (icon as HTMLElement).style.color?.trim().toLowerCase() ?? "";
-          if (color && color !== "grey" && color !== "gray") {
-            flagged_status = true;
-            flag_colour = (colourMap as Record<string, string>)[color] ?? color;
-            break;
-          }
+        if (color && color !== "grey" && color !== "gray") {
+          nonGreyCount++;
+          if (activeColour === null) activeColour = (colourMap as Record<string, string>)[color] ?? color;
         }
       }
+      flagged_status = nonGreyCount === 1;
+      flag_colour = nonGreyCount === 1 ? activeColour : null;
 
       return { id, name, flagged_status, flag_colour };
     });

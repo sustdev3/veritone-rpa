@@ -457,7 +457,9 @@ export async function readAndProcessAdverts(
     }
   }
 
-  await sendRunSummaryEmail(runResults, advertList);
+  if (process.env.SEND_SUMMARY_EMAIL === 'true') {
+    await sendRunSummaryEmail(runResults, advertList);
+  }
 
   // Run Sheet1 weekly cleanup at the end of Sunday's run
   const todaySydney = DateTime.now().setZone("Australia/Sydney");

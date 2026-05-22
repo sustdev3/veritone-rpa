@@ -36,7 +36,7 @@ async function readPageCandidates(
       let activeColour: string | null = null;
       for (const icon of flagIcons) {
         const color = (icon as HTMLElement).style.color?.trim().toLowerCase() ?? "";
-        if (color && color !== "grey" && color !== "gray") {
+        if (color && color !== "grey" && color !== "gray" && color !== "rgb(128, 128, 128)") {
           nonGreyCount++;
           if (activeColour === null) activeColour = (colourMap as Record<string, string>)[color] ?? color;
         }

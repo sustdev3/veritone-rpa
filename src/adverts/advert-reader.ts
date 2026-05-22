@@ -461,11 +461,11 @@ export async function readAndProcessAdverts(
     await sendRunSummaryEmail(runResults, advertList);
   }
 
-  // Run Sheet1 weekly cleanup at the end of Sunday's run
+  // Run Sheet1 weekly cleanup at the end of Monday's run
   const todaySydney = DateTime.now().setZone("Australia/Sydney");
-  if (todaySydney.weekday === 7) {
+  if (todaySydney.weekday === 1) {
     try {
-      console.log("[AdvertReader] Sunday run — running Sheet1 cleanup...");
+      console.log("[AdvertReader] Monday run — running Sheet1 cleanup...");
       const { runCleanup } = await import("../services/sheet-cleanup");
       await runCleanup();
     } catch (err) {

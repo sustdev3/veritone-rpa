@@ -49,12 +49,12 @@ export async function reviewResumes(
   // Review queue: not yet reviewed and not already flagged
   const toReviewMap = new Map(
     state.candidates
-      .filter((c) => c.review_status === null && !c.flagged_status)
+      .filter((c) => c.review_status === null && (!c.flagged_status || c.flag_colour === 'lightblue'))
       .map((c) => [c.id, c]),
   );
 
   const skippedCount = state.candidates.filter(
-    (c) => c.review_status === null && c.flagged_status,
+    (c) => c.review_status === null && c.flagged_status && c.flag_colour !== 'lightblue',
   ).length;
 
   console.log(
@@ -334,7 +334,7 @@ export async function reviewResumes(
 
   // Cumulative counts from the full state (all runs, all candidates)
   const passCount = state.candidates.filter(
-    (c) => c.review_status === "pass" && !c.flagged_status,
+    (c) => c.review_status === "pass" && (!c.flagged_status || c.flag_colour === 'lightblue'),
   ).length;
 
   const failResults: ReviewResult[] = state.candidates

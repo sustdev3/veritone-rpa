@@ -52,6 +52,7 @@ export const FLAG_COLOUR_MAP: Record<string, string> = {
   'rgb(128, 128, 128)': 'unranked',
   'rgb(15, 15, 119)':   'good',
   'rgb(171, 38, 207)':  'purple',
+  'rgb(44, 200, 196)':  'lightblue',  // #2cc8c4 — "Form Completed" (rank 22)
 };
 
 export function classifyCards(
@@ -71,11 +72,15 @@ export function classifyCards(
     if (card.nonGreyCount > 1) {
       noFlag.push({ id: card.id, name: card.name });
     } else if (card.nonGreyCount === 1) {
-      alreadyFlagged.push({
-        id: card.id,
-        name: card.name,
-        flag_colour: card.activeColour ?? 'unknown',
-      });
+      if (card.activeColour === 'lightblue') {
+        noFlag.push({ id: card.id, name: card.name });
+      } else {
+        alreadyFlagged.push({
+          id: card.id,
+          name: card.name,
+          flag_colour: card.activeColour ?? 'unknown',
+        });
+      }
     } else {
       console.warn(
         `[CandidateFlagger] Unexpected: candidate ${card.id} (${card.name}) has 0 non-grey flags — skipping.`,

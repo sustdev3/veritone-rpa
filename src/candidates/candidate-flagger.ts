@@ -112,11 +112,17 @@ export async function flagFailingCandidates(
     }
 
     for (const candidate of candidatesToFlag) {
-      const flagIcon = page.locator(
-        `div.result.searchable[external-candidate-id="${candidate.id}"] i.candidate-flag-rank-21`,
-      );
       await page.waitForTimeout(600);
-      await flagIcon.click();
+      await page.locator(
+        `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
+      ).click();
+      await page.waitForSelector('div.select2-drop.select2-drop-active', {
+        state: 'visible',
+        timeout: 10000,
+      });
+      await page.locator('div.select2-drop.select2-drop-active div.select2-result-label')
+        .filter({ hasText: 'Auto Screen Out' })
+        .click();
       await page.waitForTimeout(800);
       await randomDelay();
       flaggedCount++;

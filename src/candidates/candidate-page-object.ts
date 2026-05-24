@@ -72,7 +72,7 @@ export function classifyCards(
     if (card.nonGreyCount > 1) {
       noFlag.push({ id: card.id, name: card.name });
     } else if (card.nonGreyCount === 1) {
-      if (card.activeColour === 'lightblue') {
+      if (card.activeColour === 'lightblue' || card.activeColour === 'unranked') {
         noFlag.push({ id: card.id, name: card.name });
       } else {
         alreadyFlagged.push({

@@ -116,16 +116,19 @@ export async function flagFailingCandidates(
       await page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
       ).click();
+      // Give Select2 time to open before polling — large pages are slower to respond.
+      await page.waitForTimeout(500);
       // Select2 shows the dropdown by setting inline style="display:block" — the
-      // select2-display-none class stays present, so we check the inline style directly.
+      // select2-display-none class stays present. We check any active dropdown,
+      // not just select2-flags-dropdown, since the class can vary by page size.
       await page.waitForFunction(
         () => {
-          const el = document.querySelector('div.select2-flags-dropdown.select2-drop-active');
+          const el = document.querySelector('div.select2-drop-active');
           return el !== null && (el as HTMLElement).style.display === 'block';
         },
         { timeout: 10000 },
       );
-      await page.locator('div.select2-flags-dropdown.select2-drop-active div.select2-result-label')
+      await page.locator('div.select2-drop-active div.select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
         .click({ force: true });
       await page

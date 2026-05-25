@@ -116,14 +116,24 @@ export async function flagFailingCandidates(
       await page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
       ).click();
-      await page.waitForSelector('div.select2-drop.select2-drop-active', {
-        state: 'visible',
-        timeout: 10000,
-      });
-      await page.locator('div.select2-drop.select2-drop-active div.select2-result-label')
+      // Select2 shows the dropdown by setting inline style="display:block" — the
+      // select2-display-none class stays present, so we check the inline style directly.
+      await page.waitForFunction(
+        () => {
+          const el = document.querySelector('div.select2-flags-dropdown.select2-drop-active');
+          return el !== null && (el as HTMLElement).style.display === 'block';
+        },
+        { timeout: 10000 },
+      );
+      await page.locator('div.select2-flags-dropdown.select2-drop-active div.select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
-        .click();
-      await page.waitForTimeout(800);
+        .click({ force: true });
+      await page
+        .waitForFunction(
+          () => (document.querySelector('#gritter-notice-wrapper')?.childElementCount ?? 0) === 0,
+          { timeout: 10000 },
+        )
+        .catch(() => {});
       await randomDelay();
       flaggedCount++;
     }

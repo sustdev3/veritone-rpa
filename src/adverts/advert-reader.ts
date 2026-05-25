@@ -414,7 +414,7 @@ export async function readAndProcessAdverts(
 
     await (advert.totalResponses >= 800 ? heavyLoadDelay() : randomDelay());
     console.log("[AdvertReader] Navigating back to Manage Adverts...");
-    await page.locator('a[href*="manage-vacancies"]').first().click();
+    await page.goto('https://www.adcourier.com/manage-vacancies.cgi');
     await page.waitForLoadState("domcontentloaded");
 
     if (shouldStop) break;

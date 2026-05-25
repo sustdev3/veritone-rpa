@@ -116,14 +116,7 @@ export async function flagFailingCandidates(
       await page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
       ).click({ force: true });
-      await page.waitForFunction(
-        () => {
-          const el = document.querySelector('div.select2-drop-active');
-          return el !== null && (el as HTMLElement).style.display === 'block';
-        },
-        undefined,
-        { timeout: 15000 },
-      );
+      await page.waitForSelector('div.select2-drop-active', { timeout: 15000 });
       await page.locator('div.select2-drop-active div.select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
         .click({ force: true });

@@ -120,6 +120,9 @@ export async function flagFailingCandidates(
       await page.locator('div.select2-drop-active div.select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
         .click({ force: true });
+      // Wait for dropdown to close before proceeding — if it stays open, the next
+      // candidate's click will close it instead of opening a new one
+      await page.waitForSelector('div.select2-drop-active', { state: 'detached', timeout: 5000 }).catch(() => {});
       await page
         .waitForFunction(
           () => (document.querySelector('#gritter-notice-wrapper')?.childElementCount ?? 0) === 0,

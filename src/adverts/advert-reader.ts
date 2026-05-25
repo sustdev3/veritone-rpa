@@ -462,15 +462,16 @@ export async function readAndProcessAdverts(
   }
 
   // Run Sheet1 weekly cleanup at the end of Monday's run
-  const todaySydney = DateTime.now().setZone("Australia/Sydney");
-  if (todaySydney.weekday === 1) {
-    try {
-      console.log("[AdvertReader] Monday run — running Sheet1 cleanup...");
-      const { runCleanup } = await import("../services/sheet-cleanup");
-      await runCleanup();
-    } catch (err) {
-      // Non-fatal — cleanup failure must not affect the pre-screening run result
-      console.warn(`[AdvertReader] WARNING: Sheet1 cleanup failed: ${err}`);
-    }
-  }
+  // DISABLED — re-enable once manual runs are no longer needed
+  // const todaySydney = DateTime.now().setZone("Australia/Sydney");
+  // if (todaySydney.weekday === 1) {
+  //   try {
+  //     console.log("[AdvertReader] Monday run — running Sheet1 cleanup...");
+  //     const { runCleanup } = await import("../services/sheet-cleanup");
+  //     await runCleanup();
+  //   } catch (err) {
+  //     // Non-fatal — cleanup failure must not affect the pre-screening run result
+  //     console.warn(`[AdvertReader] WARNING: Sheet1 cleanup failed: ${err}`);
+  //   }
+  // }
 }

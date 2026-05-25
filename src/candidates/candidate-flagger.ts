@@ -113,19 +113,13 @@ export async function flagFailingCandidates(
 
     for (const candidate of candidatesToFlag) {
       await page.waitForTimeout(600);
-      const choiceLocator = page.locator(
+      await page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
-      );
-      await choiceLocator.scrollIntoViewIfNeeded();
-      await choiceLocator.click();
-      // Wait until the dropdown is open AND the "Auto Screen Out" option is rendered.
-      // Pass undefined as arg so the third parameter is correctly read as options.
+      ).click({ force: true });
       await page.waitForFunction(
         () => {
-          const drop = document.querySelector('div.select2-drop-active');
-          if (!drop || (drop as HTMLElement).style.display !== 'block') return false;
-          return Array.from(drop.querySelectorAll('div.select2-result-label'))
-            .some((el) => el.textContent?.trim().includes('Auto Screen Out'));
+          const el = document.querySelector('div.select2-drop-active');
+          return el !== null && (el as HTMLElement).style.display === 'block';
         },
         undefined,
         { timeout: 15000 },

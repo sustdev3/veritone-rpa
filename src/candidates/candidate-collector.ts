@@ -100,6 +100,7 @@ export async function collectPassingCandidates(
         () =>
           (document.querySelector("#gritter-notice-wrapper")
             ?.childElementCount ?? 0) === 0,
+        undefined,
         { timeout: 30000 },
       )
       .catch(() => {});
@@ -107,7 +108,7 @@ export async function collectPassingCandidates(
     await page
       .locator(`div.pager ul li.page-num.selected[title="${pageNumber + 1}"]`)
       .first()
-      .waitFor({ state: "visible", timeout: 25_000 });
+      .waitFor({ state: "visible", timeout: 60_000 });
     await waitForStableCards(page);
     pageNumber++;
   }

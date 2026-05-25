@@ -119,35 +119,18 @@ export async function flagFailingCandidates(
           const drop = document.getElementById('select2-drop');
           return !drop || drop.style.display === 'none' || drop.classList.contains('select2-display-none');
         },
-        { timeout: 5000 },
+        { timeout: 3000 },
       ).catch(() => {});
 
       await page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
       ).click({ force: true });
 
-      await page.waitForFunction(
-        () => {
-          const drop = document.getElementById('select2-drop');
-          return drop != null
-            && drop.style.display !== 'none'
-            && !drop.classList.contains('select2-display-none')
-            && drop.classList.contains('select2-drop-active');
-        },
-        { timeout: 15000 },
-      );
-
       await page.locator('#select2-drop .select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
         .click({ force: true });
 
-      await page.waitForFunction(
-        () => {
-          const drop = document.getElementById('select2-drop');
-          return !drop || drop.style.display === 'none' || drop.classList.contains('select2-display-none');
-        },
-        { timeout: 5000 },
-      ).catch(() => {});
+      await page.waitForTimeout(800);
 
       await page
         .waitForFunction(

@@ -113,14 +113,42 @@ export async function flagFailingCandidates(
 
     for (const candidate of candidatesToFlag) {
       await page.waitForTimeout(600);
+
+      await page.waitForFunction(
+        () => {
+          const drop = document.getElementById('select2-drop');
+          return !drop || drop.style.display === 'none' || drop.classList.contains('select2-display-none');
+        },
+        { timeout: 5000 },
+      ).catch(() => {});
+
       await page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
       ).click({ force: true });
-      await page.waitForSelector('div.select2-drop-active:not(.select2-display-none)', { timeout: 15000 });
-      await page.locator('div.select2-drop-active:not(.select2-display-none) div.select2-result-label')
+
+      await page.waitForFunction(
+        () => {
+          const drop = document.getElementById('select2-drop');
+          return drop != null
+            && drop.style.display !== 'none'
+            && !drop.classList.contains('select2-display-none')
+            && drop.classList.contains('select2-drop-active');
+        },
+        { timeout: 15000 },
+      );
+
+      await page.locator('#select2-drop .select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
         .click({ force: true });
-      await page.waitForSelector('div.select2-drop-active:not(.select2-display-none)', { state: 'hidden', timeout: 5000 }).catch(() => {});
+
+      await page.waitForFunction(
+        () => {
+          const drop = document.getElementById('select2-drop');
+          return !drop || drop.style.display === 'none' || drop.classList.contains('select2-display-none');
+        },
+        { timeout: 5000 },
+      ).catch(() => {});
+
       await page
         .waitForFunction(
           () => (document.querySelector('#gritter-notice-wrapper')?.childElementCount ?? 0) === 0,
@@ -128,6 +156,7 @@ export async function flagFailingCandidates(
           { timeout: 10000 },
         )
         .catch(() => {});
+
       await randomDelay();
       flaggedCount++;
     }

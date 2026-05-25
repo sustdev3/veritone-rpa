@@ -113,20 +113,22 @@ export async function flagFailingCandidates(
 
     for (const candidate of candidatesToFlag) {
       await page.waitForTimeout(600);
-      await page.locator(
+      const choiceLocator = page.locator(
         `div.result.searchable[external-candidate-id="${candidate.id}"] a.select2-choice`,
-      ).click();
-      // Give Select2 time to open before polling — large pages are slower to respond.
-      await page.waitForTimeout(500);
-      // Select2 shows the dropdown by setting inline style="display:block" — the
-      // select2-display-none class stays present. We check any active dropdown,
-      // not just select2-flags-dropdown, since the class can vary by page size.
+      );
+      await choiceLocator.scrollIntoViewIfNeeded();
+      await choiceLocator.click();
+      // Wait until the dropdown is open AND the "Auto Screen Out" option is rendered.
+      // Pass undefined as arg so the third parameter is correctly read as options.
       await page.waitForFunction(
         () => {
-          const el = document.querySelector('div.select2-drop-active');
-          return el !== null && (el as HTMLElement).style.display === 'block';
+          const drop = document.querySelector('div.select2-drop-active');
+          if (!drop || (drop as HTMLElement).style.display !== 'block') return false;
+          return Array.from(drop.querySelectorAll('div.select2-result-label'))
+            .some((el) => el.textContent?.trim().includes('Auto Screen Out'));
         },
-        { timeout: 10000 },
+        undefined,
+        { timeout: 15000 },
       );
       await page.locator('div.select2-drop-active div.select2-result-label')
         .filter({ hasText: 'Auto Screen Out' })
@@ -134,6 +136,7 @@ export async function flagFailingCandidates(
       await page
         .waitForFunction(
           () => (document.querySelector('#gritter-notice-wrapper')?.childElementCount ?? 0) === 0,
+          undefined,
           { timeout: 10000 },
         )
         .catch(() => {});

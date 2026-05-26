@@ -41,6 +41,7 @@ export interface AdvertRunResult {
   civilLabourerRejects?: number;
   productionWorkerRejects?: number;
   passCount?: number;
+  lightBlueFlagCount?: number;
   skippedPreviouslyPassed?: number;
   defaultedToPassCount?: number;
   skippedReason?: string;

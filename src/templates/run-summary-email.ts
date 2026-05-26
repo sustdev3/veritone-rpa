@@ -47,6 +47,7 @@ export function buildRunSummaryHtml(
       ${cell(r.totalApplications)}
       ${cell(r.filteredCount)}
       ${cell(r.passCount ?? 0)}
+      ${cell(r.lightBlueFlagCount ?? 0)}
       ${cell(r.answeredQuestionsCount)}
       ${cell(fmtPct(r.answeredQuestionsCount, r.totalApplications))}
     </tr>`;
@@ -56,6 +57,7 @@ export function buildRunSummaryHtml(
     const totalApps = sorted.reduce((s, r) => s + (r.totalApplications ?? 0), 0);
     const totalFiltered = sorted.reduce((s, r) => s + (r.filteredCount ?? 0), 0);
     const totalPass = sorted.reduce((s, r) => s + (r.passCount ?? 0), 0);
+    const totalLightBlue = sorted.reduce((s, r) => s + (r.lightBlueFlagCount ?? 0), 0);
     const totalAnswered = sorted.reduce((s, r) => s + (r.answeredQuestionsCount ?? 0), 0);
     const tdStyle = 'padding:8px 10px;font-size:12px;font-weight:bold;border-top:2px solid #2c3e50;background:#f0f3f6;vertical-align:top;text-align:right;';
     return `<tr>
@@ -63,6 +65,7 @@ export function buildRunSummaryHtml(
       <td style="${tdStyle}">${totalApps}</td>
       <td style="${tdStyle}">${totalFiltered}</td>
       <td style="${tdStyle}">${totalPass}</td>
+      <td style="${tdStyle}">${totalLightBlue}</td>
       <td style="${tdStyle}">${totalAnswered}</td>
       <td style="${tdStyle}">${fmtPct(totalAnswered, totalApps)}</td>
     </tr>`;
@@ -104,6 +107,7 @@ export function buildRunSummaryHtml(
             ${thWrap('Total applicants')}
             ${thWrap('Number after location/keywords')}
             ${thWrap('Suitable (grey flags)')}
+            ${thWrap('Form completed (light blue)')}
             ${thWrap('Answered questions')}
             ${thWrap('% answering questions')}
           </tr>

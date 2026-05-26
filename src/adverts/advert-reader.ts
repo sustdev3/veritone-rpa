@@ -324,7 +324,8 @@ export async function readAndProcessAdverts(
             `new candidates reviewed: ${reviewResult.newCandidatesReviewed}`,
         );
 
-        const finalPassCount = await syncFinalGreyCount(page, advert.advertId);
+        const { greyCount: finalPassCount, lightBlueCount: finalLightBlueCount } =
+          await syncFinalGreyCount(page, advert.advertId);
 
         const endTime = DateTime.now().setZone("Australia/Sydney");
         const elapsedMins = endTime.diff(startTime, "minutes").minutes;
@@ -349,6 +350,7 @@ export async function readAndProcessAdverts(
           civilLabourerRejects: reviewResult.civilLabourerRejects,
           productionWorkerRejects: reviewResult.productionWorkerRejects,
           passCount: finalPassCount,
+          lightBlueFlagCount: finalLightBlueCount,
           skippedPreviouslyPassed: reviewResult.skippedPreviouslyPassed,
           defaultedToPassCount: reviewResult.defaultedToPassCount,
         });

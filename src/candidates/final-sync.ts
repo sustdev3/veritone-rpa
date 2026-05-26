@@ -52,7 +52,7 @@ async function readPageCandidates(
 export async function syncFinalGreyCount(
   page: Page,
   advertId: string,
-): Promise<number> {
+): Promise<{ greyCount: number; lightBlueCount: number }> {
   await page.goto(
     `https://www.adcourier.com/view-vacancy.cgi?advert_id=${advertId}`,
   );
@@ -72,7 +72,7 @@ export async function syncFinalGreyCount(
 
   if (totalFiltered === 0) {
     console.log(`[FinalSync] Advert ${advertId} — 0 filtered candidates, skipping`);
-    return 0;
+    return { greyCount: 0, lightBlueCount: 0 };
   }
 
   const existingState = await readAdvertState(advertId);
@@ -138,6 +138,7 @@ export async function syncFinalGreyCount(
   ];
 
   const greyCount = mergedCandidates.filter((c) => !c.flagged_status).length;
+  const lightBlueCount = mergedCandidates.filter((c) => c.flag_colour === 'lightblue').length;
 
   if (existingState) {
     existingState.candidates = mergedCandidates;
@@ -147,8 +148,8 @@ export async function syncFinalGreyCount(
 
   console.log(
     `[FinalSync] Advert ${advertId} — ${pageNumber} page(s), ` +
-      `${allScraped.length} candidates in filtered view, ${greyCount} grey (suitable)`,
+      `${allScraped.length} candidates in filtered view, ${greyCount} grey (suitable), ${lightBlueCount} light blue (form completed)`,
   );
 
-  return greyCount;
+  return { greyCount, lightBlueCount };
 }

@@ -11,7 +11,7 @@ import {
   ReviewResult,
 } from "./resume-page-object";
 import { parseScreeningNote, shouldPurpleFlag } from "../candidates/questionnaire-screener";
-import { readAdvertState, writeAdvertState } from "../shared/advert-state";
+import { readAdvertState, writeAdvertState, writeAdvertCandidate } from "../shared/advert-state";
 
 export async function reviewResumes(
   page: Page,
@@ -161,7 +161,7 @@ export async function reviewResumes(
         stateCandidate.rejection_category = null;
         stateCandidate.flagged_status = true;
         stateCandidate.flag_colour = "purple";
-        await writeAdvertState(state);
+        await writeAdvertCandidate(state.advertId, stateCandidate);
 
         priorRedFlagCount++;
         flaggedCount++;
@@ -207,7 +207,7 @@ export async function reviewResumes(
         stateCandidate.rejection_category = null;
         stateCandidate.flagged_status = true;
         stateCandidate.flag_colour = "purple";
-        await writeAdvertState(state);
+        await writeAdvertCandidate(state.advertId, stateCandidate);
 
         newCandidatesReviewed++;
         questionnaireFlaggedCount++;
@@ -290,7 +290,7 @@ export async function reviewResumes(
         flaggedCount++;
       }
 
-      await writeAdvertState(state);
+      await writeAdvertCandidate(state.advertId, stateCandidate);
 
       try { await page.locator("a.profile-close").click(); } catch {}
       await page

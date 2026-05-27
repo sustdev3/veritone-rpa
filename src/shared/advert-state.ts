@@ -1,7 +1,6 @@
-import path from "path";
-import fs from "fs/promises";
 import { DateTime } from "luxon";
 import { RejectionCategory } from "../resume/resume-page-object";
+import { supabase } from "./supabase-client";
 
 export interface AdvertCandidate {
   id: string;
@@ -25,36 +24,117 @@ export interface AdvertStateFile {
   candidates: AdvertCandidate[];
 }
 
-const tempDir = path.resolve(process.cwd(), "temp");
-
-export function advertStatePath(advertId: string): string {
-  return path.join(tempDir, `advert-state-${advertId}.json`);
+async function withRetry<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch {
+    await new Promise((r) => setTimeout(r, 1000));
+    return fn();
+  }
 }
 
 export async function readAdvertState(advertId: string): Promise<AdvertStateFile | null> {
-  const raw = await fs.readFile(advertStatePath(advertId), "utf-8").catch(() => null);
-  if (raw === null) {
-    console.log(`[AdvertState] advert-state-${advertId}.json not found — fresh state`);
+  const [{ data: stateRow, error: stateErr }, { data: candidateRows, error: candidateErr }] =
+    await Promise.all([
+      supabase.from("advert_states").select("*").eq("advert_id", advertId).maybeSingle(),
+      supabase.from("advert_candidates").select("*").eq("advert_id", advertId),
+    ]);
+
+  if (stateErr) throw new Error(`[AdvertState] readAdvertState failed: ${stateErr.message}`);
+  if (candidateErr) throw new Error(`[AdvertState] readAdvertState candidates failed: ${candidateErr.message}`);
+
+  if (!stateRow) {
+    console.log(`[AdvertState] No Supabase row for advert ${advertId} — fresh state`);
     return null;
   }
-  try {
-    const state = JSON.parse(raw) as AdvertStateFile;
-    const toReview = state.candidates.filter(c => c.review_status === null && !c.flagged_status).length;
-    const flagged = state.candidates.filter(c => c.flagged_status).length;
-    const passed = state.candidates.filter(c => c.review_status === "pass" && !c.flagged_status).length;
-    console.log(
-      `[AdvertState] Read advert-state-${advertId}.json — ${state.candidates.length} candidates ` +
-      `(${toReview} to review, ${flagged} flagged, ${passed} passed)`,
-    );
-    return state;
-  } catch {
-    return null;
-  }
+
+  const candidates: AdvertCandidate[] = (candidateRows ?? []).map((r) => ({
+    id: r.candidate_id,
+    name: r.name,
+    flagged_status: r.flagged_status,
+    flag_colour: r.flag_colour,
+    review_status: r.review_status,
+    ai_reason: r.ai_reason,
+    rejection_category: r.rejection_category,
+    ...(r.defaulted != null ? { defaulted: r.defaulted } : {}),
+  }));
+
+  const toReview = candidates.filter((c) => c.review_status === null && !c.flagged_status).length;
+  const flagged = candidates.filter((c) => c.flagged_status).length;
+  const passed = candidates.filter((c) => c.review_status === "pass" && !c.flagged_status).length;
+  console.log(
+    `[AdvertState] Read advert ${advertId} from Supabase — ${candidates.length} candidates ` +
+    `(${toReview} to review, ${flagged} flagged, ${passed} passed)`,
+  );
+
+  return {
+    advertId: stateRow.advert_id,
+    updatedAt: stateRow.updated_at,
+    selectedKeywords: stateRow.selected_keywords,
+    ruleset: stateRow.ruleset,
+    collectionLastProcessedId: stateRow.collection_last_processed_id,
+    reviewLastProcessedId: stateRow.review_last_processed_id,
+    totalFiltered: stateRow.total_filtered,
+    candidates,
+  };
 }
 
 export async function writeAdvertState(state: AdvertStateFile): Promise<void> {
-  await fs.mkdir(tempDir, { recursive: true });
-  state.updatedAt = DateTime.now().toISO() ?? state.updatedAt;
-  await fs.writeFile(advertStatePath(state.advertId), JSON.stringify(state, null, 2), "utf-8");
-  console.log(`[AdvertState] Wrote advert-state-${state.advertId}.json — ${state.candidates.length} candidates`);
+  const now = DateTime.now().toISO() ?? new Date().toISOString();
+  state.updatedAt = now;
+
+  const { error: stateErr } = await withRetry(async () => await
+    supabase.from("advert_states").upsert({
+      advert_id: state.advertId,
+      updated_at: now,
+      selected_keywords: state.selectedKeywords,
+      ruleset: state.ruleset,
+      collection_last_processed_id: state.collectionLastProcessedId,
+      review_last_processed_id: state.reviewLastProcessedId,
+      total_filtered: state.totalFiltered,
+    }, { onConflict: "advert_id" })
+  );
+  if (stateErr) throw new Error(`[AdvertState] writeAdvertState advert_states failed: ${stateErr.message}`);
+
+  if (state.candidates.length > 0) {
+    const rows = state.candidates.map((c) => ({
+      advert_id: state.advertId,
+      candidate_id: c.id,
+      name: c.name,
+      flagged_status: c.flagged_status,
+      flag_colour: c.flag_colour,
+      review_status: c.review_status,
+      ai_reason: c.ai_reason,
+      rejection_category: c.rejection_category,
+      defaulted: c.defaulted ?? null,
+      updated_at: now,
+    }));
+
+    const { error: candidateErr } = await withRetry(async () => await
+      supabase.from("advert_candidates").upsert(rows, { onConflict: "advert_id,candidate_id" })
+    );
+    if (candidateErr) throw new Error(`[AdvertState] writeAdvertState advert_candidates failed: ${candidateErr.message}`);
+  }
+
+  console.log(`[AdvertState] Wrote advert ${state.advertId} to Supabase — ${state.candidates.length} candidates`);
+}
+
+export async function writeAdvertCandidate(advertId: string, candidate: AdvertCandidate): Promise<void> {
+  const now = DateTime.now().toISO() ?? new Date().toISOString();
+
+  const { error } = await withRetry(async () => await
+    supabase.from("advert_candidates").upsert({
+      advert_id: advertId,
+      candidate_id: candidate.id,
+      name: candidate.name,
+      flagged_status: candidate.flagged_status,
+      flag_colour: candidate.flag_colour,
+      review_status: candidate.review_status,
+      ai_reason: candidate.ai_reason,
+      rejection_category: candidate.rejection_category,
+      defaulted: candidate.defaulted ?? null,
+      updated_at: now,
+    }, { onConflict: "advert_id,candidate_id" })
+  );
+  if (error) throw new Error(`[AdvertState] writeAdvertCandidate failed for ${candidate.id}: ${error.message}`);
 }

@@ -1,8 +1,7 @@
 import { Page } from "playwright";
 import { DateTime } from "luxon";
-import path from "path";
-import fs from "fs/promises";
 import { randomDelay, heavyLoadDelay, takeScreenshot } from "../shared/utils";
+import { supabase } from "../shared/supabase-client";
 // import { appendToExcel } from "../shared/excel-service";
 import { filterCandidates } from "../candidates/candidate-filter";
 import { collectPassingCandidates } from "../candidates/candidate-collector";
@@ -166,42 +165,24 @@ export async function readAndProcessAdverts(
     return;
   }
 
-  const allAdvertsMap = new Map(allAdverts.map((a) => [a.advertId, a]));
-  const lookbackDays = parseInt(
-    process.env.LOOKBACK_DAYS ?? String(DEFAULT_LOOKBACK_DAYS),
-    10,
-  );
-  const cutoff = DateTime.now().minus({ days: lookbackDays }).startOf("day");
-  const tempDir = path.resolve(process.cwd(), "temp");
-  const tempFiles = await fs.readdir(tempDir).catch(() => [] as string[]);
-
-  for (const file of tempFiles) {
-    // Delete legacy two-file format unconditionally on first run after migration
-    if (/^(resume-review|passing)-\d+\.json$/.test(file)) {
-      await fs.unlink(path.join(tempDir, file));
-      console.log(`[AdvertReader] Deleted legacy state file: ${file}`);
-      continue;
+  const activeAdvertIds = allAdverts.map((a) => a.advertId);
+  if (activeAdvertIds.length > 0) {
+    const idList = `(${activeAdvertIds.join(",")})`;
+    const { error: staleStateErr } = await supabase
+      .from("advert_states")
+      .delete()
+      .not("advert_id", "in", idList);
+    if (staleStateErr) {
+      console.warn(`[AdvertReader] WARNING: Failed to clean up stale advert_states: ${staleStateErr.message}`);
     }
-
-    const stateMatch = file.match(/^advert-state-(\d+)\.json$/);
-    if (!stateMatch) continue;
-
-    const advertId = stateMatch[1];
-    const advertEntry = allAdvertsMap.get(advertId);
-
-    if (advertEntry) {
-      if (advertEntry.datePosted < cutoff) {
-        await fs.unlink(path.join(tempDir, file));
-        console.log(
-          `[AdvertReader] Deleted stale state file: ${file} — outside lookback window`,
-        );
-      }
-    } else {
-      await fs.unlink(path.join(tempDir, file));
-      console.log(
-        `[AdvertReader] Deleted stale state file: ${file} — no longer visible in advert list`,
-      );
+    const { error: staleCandErr } = await supabase
+      .from("advert_candidates")
+      .delete()
+      .not("advert_id", "in", idList);
+    if (staleCandErr) {
+      console.warn(`[AdvertReader] WARNING: Failed to clean up stale advert_candidates: ${staleCandErr.message}`);
     }
+    console.log(`[AdvertReader] Cleaned up stale Supabase rows (keeping ${activeAdvertIds.length} active advert(s))`);
   }
 
   console.log(

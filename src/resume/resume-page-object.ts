@@ -11,7 +11,6 @@ export interface ReviewSummary {
   passCount: number;
   failCount: number;
   flaggedCount: number;
-  questionnaireFlaggedCount: number;
   priorRedFlagCount: number;
   skippedCount: number;
   skippedPreviouslyPassed: number;

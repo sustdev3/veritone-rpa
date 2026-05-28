@@ -10,7 +10,6 @@ import {
   tallyRejectionCounts,
   ReviewResult,
 } from "./resume-page-object";
-import { parseScreeningNote, shouldPurpleFlag } from "../candidates/questionnaire-screener";
 import { readAdvertState, writeAdvertState, writeAdvertCandidate } from "../shared/advert-state";
 
 export async function reviewResumes(
@@ -22,7 +21,7 @@ export async function reviewResumes(
   if (!state) {
     console.log(`[ResumeReviewer] No state file for advert ${advertId} — nothing to review`);
     return {
-      passCount: 0, failCount: 0, flaggedCount: 0, questionnaireFlaggedCount: 0,
+      passCount: 0, failCount: 0, flaggedCount: 0,
       priorRedFlagCount: 0,
       skippedCount: 0, skippedPreviouslyPassed: 0, defaultedToPassCount: 0,
       newCandidatesReviewed: 0, generalFilterRejects: 0, labouringFilterRejects: 0,
@@ -77,7 +76,6 @@ export async function reviewResumes(
   if (firstVisibleIds.length > 0) newLastProcessedId = firstVisibleIds[0];
 
   let flaggedCount = 0;
-  let questionnaireFlaggedCount = 0;
   let priorRedFlagCount = 0;
   let newCandidatesReviewed = 0;
   let defaultedToPassCount = 0;
@@ -166,52 +164,6 @@ export async function reviewResumes(
         priorRedFlagCount++;
         flaggedCount++;
         newCandidatesReviewed++;
-        try { await page.locator("a.profile-close").click(); } catch {}
-        await page
-          .waitForFunction(
-            () => (document.querySelector("#gritter-notice-wrapper")?.childElementCount ?? 0) === 0,
-            { timeout: 10000 },
-          )
-          .catch(() => {});
-        continue;
-      }
-
-      // Questionnaire check before CV review
-      const noteTexts = await page
-        .locator("div.profile-box ul.notes-list li.note")
-        .allTextContents();
-      const combinedNotes = noteTexts.join("\n");
-      const screeningAnswers = parseScreeningNote(combinedNotes);
-
-      if (screeningAnswers !== null && shouldPurpleFlag(screeningAnswers)) {
-        const transportFails =
-          screeningAnswers.transport.trim() !== "" &&
-          !screeningAnswers.transport.toLowerCase().includes("car/motorbike");
-        let failReason = "";
-        if (screeningAnswers.licence.toLowerCase() === "no") failReason = "no licence";
-        else if (transportFails) failReason = "transport not Car/Motorbike";
-        else if (screeningAnswers.fulltimeHours.toLowerCase() === "no") failReason = "not available fulltime";
-        else if (screeningAnswers.livingInAus.toLowerCase() === "no") failReason = "not living in Australia";
-        console.log(
-          `[ResumeReviewer] Candidate ${candidateIndex}/${totalToReview}: ${candidate.name} (${id}) — FAIL [questionnaire] (${failReason}) — flagging purple`,
-        );
-        const flagIcon = page.locator(
-          "div.adcresponses-profile-flagging i.candidate-flag-rank-21",
-        );
-        await flagIcon.click();
-        await page.waitForTimeout(800);
-
-        const stateCandidate = candidateMap.get(id)!;
-        stateCandidate.review_status = "questionnaire_fail";
-        stateCandidate.ai_reason = "Failed screening note criteria";
-        stateCandidate.rejection_category = null;
-        stateCandidate.flagged_status = true;
-        stateCandidate.flag_colour = "purple";
-        await writeAdvertCandidate(state.advertId, stateCandidate);
-
-        newCandidatesReviewed++;
-        questionnaireFlaggedCount++;
-        flaggedCount++;
         try { await page.locator("a.profile-close").click(); } catch {}
         await page
           .waitForFunction(
@@ -361,8 +313,7 @@ export async function reviewResumes(
 
   console.log(
     `[ResumeReviewer] Done — ${passCount} suitable (cumulative), ${failCount} rejected ` +
-      `(${flaggedCount} flagged purple this run, ${questionnaireFlaggedCount} via questionnaire, ` +
-      `${priorRedFlagCount} prior red flag), ` +
+      `(${flaggedCount} flagged purple this run, ${priorRedFlagCount} prior red flag), ` +
       `${skippedCount} skipped (already flagged)`,
   );
 
@@ -370,7 +321,6 @@ export async function reviewResumes(
     passCount,
     failCount,
     flaggedCount,
-    questionnaireFlaggedCount,
     priorRedFlagCount,
     skippedCount,
     skippedPreviouslyPassed: 0,

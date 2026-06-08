@@ -106,8 +106,8 @@ export function buildRunSummaryHtml(
             ${th('Keywords', 'width:140px;')}
             ${thWrap('Total applicants')}
             ${thWrap('Number after location/keywords')}
-            ${thWrap('Suitable (grey flags)')}
-            ${thWrap('Form completed (light blue)')}
+            ${thWrap('Gray Flag')}
+            ${thWrap('Light Blue Flag')}
             ${thWrap('Answered questions')}
             ${thWrap('% answering questions')}
           </tr>

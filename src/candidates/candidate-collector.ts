@@ -113,12 +113,17 @@ export async function collectPassingCandidates(
     pageNumber++;
   }
 
-  const scrapedIds = new Set(allScrapedCandidates.map((c) => c.id));
-  const newCandidates = allScrapedCandidates.filter((c) => !existingIds.has(c.id));
+  // Deduplicate by ID — same candidate can appear on multiple pages under certain filter states
+  const uniqueScrapedCandidates = Array.from(
+    new Map(allScrapedCandidates.map((c) => [c.id, c])).values()
+  );
+
+  const scrapedIds = new Set(uniqueScrapedCandidates.map((c) => c.id));
+  const newCandidates = uniqueScrapedCandidates.filter((c) => !existingIds.has(c.id));
 
   // Merge: scraped candidates get fresh flag status; preserve existing review data
   const mergedCandidates: AdvertCandidate[] = [
-    ...allScrapedCandidates.map((scraped) => {
+    ...uniqueScrapedCandidates.map((scraped) => {
       const existing = existingCandidates.find((e) => e.id === scraped.id);
       return {
         id: scraped.id,
@@ -136,7 +141,7 @@ export async function collectPassingCandidates(
   ];
 
   const { unflaggedCount, flaggedCount, colourSummary } =
-    buildCollectSummary(allScrapedCandidates);
+    buildCollectSummary(uniqueScrapedCandidates);
   console.log(
     `[CandidateCollector] ${unflaggedCount} unflagged, ${flaggedCount} already flagged` +
       (colourSummary ? ` (colours: ${colourSummary})` : ""),
@@ -156,7 +161,7 @@ export async function collectPassingCandidates(
   await writeAdvertState(newState);
 
   // Build PassingCandidate[] (used by flagger — runtime only, not persisted)
-  const passingCandidates: PassingCandidate[] = allScrapedCandidates;
+  const passingCandidates: PassingCandidate[] = uniqueScrapedCandidates;
   const newPassingCandidates: PassingCandidate[] = newCandidates;
 
   return {

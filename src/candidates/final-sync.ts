@@ -116,10 +116,15 @@ export async function syncFinalGreyCount(
     pageNumber++;
   }
 
-  const scrapedIds = new Set(allScraped.map((c) => c.id));
+  // Deduplicate by ID — same candidate can appear on multiple pages under certain filter states
+  const uniqueScraped = Array.from(
+    new Map(allScraped.map((c) => [c.id, c])).values()
+  );
+
+  const scrapedIds = new Set(uniqueScraped.map((c) => c.id));
 
   const mergedCandidates: AdvertCandidate[] = [
-    ...allScraped.map((scraped) => {
+    ...uniqueScraped.map((scraped) => {
       const existing = existingMap.get(scraped.id);
       return {
         id: scraped.id,
@@ -148,7 +153,7 @@ export async function syncFinalGreyCount(
 
   console.log(
     `[FinalSync] Advert ${advertId} — ${pageNumber} page(s), ` +
-      `${allScraped.length} candidates in filtered view, ${greyCount} grey (suitable), ${lightBlueCount} light blue (form completed)`,
+      `${uniqueScraped.length} candidates in filtered view, ${greyCount} grey (suitable), ${lightBlueCount} light blue (form completed)`,
   );
 
   return { greyCount, lightBlueCount };

@@ -97,7 +97,18 @@ export async function writeAdvertState(state: AdvertStateFile): Promise<void> {
   if (stateErr) throw new Error(`[AdvertState] writeAdvertState advert_states failed: ${stateErr.message}`);
 
   if (state.candidates.length > 0) {
-    const rows = state.candidates.map((c) => ({
+    // Deduplicate by candidate_id — duplicate IDs in a single upsert batch cause
+    // "ON CONFLICT DO UPDATE command cannot affect row a second time" in Postgres.
+    // Last occurrence wins (most recently merged data).
+    const dedupedCandidates = Array.from(
+      new Map(state.candidates.map((c) => [c.id, c])).values()
+    );
+    if (dedupedCandidates.length !== state.candidates.length) {
+      console.warn(
+        `[AdvertState] Deduped ${state.candidates.length - dedupedCandidates.length} duplicate candidate(s) for advert ${state.advertId} before upsert`
+      );
+    }
+    const rows = dedupedCandidates.map((c) => ({
       advert_id: state.advertId,
       candidate_id: c.id,
       name: c.name,

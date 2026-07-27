@@ -81,6 +81,10 @@ export async function sendRunSummaryEmail(
     console.warn(
       `[EmailService] WARNING: Failed to send run summary email: ${err}`,
     );
+    await sendErrorReportEmail(
+      `Run summary email FAILED to send: ${err}`,
+      "Run Summary Email",
+    ).catch(() => {});
   }
 }
 

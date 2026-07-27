@@ -2,7 +2,6 @@ import { google } from "googleapis";
 
 const DRY_RUN = process.env.DRY_RUN === "true";
 const CUTOFF_DAYS = parseInt(process.env.CLEANUP_CUTOFF_DAYS ?? "14", 10);
-const TERMINAL = new Set(["TRUE", "ERROR", "SKIPPED", "OUTSIDE WINDOW"]);
 
 function statusPriority(status: string): number {
   const s = status.toUpperCase().trim();
@@ -71,10 +70,11 @@ export async function runCleanup(): Promise<void> {
   for (let i = 1; i < allRows.length; i++) {
     const row = allRows[i] as string[];
     const tsRaw = (row[0] || "").trim();
-    const status = (row[14] || "").toUpperCase().trim();
     const tsMs = tsRaw ? new Date(tsRaw).getTime() : NaN;
 
-    if (TERMINAL.has(status) && !isNaN(tsMs) && tsMs < cutoffMs) {
+    // Age-only cutoff: delete any row older than CUTOFF_DAYS regardless of status.
+    // Rows with an unparseable/blank timestamp are always kept (can't confidently age them).
+    if (!isNaN(tsMs) && tsMs < cutoffMs) {
       toDeleteIndices.push(i);
     } else {
       toKeepRows.push(row);
